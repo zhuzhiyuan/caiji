@@ -52,9 +52,7 @@ namespace HuiXing
             CCWin.CmSysButton cmSysButton2 = new CCWin.CmSysButton();
             this.tabShow = new CCWin.SkinControl.SkinTabControl();
             this.tabPage1 = new CCWin.SkinControl.SkinTabPage();
-            this.skinPanel1 = new CCWin.SkinControl.SkinPanel();
-            this.lodding = new CCWin.SkinControl.ProgressIndicator();
-            this.webShow = new System.Windows.Forms.WebBrowser();
+            this.loadding = new CCWin.SkinControl.ProgressIndicator();
             this.tabPage2 = new CCWin.SkinControl.SkinTabPage();
             this.tabPage3 = new CCWin.SkinControl.SkinTabPage();
             this.tabPage4 = new CCWin.SkinControl.SkinTabPage();
@@ -143,7 +141,7 @@ namespace HuiXing
             this.tabShow.ImgTxtOffset = new System.Drawing.Point(0, 0);
             this.tabShow.Interval = 5;
             this.tabShow.ItemSize = new System.Drawing.Size(68, 30);
-            this.tabShow.Location = new System.Drawing.Point(7, 83);
+            this.tabShow.Location = new System.Drawing.Point(9, 85);
             this.tabShow.Margin = new System.Windows.Forms.Padding(0);
             this.tabShow.Name = "tabShow";
             this.tabShow.PageArrowDown = ((System.Drawing.Image)(resources.GetObject("tabShow.PageArrowDown")));
@@ -164,9 +162,7 @@ namespace HuiXing
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.White;
-            this.tabPage1.Controls.Add(this.skinPanel1);
-            this.tabPage1.Controls.Add(this.lodding);
-            this.tabPage1.Controls.Add(this.webShow);
+            this.tabPage1.Controls.Add(this.loadding);
             this.tabPage1.Location = new System.Drawing.Point(0, 30);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage1.Name = "tabPage1";
@@ -174,50 +170,16 @@ namespace HuiXing
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "主页";
             // 
-            // skinPanel1
+            // loadding
             // 
-            this.skinPanel1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.skinPanel1.BackgroundImage = global::HuiXing.Properties.Resources.BaiduShurufa_2014_8_2_16_32_58;
-            this.skinPanel1.ControlState = CCWin.SkinClass.ControlState.Normal;
-            this.skinPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.skinPanel1.DownBack = null;
-            this.skinPanel1.Location = new System.Drawing.Point(0, 0);
-            this.skinPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.skinPanel1.MouseBack = null;
-            this.skinPanel1.Name = "skinPanel1";
-            this.skinPanel1.NormlBack = null;
-            this.skinPanel1.Size = new System.Drawing.Size(1006, 31);
-            this.skinPanel1.TabIndex = 6;
-            // 
-            // lodding
-            // 
-            this.lodding.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lodding.AutoStart = true;
-            this.lodding.BackColor = System.Drawing.Color.Transparent;
-            this.lodding.Location = new System.Drawing.Point(458, 207);
-            this.lodding.Name = "lodding";
-            this.lodding.Percentage = 0F;
-            this.lodding.ShowText = true;
-            this.lodding.Size = new System.Drawing.Size(90, 90);
-            this.lodding.TabIndex = 1;
-            this.lodding.Text = "加载中...";
-            this.lodding.TextDisplay = CCWin.SkinControl.TextDisplayModes.Text;
-            // 
-            // webShow
-            // 
-            this.webShow.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.webShow.Location = new System.Drawing.Point(0, 32);
-            this.webShow.Margin = new System.Windows.Forms.Padding(0);
-            this.webShow.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webShow.Name = "webShow";
-            this.webShow.ScriptErrorsSuppressed = true;
-            this.webShow.Size = new System.Drawing.Size(1022, 521);
-            this.webShow.TabIndex = 0;
-            this.webShow.Url = new System.Uri("http://pub.alimama.com/", System.UriKind.Absolute);
-            this.webShow.Visible = false;
-            this.webShow.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webShow_DocumentCompleted);
+            this.loadding.AutoStart = true;
+            this.loadding.BackColor = System.Drawing.Color.Transparent;
+            this.loadding.Location = new System.Drawing.Point(429, 181);
+            this.loadding.Name = "loadding";
+            this.loadding.Percentage = 0F;
+            this.loadding.Size = new System.Drawing.Size(90, 90);
+            this.loadding.TabIndex = 0;
+            this.loadding.Text = "progressIndicator1";
             // 
             // tabPage2
             // 
@@ -261,7 +223,7 @@ namespace HuiXing
             this.tabPage5.Size = new System.Drawing.Size(1006, 534);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Tag = "FrmWebSpy";
-            this.tabPage5.Text = "网页SPY";
+            this.tabPage5.Text = "采集器";
             // 
             // tabPage6
             // 
@@ -542,7 +504,7 @@ namespace HuiXing
             this.tool5.Name = "tool5";
             this.tool5.Size = new System.Drawing.Size(60, 50);
             this.tool5.Tag = "4";
-            this.tool5.Text = "网页SPY";
+            this.tool5.Text = "采集器";
             // 
             // tool6
             // 
@@ -652,7 +614,7 @@ namespace HuiXing
             this.tool8,
             this.tool9,
             this.tool10});
-            this.ToolShow.Location = new System.Drawing.Point(7, 28);
+            this.ToolShow.Location = new System.Drawing.Point(9, 30);
             this.ToolShow.Name = "ToolShow";
             this.ToolShow.RadiusStyle = CCWin.SkinClass.RoundStyle.None;
             this.ToolShow.Size = new System.Drawing.Size(541, 52);
@@ -813,7 +775,7 @@ namespace HuiXing
             this.SysButtonItems.AddRange(new CCWin.CmSysButton[] {
             cmSysButton1,
             cmSysButton2});
-            this.Text = "彗星小助手";
+            this.Text = "啪啪啪";
             this.TitleColor = System.Drawing.Color.White;
             this.TopMost = true;
             this.SysBottomClick += new CCWin.CCSkinMain.SysBottomEventHandler(this.FrmMain_SysBottomClick);
@@ -845,9 +807,6 @@ namespace HuiXing
         private System.Windows.Forms.ToolStripMenuItem SkinTool9;
         private CCWin.SkinControl.SkinTabControl tabShow;
         private CCWin.SkinControl.SkinTabPage tabPage1;
-        private CCWin.SkinControl.SkinPanel skinPanel1;
-        private CCWin.SkinControl.ProgressIndicator lodding;
-        private System.Windows.Forms.WebBrowser webShow;
         private CCWin.SkinControl.SkinTabPage tabPage2;
         private CCWin.SkinControl.SkinTabPage tabPage3;
         private CCWin.SkinControl.SkinTabPage tabPage4;
@@ -879,6 +838,7 @@ namespace HuiXing
         private System.Windows.Forms.ToolStripMenuItem 退出ToolStripMenuItem;
         private System.Windows.Forms.Timer timColor;
         public CCWin.SkinControl.SkinLabel lblTs;
+        private CCWin.SkinControl.ProgressIndicator loadding;
     }
 }
 

@@ -28,11 +28,13 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using System.Reflection;
+using System.Net;
 
 namespace HuiXing
 {
     public partial class FrmMain : CCSkinMain
     {
+        private WebKit.WebKitBrowser browser;
         public FrmMain() {
             InitializeComponent();
             //启动测试案例1
@@ -42,18 +44,6 @@ namespace HuiXing
             //FrmTest test = new FrmTest();
             //test.Show();
         }
-        #region 控制web控件滚动条
-        /// <summary>
-        /// 控制web控件滚动条
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void webShow_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e) {
-            webShow.Document.Window.ScrollTo(0, 310);
-            lodding.Hide();
-            webShow.Show();
-        }
-        #endregion
 
         #region 窗口加载时
         /// <summary>
@@ -69,17 +59,34 @@ namespace HuiXing
                 if (page.Tag != null) {
                     Assembly asb = Assembly.GetExecutingAssembly();//得到当前的程序集
                     object c = asb.CreateInstance("HuiXing." + page.Tag.ToString(), true);
-                    if (c != null) {
-                        Form f = (Form)c;
+                    if (c != null)
+                    {
+                        Form f = (Form) c;
                         f.Dock = DockStyle.Fill;
                         f.TopLevel = false;
                         f.FormBorderStyle = FormBorderStyle.None;
                         f.Show();
                         page.Controls.Add(f);
                     }
+                    
+                }
+                else
+                {
+                    browser = new WebKit.WebKitBrowser();
+                    browser.Dock = DockStyle.Fill;
+                    page.Controls.Add(browser);
+                    browser.Navigate("http://pub.alimama.com/");
+
+                    browser.DocumentCompleted += Browser_DocumentCompleted;
+
                 }
             }
             #endregion
+        }
+
+        private void Browser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+            loadding.Hide();
         }
         #endregion
 
@@ -140,7 +147,7 @@ namespace HuiXing
         #region Tab切换时事件，用于子窗体更改了提示Lbl后的还原
         private void tabShow_SelectedIndexChanged(object sender, EventArgs e) {
             lblTs.Text = lblTs.Tag.ToString();
-        } 
+        }
         #endregion
     }
 }

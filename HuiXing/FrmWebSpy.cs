@@ -26,6 +26,8 @@ using System.Drawing;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace HuiXing
 {
@@ -34,6 +36,7 @@ namespace HuiXing
         public FrmWebSpy() {
             InitializeComponent();
             SetStyles();
+            InitComBoxData();
         }
         #region 减少闪烁
         //减少闪烁
@@ -45,22 +48,105 @@ namespace HuiXing
               ControlStyles.ResizeRedraw |
               ControlStyles.DoubleBuffer, true);
             base.UpdateStyles();
+            
             base.AutoScaleMode = AutoScaleMode.None;
         }
         #endregion
-        
-        #region 选择句柄
-        private void imgXz_MouseDown(object sender, MouseEventArgs e) {
-            imgXz.BackgroundImage = Properties.Resources.ImgNorml;
-            Cursor.Current = new Cursor(new MemoryStream(Properties.Resources._141));
+
+        private void InitComBoxData()
+        {
+            skinComboBox1.Items.AddRange(new object[]
+            {
+                "默认排序", "收入比率", "人气", "价格从高到低", "价格从低到高", "月推广量", "", "月支出佣金", "", "销量"
+            });
+            skinComboBox1.SelectedIndex = 0;
         }
 
-        private void imgXz_MouseMove(object sender, MouseEventArgs e) {
+
+        private void btnCaiji_Click(object sender, EventArgs e)
+        {
+            string key = skinTextBox1.SkinTxt.Text;
+            string response = Business.Common.Get(
+                "http://pub.alimama.com/items/search.json?q="+System.Web.HttpUtility.UrlEncode(key)+
+                "&_t=1468998050262&toPage=1&queryType=0&sortType="+skinComboBox1.SelectedIndex+
+                "&auctionTag=&perPageSize=100&shopTag=&t=1468998639277&_tb_token_=test&pvid=10_203.156.203.9_2701_1468998639018");
+            List<string> param = new List<string>()
+            {
+                "q="+System.Web.HttpUtility.UrlEncode(key),
+                "_t="+DateTime.Now.Ticks,
+                "sortType="+skinComboBox1.SelectedIndex,
+                "perPageSize=40"
+            };
+            if (skinCheckBox1.Checked)
+            {
+                param.Add("hPayRate30=1");
+            }
+            if (skinCheckBox2.Checked)
+            {
+                param.Add("b2c=1");
+            }
+            if (!string.IsNullOrEmpty(startBiz30day.SkinTxt.Text))
+            {
+                param.Add("startBiz30day=" + startBiz30day.SkinTxt.Text);
+            }
+            if (!string.IsNullOrEmpty(startTkRate.SkinTxt.Text))
+            {
+                param.Add("startTkRate="+startTkRate.SkinTxt.Text);
+            }
+
+            if (!string.IsNullOrEmpty(startPrice.SkinTxt.Text))
+            {
+                param.Add("startPrice=" + startPrice.SkinTxt.Text);
+            }
+            if (!string.IsNullOrEmpty(endPrice.SkinTxt.Text))
+            {
+                param.Add("endPrice=" + endPrice.SkinTxt.Text);
+            }
+            int page = !string.IsNullOrEmpty(pageSize.SkinTxt.Text) ? int.Parse(pageSize.SkinTxt.Text) : 1;
+            string url = "http://pub.alimama.com/items/search.json?";
+            int m = !string.IsNullOrEmpty(month.SkinTxt.Text) ? int.Parse(month.SkinTxt.Text) : 0;
+            skinDataGridView4.Rows.Clear();
+            for (int i = 0; i < page; i++)
+            {
+                url += url = string.Join("&", param.ToArray()) + "&toPage=" + (i + 1);
+                JObject json = JsonConvert.DeserializeObject<JObject>(response);
+
+                JArray pageList = (json["data"] as JObject)["pageList"] as JArray;
+
+                foreach (JObject item in pageList)
+                {
+                    int totalNum = 0;
+                    int.TryParse(item["totalNum"].ToString(), out totalNum);
+                    if (totalNum > m)
+                    {
+                        string title = item["title"].ToString();
+                        string strText = System.Text.RegularExpressions.Regex.Replace(title, "<[^>]+>", "");
+                        strText = System.Text.RegularExpressions.Regex.Replace(strText, "&[^;]+;", "");
+                        skinDataGridView4.Rows.Add(new object[]
+                        {strText, item["auctionUrl"].ToString(), item["nick"].ToString()});
+                    }
+                }
+            }
         }
 
-        private void imgXz_MouseUp(object sender, MouseEventArgs e) {
-            imgXz.BackgroundImage = Properties.Resources.imgXz;
-        } 
-        #endregion
+        private void Number_SkinTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != 8 && !Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+    }
+
+    enum Sort
+    {
+        def=0,
+        shourubilv=1,
+        renqi=2,
+        jiageDesc=3,
+        jiageAsc=4,
+        yuetuiguangliang=5,
+        yuezhichuyongjin=7,
+        xiaoliangDesc=9,
     }
 }
