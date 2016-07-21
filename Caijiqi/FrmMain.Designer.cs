@@ -54,6 +54,7 @@ namespace Caijiqi
             this.tabPage1 = new CCWin.SkinControl.SkinTabPage();
             this.loadding = new CCWin.SkinControl.ProgressIndicator();
             this.tabPage2 = new CCWin.SkinControl.SkinTabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.lblTs = new CCWin.SkinControl.SkinLabel();
             this.miniToolStrip = new CCWin.SkinControl.SkinToolStrip();
             this.SkinMenu = new CCWin.SkinControl.SkinContextMenuStrip();
@@ -113,6 +114,7 @@ namespace Caijiqi
             this.tabShow.CloseRect = new System.Drawing.Rectangle(2, 2, 12, 12);
             this.tabShow.Controls.Add(this.tabPage1);
             this.tabShow.Controls.Add(this.tabPage2);
+            this.tabShow.Controls.Add(this.tabPage3);
             this.tabShow.DrawType = CCWin.SkinControl.DrawStyle.Draw;
             this.tabShow.HeadBack = null;
             this.tabShow.ImgTxtOffset = new System.Drawing.Point(0, 0);
@@ -167,6 +169,17 @@ namespace Caijiqi
             this.tabPage2.TabIndex = 4;
             this.tabPage2.Tag = "FrmWebSpy";
             this.tabPage2.Text = "采集器";
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(0, 30);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1188, 578);
+            this.tabPage3.TabIndex = 5;
+            this.tabPage3.Tag = "FrmBbx";
+            this.tabPage3.Text = "超级复制";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // lblTs
             // 
@@ -386,7 +399,7 @@ namespace Caijiqi
             this.tool3.Name = "tool3";
             this.tool3.Size = new System.Drawing.Size(60, 50);
             this.tool3.Tag = "2";
-            this.tool3.Text = " 链接转换";
+            this.tool3.Text = "超级复制";
             this.tool3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // ToolShow
@@ -556,7 +569,6 @@ namespace Caijiqi
             this.RestoreNormlBack = ((System.Drawing.Image)(resources.GetObject("$this.RestoreNormlBack")));
             this.ShadowPalace = ((System.Drawing.Image)(resources.GetObject("$this.ShadowPalace")));
             this.ShowSystemMenu = true;
-            this.SkinOpacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             cmSysButton1.Bounds = new System.Drawing.Rectangle(1080, -1, 28, 20);
             cmSysButton1.BoxState = CCWin.ControlBoxState.Normal;
@@ -626,6 +638,7 @@ namespace Caijiqi
         public CCWin.SkinControl.SkinLabel lblTs;
         private CCWin.SkinControl.SkinTabPage tabPage1;
         private CCWin.SkinControl.ProgressIndicator loadding;
+        private System.Windows.Forms.TabPage tabPage3;
     }
 }
 

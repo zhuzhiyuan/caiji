@@ -1,23 +1,3 @@
-/********************************************************************
- * *
- * * 使本项目源码或本项目生成的DLL前请仔细阅读以下协议内容，如果你同意以下协议才能使用本项目所有的功能，
- * * 否则如果你违反了以下协议，有可能陷入法律纠纷和赔偿，作者保留追究法律责任的权利。
- * *
- * * 1、你可以在开发的软件产品中使用和修改本项目的源码和DLL，但是请保留所有相关的版权信息。
- * * 2、不能将本项目源码与作者的其他项目整合作为一个单独的软件售卖给他人使用。
- * * 3、不能传播本项目的源码和DLL，包括上传到网上、拷贝给他人等方式。
- * * 4、以上协议暂时定制，由于还不完善，作者保留以后修改协议的权利。
- * *
- * * Copyright (C) 2013-? cskin Corporation All rights reserved.
- * * 网站：CSkin界面库 http://www.cskin.net 论坛 http://bbs.cskin.net
- * * 作者： 乔克斯 QQ：345015918 .Net项目技术组群：306485590
- * * 请保留以上版权信息，否则作者将保留追究法律责任。
- * *
- * * 创建时间：2014-08-26
- * * 说明：FrmWebSpy.Designer.cs
- * *
-********************************************************************/
-
 namespace Caijiqi
 {
     partial class FrmWebSpy
@@ -51,6 +31,15 @@ namespace Caijiqi
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.skinDataGridView4 = new CCWin.SkinControl.SkinDataGridView();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.折扣 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.单价 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.收入比率 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.佣金 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.月推广量 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.月支出佣金 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Url = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.skinPanel6 = new CCWin.SkinControl.SkinPanel();
             this.skinButton1 = new CCWin.SkinControl.SkinButton();
             this.skinTextBox1 = new CCWin.SkinControl.SkinTextBox();
@@ -75,15 +64,6 @@ namespace Caijiqi
             this.skinLabel14 = new CCWin.SkinControl.SkinLabel();
             this.pageSize = new CCWin.SkinControl.SkinTextBox();
             this.skinLabel6 = new CCWin.SkinControl.SkinLabel();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.折扣 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.单价 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.收入比率 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.佣金 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.月推广量 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.月支出佣金 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Url = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.skinDataGridView4)).BeginInit();
             this.skinPanel6.SuspendLayout();
             this.skinTextBox1.SuspendLayout();
@@ -175,6 +155,62 @@ namespace Caijiqi
             this.skinDataGridView4.TitleBackColorEnd = System.Drawing.SystemColors.Control;
             this.skinDataGridView4.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.skinDataGridView4_CellClick);
             // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "关键词";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // 折扣
+            // 
+            this.折扣.HeaderText = "折扣";
+            this.折扣.Name = "折扣";
+            this.折扣.ReadOnly = true;
+            // 
+            // 单价
+            // 
+            this.单价.HeaderText = "单价";
+            this.单价.Name = "单价";
+            this.单价.ReadOnly = true;
+            // 
+            // 收入比率
+            // 
+            this.收入比率.HeaderText = "收入比率";
+            this.收入比率.Name = "收入比率";
+            this.收入比率.ReadOnly = true;
+            // 
+            // 佣金
+            // 
+            this.佣金.HeaderText = "佣金";
+            this.佣金.Name = "佣金";
+            this.佣金.ReadOnly = true;
+            // 
+            // 月推广量
+            // 
+            this.月推广量.HeaderText = "月推广量";
+            this.月推广量.Name = "月推广量";
+            this.月推广量.ReadOnly = true;
+            // 
+            // 月支出佣金
+            // 
+            this.月支出佣金.HeaderText = "月支出佣金";
+            this.月支出佣金.Name = "月支出佣金";
+            this.月支出佣金.ReadOnly = true;
+            // 
+            // Url
+            // 
+            this.Url.HeaderText = "淘宝链接";
+            this.Url.Name = "Url";
+            this.Url.ReadOnly = true;
+            this.Url.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Url.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "淘宝店名";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
             // skinPanel6
             // 
             this.skinPanel6.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -199,11 +235,11 @@ namespace Caijiqi
             this.skinButton1.BackColor = System.Drawing.Color.Transparent;
             this.skinButton1.ControlState = CCWin.SkinClass.ControlState.Normal;
             this.skinButton1.DownBack = null;
-            this.skinButton1.Location = new System.Drawing.Point(533, 5);
+            this.skinButton1.Location = new System.Drawing.Point(522, 5);
             this.skinButton1.MouseBack = null;
             this.skinButton1.Name = "skinButton1";
             this.skinButton1.NormlBack = null;
-            this.skinButton1.Size = new System.Drawing.Size(75, 23);
+            this.skinButton1.Size = new System.Drawing.Size(86, 23);
             this.skinButton1.TabIndex = 4;
             this.skinButton1.Text = "导出采集结果";
             this.skinButton1.UseVisualStyleBackColor = false;
@@ -625,62 +661,6 @@ namespace Caijiqi
             this.skinLabel6.Size = new System.Drawing.Size(47, 17);
             this.skinLabel6.TabIndex = 164;
             this.skinLabel6.Text = "% 以上";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "关键词";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // 折扣
-            // 
-            this.折扣.HeaderText = "折扣";
-            this.折扣.Name = "折扣";
-            this.折扣.ReadOnly = true;
-            // 
-            // 单价
-            // 
-            this.单价.HeaderText = "单价";
-            this.单价.Name = "单价";
-            this.单价.ReadOnly = true;
-            // 
-            // 收入比率
-            // 
-            this.收入比率.HeaderText = "收入比率";
-            this.收入比率.Name = "收入比率";
-            this.收入比率.ReadOnly = true;
-            // 
-            // 佣金
-            // 
-            this.佣金.HeaderText = "佣金";
-            this.佣金.Name = "佣金";
-            this.佣金.ReadOnly = true;
-            // 
-            // 月推广量
-            // 
-            this.月推广量.HeaderText = "月推广量";
-            this.月推广量.Name = "月推广量";
-            this.月推广量.ReadOnly = true;
-            // 
-            // 月支出佣金
-            // 
-            this.月支出佣金.HeaderText = "月支出佣金";
-            this.月支出佣金.Name = "月支出佣金";
-            this.月支出佣金.ReadOnly = true;
-            // 
-            // Url
-            // 
-            this.Url.HeaderText = "淘宝链接";
-            this.Url.Name = "Url";
-            this.Url.ReadOnly = true;
-            this.Url.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Url.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "淘宝店名";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
             // 
             // FrmWebSpy
             // 

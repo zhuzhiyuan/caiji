@@ -33,6 +33,7 @@ namespace Caijiqi
         public FrmBbx() {
             InitializeComponent();
             SetStyles();
+            Login();
         }
         #region 减少闪烁
         //减少闪烁
@@ -47,5 +48,27 @@ namespace Caijiqi
             base.AutoScaleMode = AutoScaleMode.None;
         }
         #endregion
+
+        private WebBrowser browser;
+        void Login()
+        {
+            browser = new WebBrowser();
+            browser.Dock = DockStyle.Fill;
+            browser.Url = new Uri("https://login.taobao.com/member/login.jhtml");
+            browser.DocumentCompleted += Browser_DocumentCompleted;
+            panel1.Controls.Add(browser);
+        }
+
+        private void Browser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+            var cookie = (sender as WebBrowser).Document.Cookie;
+            //            MessageBox.Show(cookie);
+            Business.Common.GlobalCookie.SetCookies(e.Url, cookie);
+            if (!e.Url.ToString().Contains("login"))
+            {
+                browser.Dispose();
+                panel1.Controls.Clear();
+            }
+        }
     }
 }

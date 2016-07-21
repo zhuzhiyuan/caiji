@@ -34,9 +34,11 @@ namespace Caijiqi
 {
     public partial class FrmMain : CCSkinMain
     {
-        private WebKit.WebKitBrowser browser;
+        private readonly string xulrunnerPath = Application.StartupPath + "/xulrunner";
+        private Gecko.GeckoWebBrowser browser;
         public FrmMain() {
             InitializeComponent();
+            Gecko.Xpcom.Initialize(xulrunnerPath);
             //启动测试案例1
             //FrmFileUp frm = new FrmFileUp();
             //frm.Show();
@@ -52,6 +54,7 @@ namespace Caijiqi
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void FrmMain_Load(object sender, EventArgs e) {
+            loadding.Hide();
             //存储选中MenuItem
             SelectItem = SkinTool1;
             #region 初始化TabPage内容
@@ -72,7 +75,8 @@ namespace Caijiqi
                 }
                 else
                 {
-                    browser = new WebKit.WebKitBrowser();
+                    browser = new Gecko.GeckoWebBrowser();
+                    browser.Parent = this;
                     browser.Dock = DockStyle.Fill;
                     page.Controls.Add(browser);
                     browser.Navigate("http://pub.alimama.com/");
@@ -84,9 +88,9 @@ namespace Caijiqi
             #endregion
         }
 
-        private void Browser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        private void Browser_DocumentCompleted(object sender, Gecko.Events.GeckoDocumentCompletedEventArgs e)
         {
-            loadding.Hide();
+            //throw new NotImplementedException();
         }
         #endregion
 

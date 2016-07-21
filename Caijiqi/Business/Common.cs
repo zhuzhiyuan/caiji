@@ -7,8 +7,10 @@ using System.Net;
 
 namespace Caijiqi.Business
 {
-    public class Common
+    public static class Common
     {
+        public static CookieContainer GlobalCookie = new CookieContainer();
+
         public static string Get(string url,string data=default(string))
         {
             string result = string.Empty;
@@ -20,8 +22,9 @@ namespace Caijiqi.Business
                 request.Method = "GET";
                 request.Headers.Add("Accept-Encoding", "gzip,deflate");
                 request.Referer = "http://pub.alimama.com/";
-
+                request.CookieContainer = GlobalCookie;
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                response.Cookies = GlobalCookie.GetCookies(request.RequestUri);
                 if (response.ContentEncoding == "gzip")
                 {
                     MemoryStream ms = new MemoryStream();
@@ -58,11 +61,32 @@ namespace Caijiqi.Business
                 request.Headers.Add("Accept-Encoding", "gzip,deflate");
                 request.Referer = "http://pub.alimama.com/";
                 request.ContentLength = data.Length;
+
+                request.CookieContainer = GlobalCookie;
+
                 Stream postStream = request.GetRequestStream();
                 byte[] postData = Encoding.UTF8.GetBytes(data);
                 postStream.Write(postData, 0, postData.Length);
                 postStream.Dispose();
 
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                response.Cookies = GlobalCookie.GetCookies(request.RequestUri);
+                if (response.ContentEncoding == "gzip")
+                {
+                    MemoryStream ms = new MemoryStream();
+                    GZipStream zip = new GZipStream(response.GetResponseStream(), CompressionMode.Decompress);
+                    byte[] buffer = new byte[1024];
+                    int l = zip.Read(buffer, 0, buffer.Length);
+                    while (l > 0)
+                    {
+                        ms.Write(buffer, 0, l);
+                        l = zip.Read(buffer, 0, buffer.Length);
+                    }
+                    ms.Dispose();
+                    zip.Dispose();
+                    result = Encoding.UTF8.GetString(ms.ToArray());
+                    return result;
+                }
             }
             catch (Exception)
             {
