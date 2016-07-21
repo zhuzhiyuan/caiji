@@ -74,8 +74,14 @@ namespace Caijiqi
             this.skinLabel14 = new CCWin.SkinControl.SkinLabel();
             this.pageSize = new CCWin.SkinControl.SkinTextBox();
             this.skinLabel6 = new CCWin.SkinControl.SkinLabel();
+            this.skinButton1 = new CCWin.SkinControl.SkinButton();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.单价 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.收入比率 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.佣金 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.月推广量 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.月支出佣金 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Url = new System.Windows.Forms.DataGridViewLinkColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.skinDataGridView4)).BeginInit();
             this.skinPanel6.SuspendLayout();
@@ -115,7 +121,12 @@ namespace Caijiqi
             this.skinDataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.skinDataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn10,
+            this.单价,
+            this.收入比率,
+            this.佣金,
+            this.月推广量,
+            this.月支出佣金,
+            this.Url,
             this.Column1});
             this.skinDataGridView4.ColumnSelectForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -165,6 +176,7 @@ namespace Caijiqi
             // skinPanel6
             // 
             this.skinPanel6.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.skinPanel6.Controls.Add(this.skinButton1);
             this.skinPanel6.Controls.Add(this.skinTextBox1);
             this.skinPanel6.Controls.Add(this.btnCaiji);
             this.skinPanel6.Controls.Add(this.skinLabel1);
@@ -596,19 +608,65 @@ namespace Caijiqi
             this.skinLabel6.TabIndex = 164;
             this.skinLabel6.Text = "% 以上";
             // 
+            // skinButton1
+            // 
+            this.skinButton1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.skinButton1.BackColor = System.Drawing.Color.Transparent;
+            this.skinButton1.ControlState = CCWin.SkinClass.ControlState.Normal;
+            this.skinButton1.DownBack = null;
+            this.skinButton1.Location = new System.Drawing.Point(533, 5);
+            this.skinButton1.MouseBack = null;
+            this.skinButton1.Name = "skinButton1";
+            this.skinButton1.NormlBack = null;
+            this.skinButton1.Size = new System.Drawing.Size(75, 23);
+            this.skinButton1.TabIndex = 4;
+            this.skinButton1.Text = "导出采集结果";
+            this.skinButton1.UseVisualStyleBackColor = false;
+            this.skinButton1.Click += new System.EventHandler(this.skinButton1_Click);
+            // 
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.HeaderText = "关键词";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn10
+            // 单价
             // 
-            this.dataGridViewTextBoxColumn10.HeaderText = "Url";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            this.dataGridViewTextBoxColumn10.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn10.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.单价.HeaderText = "单价";
+            this.单价.Name = "单价";
+            this.单价.ReadOnly = true;
+            // 
+            // 收入比率
+            // 
+            this.收入比率.HeaderText = "收入比率";
+            this.收入比率.Name = "收入比率";
+            this.收入比率.ReadOnly = true;
+            // 
+            // 佣金
+            // 
+            this.佣金.HeaderText = "佣金";
+            this.佣金.Name = "佣金";
+            this.佣金.ReadOnly = true;
+            // 
+            // 月推广量
+            // 
+            this.月推广量.HeaderText = "月推广量";
+            this.月推广量.Name = "月推广量";
+            this.月推广量.ReadOnly = true;
+            // 
+            // 月支出佣金
+            // 
+            this.月支出佣金.HeaderText = "月支出佣金";
+            this.月支出佣金.Name = "月支出佣金";
+            this.月支出佣金.ReadOnly = true;
+            // 
+            // Url
+            // 
+            this.Url.HeaderText = "淘宝链接";
+            this.Url.Name = "Url";
+            this.Url.ReadOnly = true;
+            this.Url.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Url.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // Column1
             // 
@@ -695,8 +753,14 @@ namespace Caijiqi
         private CCWin.SkinControl.SkinLabel skinLabel14;
         private CCWin.SkinControl.SkinTextBox pageSize;
         private CCWin.SkinControl.SkinLabel skinLabel6;
+        private CCWin.SkinControl.SkinButton skinButton1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewLinkColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 单价;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 收入比率;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 佣金;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 月推广量;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 月支出佣金;
+        private System.Windows.Forms.DataGridViewLinkColumn Url;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }

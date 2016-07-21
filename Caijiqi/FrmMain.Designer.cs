@@ -143,7 +143,7 @@ namespace Caijiqi
             this.tabPage1.Location = new System.Drawing.Point(0, 30);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(1006, 534);
+            this.tabPage1.Size = new System.Drawing.Size(1188, 578);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "主页";
             // 
@@ -151,7 +151,7 @@ namespace Caijiqi
             // 
             this.loadding.AutoStart = true;
             this.loadding.BackColor = System.Drawing.Color.Transparent;
-            this.loadding.Location = new System.Drawing.Point(429, 181);
+            this.loadding.Location = new System.Drawing.Point(538, 201);
             this.loadding.Name = "loadding";
             this.loadding.Percentage = 0F;
             this.loadding.Size = new System.Drawing.Size(90, 90);
@@ -189,7 +189,6 @@ namespace Caijiqi
             this.miniToolStrip.AutoSize = false;
             this.miniToolStrip.Back = System.Drawing.Color.White;
             this.miniToolStrip.BackColor = System.Drawing.Color.Transparent;
-            this.miniToolStrip.BackgroundImage = global::Caijiqi.Properties.Resources.BaiduShurufa_2014_8_2_16_32_58;
             this.miniToolStrip.BackRadius = 4;
             this.miniToolStrip.BackRectangle = new System.Drawing.Rectangle(10, 10, 10, 10);
             this.miniToolStrip.Base = System.Drawing.Color.Transparent;
@@ -351,6 +350,8 @@ namespace Caijiqi
             // tool1
             // 
             this.tool1.AutoSize = false;
+            this.tool1.Checked = true;
+            this.tool1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.tool1.Image = global::Caijiqi.Properties.Resources.ToolShow_BackgroundImage_Home;
             this.tool1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tool1.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -365,8 +366,6 @@ namespace Caijiqi
             // tool2
             // 
             this.tool2.AutoSize = false;
-            this.tool2.Checked = true;
-            this.tool2.CheckState = System.Windows.Forms.CheckState.Checked;
             this.tool2.Image = global::Caijiqi.Properties.Resources.ToolShow_BackgroundImage_Caiji;
             this.tool2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tool2.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -580,9 +579,8 @@ namespace Caijiqi
             this.SysButtonItems.AddRange(new CCWin.CmSysButton[] {
             cmSysButton1,
             cmSysButton2});
-            this.Text = "啪啪啪";
+            this.Text = "维达科技 采集器";
             this.TitleColor = System.Drawing.Color.White;
-            this.TopMost = true;
             this.SysBottomClick += new CCWin.CCSkinMain.SysBottomEventHandler(this.FrmMain_SysBottomClick);
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FrmMain_Paint);

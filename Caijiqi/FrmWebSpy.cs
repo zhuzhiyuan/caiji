@@ -25,12 +25,15 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace Caijiqi
 {
+    delegate void AddDataGridRowInvoke(DataGridView gridView, object[] row);
     public partial class FrmWebSpy : Form
     {
         public FrmWebSpy() {
@@ -67,14 +70,14 @@ namespace Caijiqi
         {
             string key = skinTextBox1.SkinTxt.Text;
             string response = Business.Common.Get(
-                "http://pub.alimama.com/items/search.json?q="+System.Web.HttpUtility.UrlEncode(key)+
-                "&_t=1468998050262&toPage=1&queryType=0&sortType="+skinComboBox1.SelectedIndex+
+                "http://pub.alimama.com/items/search.json?q=" + System.Web.HttpUtility.UrlEncode(key) +
+                "&_t=1468998050262&toPage=1&queryType=0&sortType=" + skinComboBox1.SelectedIndex +
                 "&auctionTag=&perPageSize=100&shopTag=&t=1468998639277&_tb_token_=test&pvid=10_203.156.203.9_2701_1468998639018");
             List<string> param = new List<string>()
             {
-                "q="+System.Web.HttpUtility.UrlEncode(key),
-                "_t="+DateTime.Now.Ticks,
-                "sortType="+skinComboBox1.SelectedIndex,
+                "q=" + System.Web.HttpUtility.UrlEncode(key),
+                "_t=" + DateTime.Now.Ticks,
+                "sortType=" + skinComboBox1.SelectedIndex,
                 "perPageSize=40"
             };
             if (skinCheckBox1.Checked)
@@ -91,7 +94,7 @@ namespace Caijiqi
             }
             if (!string.IsNullOrEmpty(startTkRate.SkinTxt.Text))
             {
-                param.Add("startTkRate="+startTkRate.SkinTxt.Text);
+                param.Add("startTkRate=" + startTkRate.SkinTxt.Text);
             }
 
             if (!string.IsNullOrEmpty(startPrice.SkinTxt.Text))
@@ -106,26 +109,50 @@ namespace Caijiqi
             string url = "http://pub.alimama.com/items/search.json?";
             int m = !string.IsNullOrEmpty(month.SkinTxt.Text) ? int.Parse(month.SkinTxt.Text) : 0;
             skinDataGridView4.Rows.Clear();
-            for (int i = 0; i < page; i++)
+            Task.Factory.StartNew(() =>
             {
-                url += url = string.Join("&", param.ToArray()) + "&toPage=" + (i + 1);
-                JObject json = JsonConvert.DeserializeObject<JObject>(response);
-
-                JArray pageList = (json["data"] as JObject)["pageList"] as JArray;
-
-                foreach (JObject item in pageList)
+                for (int i = 0; i < page; i++)
                 {
-                    int totalNum = 0;
-                    int.TryParse(item["totalNum"].ToString(), out totalNum);
-                    if (totalNum > m)
+                    url += url = string.Join("&", param.ToArray()) + "&toPage=" + (i + 1);
+                    JObject json = JsonConvert.DeserializeObject<JObject>(response);
+
+                    JArray pageList = (json["data"] as JObject)["pageList"] as JArray;
+
+                    foreach (JObject item in pageList)
                     {
-                        string title = item["title"].ToString();
-                        string strText = System.Text.RegularExpressions.Regex.Replace(title, "<[^>]+>", "");
-                        strText = System.Text.RegularExpressions.Regex.Replace(strText, "&[^;]+;", "");
-                        skinDataGridView4.Rows.Add(new object[]
-                        {strText, item["auctionUrl"].ToString(), item["nick"].ToString()});
+                        int totalNum = 0;
+                        int.TryParse(item["totalNum"].ToString(), out totalNum);
+                        if (totalNum > m)
+                        {
+                            string title = item["title"].ToString();
+                            string strText = System.Text.RegularExpressions.Regex.Replace(title, "<[^>]+>", "");
+                            strText = System.Text.RegularExpressions.Regex.Replace(strText, "&[^;]+;", "");
+
+                            AddDataGridRow(skinDataGridView4, new object[]
+                            {
+                                strText, item["zkPrice"].ToString(), item["tkRate"].ToString() + "%",
+                                item["tkCommFee"].ToString(), item["totalNum"].ToString(),
+                                item["totalFee"].ToString()
+                                , item["auctionUrl"].ToString(), item["nick"].ToString()
+                            });
+
+                        }
                     }
+
                 }
+            });
+        }
+
+        private void AddDataGridRow(DataGridView gridView, object[] row)
+        {
+            if (gridView.InvokeRequired)
+            {
+                AddDataGridRowInvoke invoke = AddDataGridRow;
+                gridView.Invoke(invoke, new object[] {gridView, row});
+            }
+            else
+            {
+                gridView.Rows.Add(row);
             }
         }
 
@@ -139,22 +166,44 @@ namespace Caijiqi
 
         private void skinDataGridView4_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 1)
+            var cell = (sender as DataGridView).Rows[e.RowIndex].Cells[e.ColumnIndex];
+            if (cell is DataGridViewLinkCell)
             {
-                System.Diagnostics.Process.Start((sender as DataGridView).Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
+                System.Diagnostics.Process.Start(cell.Value.ToString());
             }
         }
-    }
 
-    enum Sort
-    {
-        def=0,
-        shourubilv=1,
-        renqi=2,
-        jiageDesc=3,
-        jiageAsc=4,
-        yuetuiguangliang=5,
-        yuezhichuyongjin=7,
-        xiaoliangDesc=9,
+        private void skinButton1_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folderDialog = new FolderBrowserDialog();
+            folderDialog.Description = "请选择要导出到的文件夹";
+            if (folderDialog.ShowDialog() == DialogResult.OK)
+            {
+                string folderPath = folderDialog.SelectedPath;
+                string fileName = @"\维达科技-采集结果";
+                int index = 0;
+                string outputFileName = folderPath + fileName + ".txt";
+                while (File.Exists(outputFileName))
+                {
+                    index++;
+                    outputFileName = folderPath + fileName + "(" + index + ").txt";
+                }
+                FileStream fs = File.Create(fileName);
+                fs.Close();
+                fs.Dispose();
+
+                using (
+                System.IO.StreamWriter sw = new System.IO.StreamWriter(outputFileName, true,
+                    System.Text.Encoding.GetEncoding("utf-8")))
+                {
+                    foreach (DataGridViewRow row in skinDataGridView4.Rows)
+                    {
+                        sw.WriteLine(row.Cells["Url"].Value);
+                    }
+                }
+                MessageBox.Show("导出完毕");
+            }
+
+        }
     }
 }
