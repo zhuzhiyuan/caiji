@@ -52,6 +52,7 @@ namespace Caijiqi
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.skinDataGridView4 = new CCWin.SkinControl.SkinDataGridView();
             this.skinPanel6 = new CCWin.SkinControl.SkinPanel();
+            this.skinButton1 = new CCWin.SkinControl.SkinButton();
             this.skinTextBox1 = new CCWin.SkinControl.SkinTextBox();
             this.btnCaiji = new CCWin.SkinControl.SkinButton();
             this.skinLabel1 = new CCWin.SkinControl.SkinLabel();
@@ -74,8 +75,8 @@ namespace Caijiqi
             this.skinLabel14 = new CCWin.SkinControl.SkinLabel();
             this.pageSize = new CCWin.SkinControl.SkinTextBox();
             this.skinLabel6 = new CCWin.SkinControl.SkinLabel();
-            this.skinButton1 = new CCWin.SkinControl.SkinButton();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.折扣 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.单价 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.收入比率 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.佣金 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -121,6 +122,7 @@ namespace Caijiqi
             this.skinDataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.skinDataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn6,
+            this.折扣,
             this.单价,
             this.收入比率,
             this.佣金,
@@ -190,6 +192,22 @@ namespace Caijiqi
             this.skinPanel6.NormlBack = null;
             this.skinPanel6.Size = new System.Drawing.Size(620, 31);
             this.skinPanel6.TabIndex = 152;
+            // 
+            // skinButton1
+            // 
+            this.skinButton1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.skinButton1.BackColor = System.Drawing.Color.Transparent;
+            this.skinButton1.ControlState = CCWin.SkinClass.ControlState.Normal;
+            this.skinButton1.DownBack = null;
+            this.skinButton1.Location = new System.Drawing.Point(533, 5);
+            this.skinButton1.MouseBack = null;
+            this.skinButton1.Name = "skinButton1";
+            this.skinButton1.NormlBack = null;
+            this.skinButton1.Size = new System.Drawing.Size(75, 23);
+            this.skinButton1.TabIndex = 4;
+            this.skinButton1.Text = "导出采集结果";
+            this.skinButton1.UseVisualStyleBackColor = false;
+            this.skinButton1.Click += new System.EventHandler(this.skinButton1_Click);
             // 
             // skinTextBox1
             // 
@@ -608,27 +626,17 @@ namespace Caijiqi
             this.skinLabel6.TabIndex = 164;
             this.skinLabel6.Text = "% 以上";
             // 
-            // skinButton1
-            // 
-            this.skinButton1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.skinButton1.BackColor = System.Drawing.Color.Transparent;
-            this.skinButton1.ControlState = CCWin.SkinClass.ControlState.Normal;
-            this.skinButton1.DownBack = null;
-            this.skinButton1.Location = new System.Drawing.Point(533, 5);
-            this.skinButton1.MouseBack = null;
-            this.skinButton1.Name = "skinButton1";
-            this.skinButton1.NormlBack = null;
-            this.skinButton1.Size = new System.Drawing.Size(75, 23);
-            this.skinButton1.TabIndex = 4;
-            this.skinButton1.Text = "导出采集结果";
-            this.skinButton1.UseVisualStyleBackColor = false;
-            this.skinButton1.Click += new System.EventHandler(this.skinButton1_Click);
-            // 
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.HeaderText = "关键词";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // 折扣
+            // 
+            this.折扣.HeaderText = "折扣";
+            this.折扣.Name = "折扣";
+            this.折扣.ReadOnly = true;
             // 
             // 单价
             // 
@@ -755,6 +763,7 @@ namespace Caijiqi
         private CCWin.SkinControl.SkinLabel skinLabel6;
         private CCWin.SkinControl.SkinButton skinButton1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 折扣;
         private System.Windows.Forms.DataGridViewTextBoxColumn 单价;
         private System.Windows.Forms.DataGridViewTextBoxColumn 收入比率;
         private System.Windows.Forms.DataGridViewTextBoxColumn 佣金;

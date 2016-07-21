@@ -5,7 +5,6 @@ D:\Solution\caiji\Caijiqi\bin\Debug\WebKitBrowser.dll
 D:\Solution\caiji\Caijiqi\bin\Debug\WebKit.Interop.dll
 D:\Solution\caiji\Caijiqi\bin\Debug\stdole.dll
 D:\Solution\caiji\Caijiqi\bin\Debug\Newtonsoft.Json.xml
-D:\Solution\caiji\Caijiqi\obj\Debug\Caijiqi.csprojResolveAssemblyReference.cache
 D:\Solution\caiji\Caijiqi\obj\Debug\Caijiqi.FrmTest.resources
 D:\Solution\caiji\Caijiqi\obj\Debug\Caijiqi.FrmBbx.resources
 D:\Solution\caiji\Caijiqi\obj\Debug\Caijiqi.FrmExeManager.resources
@@ -22,3 +21,4 @@ D:\Solution\caiji\Caijiqi\obj\Debug\Caijiqi.csproj.GenerateResource.Cache
 D:\Solution\caiji\Caijiqi\obj\Debug\Caijiqi.exe
 D:\Solution\caiji\Caijiqi\obj\Debug\Caijiqi.pdb
 D:\Solution\caiji\Caijiqi\bin\Debug\Caijiqi.exe.config
+D:\Solution\caiji\Caijiqi\obj\Debug\Caijiqi.csprojResolveAssemblyReference.cache

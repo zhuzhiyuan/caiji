@@ -130,12 +130,16 @@ namespace Caijiqi
 
                             AddDataGridRow(skinDataGridView4, new object[]
                             {
-                                strText, item["zkPrice"].ToString(), item["tkRate"].ToString() + "%",
-                                item["tkCommFee"].ToString(), item["totalNum"].ToString(),
-                                item["totalFee"].ToString()
-                                , item["auctionUrl"].ToString(), item["nick"].ToString()
+                                strText,
+                                (double.Parse(item["zkPrice"].ToString())/double.Parse(item["reservePrice"].ToString())*10).ToString("0.0"),
+                                item["zkPrice"].ToString(),
+                                item["tkRate"].ToString() + "%",
+                                item["tkCommFee"].ToString(),
+                                item["totalNum"].ToString(),
+                                item["totalFee"].ToString(),
+                                item["auctionUrl"].ToString(),
+                                item["nick"].ToString()
                             });
-
                         }
                     }
 
