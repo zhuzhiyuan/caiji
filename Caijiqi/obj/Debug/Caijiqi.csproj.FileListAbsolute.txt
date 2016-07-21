@@ -19,8 +19,4 @@ D:\Solution\caiji\Caijiqi\bin\Debug\Newtonsoft.Json.dll
 D:\Solution\caiji\Caijiqi\bin\Debug\Newtonsoft.Json.xml
 D:\Solution\caiji\Caijiqi\obj\Debug\Caijiqi.exe
 D:\Solution\caiji\Caijiqi\obj\Debug\Caijiqi.pdb
-D:\Solution\caiji\Caijiqi\bin\Debug\Geckofx-Core.dll
-D:\Solution\caiji\Caijiqi\bin\Debug\Geckofx-Winforms.dll
-D:\Solution\caiji\Caijiqi\bin\Debug\Geckofx-Core.pdb
-D:\Solution\caiji\Caijiqi\bin\Debug\Geckofx-Winforms.pdb
 D:\Solution\caiji\Caijiqi\obj\Debug\Caijiqi.csprojResolveAssemblyReference.cache

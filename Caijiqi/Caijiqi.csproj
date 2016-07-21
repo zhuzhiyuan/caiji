@@ -53,14 +53,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Skin\CSkin.dll</HintPath>
     </Reference>
-    <Reference Include="Geckofx-Core, Version=33.0.1.0, Culture=neutral, PublicKeyToken=3209ac31600d1857, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>GeckoFx\Geckofx-Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Geckofx-Winforms, Version=33.0.1.0, Culture=neutral, PublicKeyToken=3209ac31600d1857, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>GeckoFx\Geckofx-Winforms.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net20\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>

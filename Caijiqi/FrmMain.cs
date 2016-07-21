@@ -35,10 +35,10 @@ namespace Caijiqi
     public partial class FrmMain : CCSkinMain
     {
         private readonly string xulrunnerPath = Application.StartupPath + "/xulrunner";
-        private Gecko.GeckoWebBrowser browser;
+        //private Gecko.GeckoWebBrowser browser;
         public FrmMain() {
             InitializeComponent();
-            Gecko.Xpcom.Initialize(xulrunnerPath);
+            //Gecko.Xpcom.Initialize(xulrunnerPath);
             //启动测试案例1
             //FrmFileUp frm = new FrmFileUp();
             //frm.Show();
@@ -75,23 +75,23 @@ namespace Caijiqi
                 }
                 else
                 {
-                    browser = new Gecko.GeckoWebBrowser();
-                    browser.Parent = this;
-                    browser.Dock = DockStyle.Fill;
-                    page.Controls.Add(browser);
-                    browser.Navigate("http://pub.alimama.com/");
-
-                    browser.DocumentCompleted += Browser_DocumentCompleted;
+//                    browser = new Gecko.GeckoWebBrowser();
+//                    browser.Parent = this;
+//                    browser.Dock = DockStyle.Fill;
+//                    page.Controls.Add(browser);
+//                    browser.Navigate("http://pub.alimama.com/");
+//
+//                    browser.DocumentCompleted += Browser_DocumentCompleted;
 
                 }
             }
             #endregion
         }
 
-        private void Browser_DocumentCompleted(object sender, Gecko.Events.GeckoDocumentCompletedEventArgs e)
-        {
-            //throw new NotImplementedException();
-        }
+//        private void Browser_DocumentCompleted(object sender, Gecko.Events.GeckoDocumentCompletedEventArgs e)
+//        {
+//            //throw new NotImplementedException();
+//        }
         #endregion
 
         #region 画窗体边框
