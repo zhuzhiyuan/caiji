@@ -206,6 +206,7 @@ namespace Caijiqi
                     }
                 }
                 MessageBox.Show("导出完毕");
+                System.Diagnostics.Process.Start(outputFileName);
             }
 
         }

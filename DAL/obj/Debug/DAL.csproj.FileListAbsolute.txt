@@ -1,0 +1,12 @@
+E:\Sulotion\caiji\DAL\bin\Debug\DAL.dll
+E:\Sulotion\caiji\DAL\bin\Debug\DAL.pdb
+E:\Sulotion\caiji\DAL\bin\Debug\ServiceStack.Common.dll
+E:\Sulotion\caiji\DAL\bin\Debug\ServiceStack.Interfaces.dll
+E:\Sulotion\caiji\DAL\bin\Debug\ServiceStack.OrmLite.dll
+E:\Sulotion\caiji\DAL\bin\Debug\ServiceStack.OrmLite.SqlServer.dll
+E:\Sulotion\caiji\DAL\bin\Debug\ServiceStack.Text.dll
+E:\Sulotion\caiji\DAL\bin\Debug\ServiceStack.Common.xml
+E:\Sulotion\caiji\DAL\bin\Debug\ServiceStack.OrmLite.xml
+E:\Sulotion\caiji\DAL\bin\Debug\ServiceStack.Text.xml
+E:\Sulotion\caiji\DAL\obj\Debug\DAL.dll
+E:\Sulotion\caiji\DAL\obj\Debug\DAL.pdb

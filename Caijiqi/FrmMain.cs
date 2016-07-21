@@ -55,12 +55,22 @@ namespace Caijiqi
         /// <param name="e"></param>
         private void FrmMain_Load(object sender, EventArgs e) {
             loadding.Hide();
+            Assembly asb = Assembly.GetExecutingAssembly();//得到当前的程序集
+            object login = asb.CreateInstance("Caijiqi.FrmLogin", true);
+            if (login != null)
+            {
+                Form loginFrm = (Form) login;
+                loginFrm.Dock = DockStyle.Fill;
+                loginFrm.TopLevel = false;
+                loginFrm.FormBorderStyle = FormBorderStyle.None;
+                loginFrm.Show();
+                panel1.Controls.Add(loginFrm);
+            }
             //存储选中MenuItem
             SelectItem = SkinTool1;
             #region 初始化TabPage内容
             foreach (TabPage page in tabShow.TabPages) {
                 if (page.Tag != null) {
-                    Assembly asb = Assembly.GetExecutingAssembly();//得到当前的程序集
                     object c = asb.CreateInstance("Caijiqi." + page.Tag.ToString(), true);
                     if (c != null)
                     {

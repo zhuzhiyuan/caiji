@@ -11,87 +11,80 @@ namespace Caijiqi.Business
     {
         public static CookieContainer GlobalCookie = new CookieContainer();
 
+        public readonly static string AuthUrl = "http://caijiqi.jywebs.com/api/";
+
         public static string Get(string url,string data=default(string))
         {
             string result = string.Empty;
+            HttpWebRequest request = null;
+            HttpWebResponse response = null;
             try
             {
-                HttpWebRequest request = (HttpWebRequest) WebRequest.Create(url);
+                request = (HttpWebRequest) WebRequest.Create(url);
                 request.Accept = "text/plain";
                 request.ContentType = "application/json;charset=UTF-8";
                 request.Method = "GET";
-                request.Headers.Add("Accept-Encoding", "gzip,deflate");
-                request.Referer = "http://pub.alimama.com/";
                 request.CookieContainer = GlobalCookie;
-                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+                response = (HttpWebResponse) request.GetResponse();
                 response.Cookies = GlobalCookie.GetCookies(request.RequestUri);
-                if (response.ContentEncoding == "gzip")
+                var reader = new StreamReader(response.GetResponseStream());
+                result = reader.ReadToEnd();
+                reader.Close();
+            }
+            finally
+            {
+                if (response != null)
                 {
-                    MemoryStream ms = new MemoryStream();
-                    GZipStream zip = new GZipStream(response.GetResponseStream(), CompressionMode.Decompress);
-                    byte[] buffer = new byte[1024];
-                    int l = zip.Read(buffer, 0, buffer.Length);
-                    while (l > 0)
-                    {
-                        ms.Write(buffer, 0, l);
-                        l = zip.Read(buffer, 0, buffer.Length);
-                    }
-                    ms.Dispose();
-                    zip.Dispose();
-                    result = Encoding.UTF8.GetString(ms.ToArray());
-                    return result;
+                    response.Close();
+                    response = null;
+                }
+
+                if (request != null)
+                {
+                    request.Abort();
                 }
             }
-            catch (Exception)
-            {
-                throw;
-            }
+
             return result;
         }
 
-        public static string Post(string url, string data)
+        public static string Post(string url, string json)
         {
             string result = string.Empty;
+            HttpWebRequest request = null;
+            HttpWebResponse response = null;
             try
             {
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+                request = (HttpWebRequest) WebRequest.Create(new Uri(url));
                 request.Accept = "text/plain";
                 request.ContentType = "application/json;charset=UTF-8";
-                request.Method = "GET";
-                request.Headers.Add("Accept-Encoding", "gzip,deflate");
-                request.Referer = "http://pub.alimama.com/";
-                request.ContentLength = data.Length;
+                request.Method = "POST";
+                request.ContentLength = json.Length;
 
                 request.CookieContainer = GlobalCookie;
 
-                Stream postStream = request.GetRequestStream();
-                byte[] postData = Encoding.UTF8.GetBytes(data);
-                postStream.Write(postData, 0, postData.Length);
-                postStream.Dispose();
+                var myStreamWriter = new StreamWriter(request.GetRequestStream());
+                myStreamWriter.Write(json);
+                myStreamWriter.Close();
+                response = (HttpWebResponse) request.GetResponse();
+                var reader = new StreamReader(response.GetResponseStream());
+                result = reader.ReadToEnd();
+                reader.Close();
 
-                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-                response.Cookies = GlobalCookie.GetCookies(request.RequestUri);
-                if (response.ContentEncoding == "gzip")
-                {
-                    MemoryStream ms = new MemoryStream();
-                    GZipStream zip = new GZipStream(response.GetResponseStream(), CompressionMode.Decompress);
-                    byte[] buffer = new byte[1024];
-                    int l = zip.Read(buffer, 0, buffer.Length);
-                    while (l > 0)
-                    {
-                        ms.Write(buffer, 0, l);
-                        l = zip.Read(buffer, 0, buffer.Length);
-                    }
-                    ms.Dispose();
-                    zip.Dispose();
-                    result = Encoding.UTF8.GetString(ms.ToArray());
-                    return result;
-                }
             }
-            catch (Exception)
+            finally
             {
+                if (response != null)
+                {
+                    response.Close();
+                    response = null;
+                }
 
-                throw;
+                if (request != null)
+                {
+                    request.Abort();
+                }
             }
             return result;
         }

@@ -80,6 +80,7 @@ namespace Caijiqi
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
             this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timColor = new System.Windows.Forms.Timer(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
             this.tabShow.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SkinMenu.SuspendLayout();
@@ -532,6 +533,14 @@ namespace Caijiqi
             this.退出ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.退出ToolStripMenuItem.Text = "退出";
             // 
+            // panel1
+            // 
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(4, 28);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1195, 682);
+            this.panel1.TabIndex = 3;
+            // 
             // FrmMain
             // 
             this.AllowDrop = true;
@@ -547,6 +556,7 @@ namespace Caijiqi
             this.CloseMouseBack = ((System.Drawing.Image)(resources.GetObject("$this.CloseMouseBack")));
             this.CloseNormlBack = ((System.Drawing.Image)(resources.GetObject("$this.CloseNormlBack")));
             this.ControlBoxOffset = new System.Drawing.Point(0, -1);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.tabShow);
             this.Controls.Add(this.lblTs);
             this.Controls.Add(this.ToolShow);
@@ -639,6 +649,7 @@ namespace Caijiqi
         private CCWin.SkinControl.SkinTabPage tabPage1;
         private CCWin.SkinControl.ProgressIndicator loadding;
         private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 
