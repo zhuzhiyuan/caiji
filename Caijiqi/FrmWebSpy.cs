@@ -26,7 +26,6 @@ using System.Drawing;
 using System.IO;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -109,7 +108,7 @@ namespace Caijiqi
             string url = "http://pub.alimama.com/items/search.json?";
             int m = !string.IsNullOrEmpty(month.SkinTxt.Text) ? int.Parse(month.SkinTxt.Text) : 0;
             skinDataGridView4.Rows.Clear();
-            Task.Factory.StartNew(() =>
+            ThreadPool.QueueUserWorkItem(delegate(object state)
             {
                 for (int i = 0; i < page; i++)
                 {

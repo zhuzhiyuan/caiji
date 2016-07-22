@@ -59,7 +59,7 @@ namespace Caijiqi
             object login = asb.CreateInstance("Caijiqi.FrmLogin", true);
             if (login != null)
             {
-                Form loginFrm = (Form) login;
+                Form loginFrm = (Form)login;
                 loginFrm.Dock = DockStyle.Fill;
                 loginFrm.TopLevel = false;
                 loginFrm.FormBorderStyle = FormBorderStyle.None;

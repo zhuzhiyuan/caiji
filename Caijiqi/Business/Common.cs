@@ -13,6 +13,8 @@ namespace Caijiqi.Business
 
         public readonly static string AuthUrl = "http://caijiqi.jywebs.com/api/";
 
+        public readonly static string CopyUrl = "http://121.199.182.59:30003/Copy/OneKey.aspx";
+
         public static string Get(string url,string data=default(string))
         {
             string result = string.Empty;

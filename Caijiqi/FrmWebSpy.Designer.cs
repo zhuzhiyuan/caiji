@@ -147,7 +147,7 @@ namespace Caijiqi
             this.skinDataGridView4.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.skinDataGridView4.RowTemplate.Height = 23;
             this.skinDataGridView4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.skinDataGridView4.Size = new System.Drawing.Size(406, 317);
+            this.skinDataGridView4.Size = new System.Drawing.Size(566, 409);
             this.skinDataGridView4.SkinGridColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.skinDataGridView4.TabIndex = 153;
             this.skinDataGridView4.TitleBack = null;
@@ -226,7 +226,7 @@ namespace Caijiqi
             this.skinPanel6.MouseBack = null;
             this.skinPanel6.Name = "skinPanel6";
             this.skinPanel6.NormlBack = null;
-            this.skinPanel6.Size = new System.Drawing.Size(620, 31);
+            this.skinPanel6.Size = new System.Drawing.Size(780, 31);
             this.skinPanel6.TabIndex = 152;
             // 
             // skinButton1
@@ -235,7 +235,7 @@ namespace Caijiqi
             this.skinButton1.BackColor = System.Drawing.Color.Transparent;
             this.skinButton1.ControlState = CCWin.SkinClass.ControlState.Normal;
             this.skinButton1.DownBack = null;
-            this.skinButton1.Location = new System.Drawing.Point(522, 5);
+            this.skinButton1.Location = new System.Drawing.Point(682, 5);
             this.skinButton1.MouseBack = null;
             this.skinButton1.Name = "skinButton1";
             this.skinButton1.NormlBack = null;
@@ -664,10 +664,11 @@ namespace Caijiqi
             // 
             // FrmWebSpy
             // 
+            this.AcceptButton = this.btnCaiji;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(620, 379);
+            this.ClientSize = new System.Drawing.Size(780, 471);
             this.Controls.Add(this.pageSize);
             this.Controls.Add(this.skinLabel14);
             this.Controls.Add(this.month);

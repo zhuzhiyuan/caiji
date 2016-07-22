@@ -54,6 +54,7 @@ namespace Caijiqi
         {
             browser = new WebBrowser();
             browser.Dock = DockStyle.Fill;
+            browser.ScriptErrorsSuppressed = true;
             browser.Url = new Uri("https://login.taobao.com/member/login.jhtml");
             browser.DocumentCompleted += Browser_DocumentCompleted;
             panel1.Controls.Add(browser);
@@ -66,8 +67,8 @@ namespace Caijiqi
             Business.Common.GlobalCookie.SetCookies(e.Url, cookie);
             if (!e.Url.ToString().Contains("login"))
             {
-                browser.Dispose();
-                panel1.Controls.Clear();
+                browser.DocumentCompleted -= Browser_DocumentCompleted;
+                browser.Navigate(Business.Common.CopyUrl);
             }
         }
     }

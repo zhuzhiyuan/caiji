@@ -47,7 +47,7 @@
             this.panel1.Controls.Add(this.skinLabel1);
             this.panel1.Controls.Add(this.txtPassword);
             this.panel1.Controls.Add(this.txtAccount);
-            this.panel1.Location = new System.Drawing.Point(158, 148);
+            this.panel1.Location = new System.Drawing.Point(171, 154);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(263, 144);
             this.panel1.TabIndex = 0;
@@ -56,6 +56,7 @@
             // 
             this.skinButton1.BackColor = System.Drawing.Color.Transparent;
             this.skinButton1.ControlState = CCWin.SkinClass.ControlState.Normal;
+            this.skinButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.skinButton1.DownBack = null;
             this.skinButton1.Location = new System.Drawing.Point(67, 108);
             this.skinButton1.MouseBack = null;
@@ -155,9 +156,10 @@
             // 
             // FrmLogin
             // 
+            this.AcceptButton = this.skinButton1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(579, 431);
+            this.ClientSize = new System.Drawing.Size(605, 443);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmLogin";
