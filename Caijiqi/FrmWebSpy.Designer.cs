@@ -25,11 +25,11 @@ namespace Caijiqi
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.skinDataGridView4 = new CCWin.SkinControl.SkinDataGridView();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.折扣 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,6 +41,9 @@ namespace Caijiqi
             this.Url = new System.Windows.Forms.DataGridViewLinkColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.skinPanel6 = new CCWin.SkinControl.SkinPanel();
+            this.skinLabel12 = new CCWin.SkinControl.SkinLabel();
+            this.txtOutPutSize = new CCWin.SkinControl.SkinTextBox();
+            this.skinLabel7 = new CCWin.SkinControl.SkinLabel();
             this.skinButton1 = new CCWin.SkinControl.SkinButton();
             this.skinTextBox1 = new CCWin.SkinControl.SkinTextBox();
             this.btnCaiji = new CCWin.SkinControl.SkinButton();
@@ -64,8 +67,10 @@ namespace Caijiqi
             this.skinLabel14 = new CCWin.SkinControl.SkinLabel();
             this.pageSize = new CCWin.SkinControl.SkinTextBox();
             this.skinLabel6 = new CCWin.SkinControl.SkinLabel();
+            this.txtTotal = new CCWin.SkinControl.SkinLabel();
             ((System.ComponentModel.ISupportInitialize)(this.skinDataGridView4)).BeginInit();
             this.skinPanel6.SuspendLayout();
+            this.txtOutPutSize.SuspendLayout();
             this.skinTextBox1.SuspendLayout();
             this.startBiz30day.SuspendLayout();
             this.startTkRate.SuspendLayout();
@@ -80,8 +85,8 @@ namespace Caijiqi
             this.skinDataGridView4.AllowUserToDeleteRows = false;
             this.skinDataGridView4.AllowUserToOrderColumns = true;
             this.skinDataGridView4.AlternatingCellBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.skinDataGridView4.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
+            this.skinDataGridView4.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
             this.skinDataGridView4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -91,14 +96,14 @@ namespace Caijiqi
             this.skinDataGridView4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.skinDataGridView4.ColumnFont = null;
             this.skinDataGridView4.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(246)))), ((int)(((byte)(239)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.skinDataGridView4.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(246)))), ((int)(((byte)(239)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.skinDataGridView4.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.skinDataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.skinDataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn6,
@@ -111,14 +116,14 @@ namespace Caijiqi
             this.Url,
             this.Column1});
             this.skinDataGridView4.ColumnSelectForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(188)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.skinDataGridView4.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(188)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.skinDataGridView4.DefaultCellStyle = dataGridViewCellStyle13;
             this.skinDataGridView4.EnableHeadersVisualStyles = false;
             this.skinDataGridView4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.skinDataGridView4.GridColor = System.Drawing.SystemColors.GradientInactiveCaption;
@@ -131,20 +136,20 @@ namespace Caijiqi
             this.skinDataGridView4.Name = "skinDataGridView4";
             this.skinDataGridView4.ReadOnly = true;
             this.skinDataGridView4.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.skinDataGridView4.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.skinDataGridView4.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.skinDataGridView4.RowHeadersVisible = false;
             this.skinDataGridView4.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.skinDataGridView4.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.skinDataGridView4.RowsDefaultCellStyle = dataGridViewCellStyle15;
             this.skinDataGridView4.RowTemplate.Height = 23;
             this.skinDataGridView4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.skinDataGridView4.Size = new System.Drawing.Size(566, 409);
@@ -214,6 +219,10 @@ namespace Caijiqi
             // skinPanel6
             // 
             this.skinPanel6.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.skinPanel6.Controls.Add(this.txtTotal);
+            this.skinPanel6.Controls.Add(this.skinLabel12);
+            this.skinPanel6.Controls.Add(this.txtOutPutSize);
+            this.skinPanel6.Controls.Add(this.skinLabel7);
             this.skinPanel6.Controls.Add(this.skinButton1);
             this.skinPanel6.Controls.Add(this.skinTextBox1);
             this.skinPanel6.Controls.Add(this.btnCaiji);
@@ -229,9 +238,67 @@ namespace Caijiqi
             this.skinPanel6.Size = new System.Drawing.Size(780, 31);
             this.skinPanel6.TabIndex = 152;
             // 
+            // skinLabel12
+            // 
+            this.skinLabel12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.skinLabel12.AutoSize = true;
+            this.skinLabel12.BackColor = System.Drawing.Color.Transparent;
+            this.skinLabel12.BorderColor = System.Drawing.Color.White;
+            this.skinLabel12.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.skinLabel12.Location = new System.Drawing.Point(649, 5);
+            this.skinLabel12.Name = "skinLabel12";
+            this.skinLabel12.Size = new System.Drawing.Size(20, 17);
+            this.skinLabel12.TabIndex = 7;
+            this.skinLabel12.Text = "条";
+            // 
+            // txtOutPutSize
+            // 
+            this.txtOutPutSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtOutPutSize.BackColor = System.Drawing.Color.Transparent;
+            this.txtOutPutSize.DownBack = null;
+            this.txtOutPutSize.Icon = null;
+            this.txtOutPutSize.IconIsButton = false;
+            this.txtOutPutSize.IconMouseState = CCWin.SkinClass.ControlState.Normal;
+            this.txtOutPutSize.Location = new System.Drawing.Point(610, 0);
+            this.txtOutPutSize.Margin = new System.Windows.Forms.Padding(0);
+            this.txtOutPutSize.MinimumSize = new System.Drawing.Size(28, 28);
+            this.txtOutPutSize.MouseBack = null;
+            this.txtOutPutSize.MouseState = CCWin.SkinClass.ControlState.Normal;
+            this.txtOutPutSize.Name = "txtOutPutSize";
+            this.txtOutPutSize.NormlBack = null;
+            this.txtOutPutSize.Padding = new System.Windows.Forms.Padding(5);
+            this.txtOutPutSize.Size = new System.Drawing.Size(35, 28);
+            // 
+            // txtOutPutSize.BaseText
+            // 
+            this.txtOutPutSize.SkinTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtOutPutSize.SkinTxt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtOutPutSize.SkinTxt.Font = new System.Drawing.Font("微软雅黑", 9.75F);
+            this.txtOutPutSize.SkinTxt.Location = new System.Drawing.Point(5, 5);
+            this.txtOutPutSize.SkinTxt.Name = "BaseText";
+            this.txtOutPutSize.SkinTxt.Size = new System.Drawing.Size(25, 18);
+            this.txtOutPutSize.SkinTxt.TabIndex = 0;
+            this.txtOutPutSize.SkinTxt.Text = "40";
+            this.txtOutPutSize.SkinTxt.WaterColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
+            this.txtOutPutSize.SkinTxt.WaterText = "";
+            this.txtOutPutSize.TabIndex = 6;
+            // 
+            // skinLabel7
+            // 
+            this.skinLabel7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.skinLabel7.AutoSize = true;
+            this.skinLabel7.BackColor = System.Drawing.Color.Transparent;
+            this.skinLabel7.BorderColor = System.Drawing.Color.White;
+            this.skinLabel7.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.skinLabel7.Location = new System.Drawing.Point(527, 7);
+            this.skinLabel7.Name = "skinLabel7";
+            this.skinLabel7.Size = new System.Drawing.Size(80, 17);
+            this.skinLabel7.TabIndex = 5;
+            this.skinLabel7.Text = "每个文件导出";
+            // 
             // skinButton1
             // 
-            this.skinButton1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.skinButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.skinButton1.BackColor = System.Drawing.Color.Transparent;
             this.skinButton1.ControlState = CCWin.SkinClass.ControlState.Normal;
             this.skinButton1.DownBack = null;
@@ -662,6 +729,19 @@ namespace Caijiqi
             this.skinLabel6.TabIndex = 164;
             this.skinLabel6.Text = "% 以上";
             // 
+            // txtTotal
+            // 
+            this.txtTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTotal.AutoSize = true;
+            this.txtTotal.BackColor = System.Drawing.Color.Transparent;
+            this.txtTotal.BorderColor = System.Drawing.Color.White;
+            this.txtTotal.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtTotal.Location = new System.Drawing.Point(410, 6);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(99, 17);
+            this.txtTotal.TabIndex = 8;
+            this.txtTotal.Text = "共采集到0条数据";
+            // 
             // FrmWebSpy
             // 
             this.AcceptButton = this.btnCaiji;
@@ -698,6 +778,8 @@ namespace Caijiqi
             ((System.ComponentModel.ISupportInitialize)(this.skinDataGridView4)).EndInit();
             this.skinPanel6.ResumeLayout(false);
             this.skinPanel6.PerformLayout();
+            this.txtOutPutSize.ResumeLayout(false);
+            this.txtOutPutSize.PerformLayout();
             this.skinTextBox1.ResumeLayout(false);
             this.skinTextBox1.PerformLayout();
             this.startBiz30day.ResumeLayout(false);
@@ -752,5 +834,9 @@ namespace Caijiqi
         private System.Windows.Forms.DataGridViewTextBoxColumn 月支出佣金;
         private System.Windows.Forms.DataGridViewLinkColumn Url;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private CCWin.SkinControl.SkinTextBox txtOutPutSize;
+        private CCWin.SkinControl.SkinLabel skinLabel7;
+        private CCWin.SkinControl.SkinLabel skinLabel12;
+        private CCWin.SkinControl.SkinLabel txtTotal;
     }
 }

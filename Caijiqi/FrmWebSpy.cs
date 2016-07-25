@@ -32,7 +32,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Caijiqi
 {
-    delegate void AddDataGridRowInvoke(DataGridView gridView, object[] row);
+    delegate void AddDataGridRowInvoke(DataGridView gridView,Label txtTotal, object[] row);
     public partial class FrmWebSpy : Form
     {
         public FrmWebSpy() {
@@ -68,14 +68,10 @@ namespace Caijiqi
         private void btnCaiji_Click(object sender, EventArgs e)
         {
             string key = skinTextBox1.SkinTxt.Text;
-            string response = Business.Common.Get(
-                "http://pub.alimama.com/items/search.json?q=" + System.Web.HttpUtility.UrlEncode(key) +
-                "&_t=1468998050262&toPage=1&queryType=0&sortType=" + skinComboBox1.SelectedIndex +
-                "&auctionTag=&perPageSize=100&shopTag=&t=1468998639277&_tb_token_=test&pvid=10_203.156.203.9_2701_1468998639018");
+           
             List<string> param = new List<string>()
             {
                 "q=" + System.Web.HttpUtility.UrlEncode(key),
-                "_t=" + DateTime.Now.Ticks,
                 "sortType=" + skinComboBox1.SelectedIndex,
                 "perPageSize=40"
             };
@@ -105,14 +101,19 @@ namespace Caijiqi
                 param.Add("endPrice=" + endPrice.SkinTxt.Text);
             }
             int page = !string.IsNullOrEmpty(pageSize.SkinTxt.Text) ? int.Parse(pageSize.SkinTxt.Text) : 1;
-            string url = "http://pub.alimama.com/items/search.json?";
+            string url = "http://pub.alimama.com/items/search.json?queryType=0&auctionTag=&shopTag=&_tb_token_=test&";
             int m = !string.IsNullOrEmpty(month.SkinTxt.Text) ? int.Parse(month.SkinTxt.Text) : 0;
             skinDataGridView4.Rows.Clear();
             ThreadPool.QueueUserWorkItem(delegate(object state)
             {
+                string getUrl;
                 for (int i = 0; i < page; i++)
                 {
-                    url += url = string.Join("&", param.ToArray()) + "&toPage=" + (i + 1);
+                    string time = (DateTime.Now.Ticks/1000).ToString();
+                    getUrl = url + string.Join("&", param.ToArray()) + "&toPage=" + (i + 1) + "&_t=1469242599261" +
+                             "&t=" + time +
+                             "&pvid=10_101.44.248.122_403_1469242621622";
+                    string response = Business.Common.Get(getUrl, Encoding.UTF8, string.Empty);
                     JObject json = JsonConvert.DeserializeObject<JObject>(response);
 
                     JArray pageList = (json["data"] as JObject)["pageList"] as JArray;
@@ -127,10 +128,11 @@ namespace Caijiqi
                             string strText = System.Text.RegularExpressions.Regex.Replace(title, "<[^>]+>", "");
                             strText = System.Text.RegularExpressions.Regex.Replace(strText, "&[^;]+;", "");
 
-                            AddDataGridRow(skinDataGridView4, new object[]
+                            AddDataGridRow(skinDataGridView4, txtTotal, new object[]
                             {
                                 strText,
-                                (double.Parse(item["zkPrice"].ToString())/double.Parse(item["reservePrice"].ToString())*10).ToString("0.0"),
+                                (double.Parse(item["zkPrice"].ToString())/double.Parse(item["reservePrice"].ToString())*
+                                 10).ToString("0.0"),
                                 item["zkPrice"].ToString(),
                                 item["tkRate"].ToString() + "%",
                                 item["tkCommFee"].ToString(),
@@ -140,22 +142,25 @@ namespace Caijiqi
                                 item["nick"].ToString()
                             });
                         }
+                        
                     }
-
+                    Thread.Sleep(1000);
                 }
+                MessageBox.Show("采集完成");
             });
         }
 
-        private void AddDataGridRow(DataGridView gridView, object[] row)
+        private void AddDataGridRow(DataGridView gridView,Label txtTotal, object[] row)
         {
             if (gridView.InvokeRequired)
             {
                 AddDataGridRowInvoke invoke = AddDataGridRow;
-                gridView.Invoke(invoke, new object[] {gridView, row});
+                gridView.Invoke(invoke, new object[] {gridView, txtTotal, row});
             }
             else
             {
                 gridView.Rows.Add(row);
+                txtTotal.Text = "共采集到" + gridView.Rows.Count + "条结果";
             }
         }
 
@@ -182,30 +187,38 @@ namespace Caijiqi
             folderDialog.Description = "请选择要导出到的文件夹";
             if (folderDialog.ShowDialog() == DialogResult.OK)
             {
-                string folderPath = folderDialog.SelectedPath;
-                string fileName = @"\维达科技-采集结果";
-                int index = 0;
-                string outputFileName = folderPath + fileName + ".txt";
-                while (File.Exists(outputFileName))
+                int rows = skinDataGridView4.Rows.Count;
+                int rowIndex = 0;
+                while (rowIndex < rows)
                 {
-                    index++;
-                    outputFileName = folderPath + fileName + "(" + index + ").txt";
-                }
-                FileStream fs = File.Create(fileName);
-                fs.Close();
-                fs.Dispose();
-
-                using (
-                System.IO.StreamWriter sw = new System.IO.StreamWriter(outputFileName, true,
-                    System.Text.Encoding.GetEncoding("utf-8")))
-                {
-                    foreach (DataGridViewRow row in skinDataGridView4.Rows)
+                    string folderPath = folderDialog.SelectedPath;
+                    string fileName = @"\维达科技-采集结果";
+                    int index = 0;
+                    string outputFileName = folderPath + fileName + ".txt";
+                    while (File.Exists(outputFileName))
                     {
-                        sw.WriteLine(row.Cells["Url"].Value);
+                        index++;
+                        outputFileName = folderPath + fileName + "(" + index + ").txt";
                     }
+                    FileStream fs = File.Create(fileName);
+                    fs.Close();
+                    fs.Dispose();
+                    
+                        using (
+                       System.IO.StreamWriter sw = new System.IO.StreamWriter(outputFileName, true,
+                           System.Text.Encoding.GetEncoding("utf-8")))
+                        {
+                            int outputSize = int.Parse(txtOutPutSize.SkinTxt.Text);
+                            for (var i = 0; rowIndex < rows && i < outputSize; rowIndex++,i++)
+                            {
+                                sw.WriteLine(skinDataGridView4.Rows[rowIndex].Cells["Url"].Value);
+                            }
+                        }
+                   
+                    MessageBox.Show("导出完毕");
+                    System.Diagnostics.Process.Start(outputFileName);
                 }
-                MessageBox.Show("导出完毕");
-                System.Diagnostics.Process.Start(outputFileName);
+
             }
 
         }

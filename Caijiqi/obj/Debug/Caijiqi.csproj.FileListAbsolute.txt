@@ -43,3 +43,5 @@ D:\Solution\caiji\Caijiqi\obj\Debug\Caijiqi.csproj.GenerateResource.Cache
 D:\Solution\caiji\Caijiqi\obj\Debug\Caijiqi.exe
 D:\Solution\caiji\Caijiqi\obj\Debug\Caijiqi.pdb
 D:\Solution\caiji\Caijiqi\obj\Debug\Caijiqi.csprojResolveAssemblyReference.cache
+E:\Sulotion\caiji\Caijiqi\obj\Debug\Caijiqi.csprojResolveAssemblyReference.cache
+E:\Sulotion\caiji\Caijiqi\obj\Debug\Caijiqi.FrmWebBaba.resources

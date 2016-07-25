@@ -81,6 +81,8 @@ namespace Caijiqi
             this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timColor = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tool4 = new System.Windows.Forms.ToolStripButton();
             this.tabShow.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SkinMenu.SuspendLayout();
@@ -116,6 +118,7 @@ namespace Caijiqi
             this.tabShow.Controls.Add(this.tabPage1);
             this.tabShow.Controls.Add(this.tabPage2);
             this.tabShow.Controls.Add(this.tabPage3);
+            this.tabShow.Controls.Add(this.tabPage4);
             this.tabShow.DrawType = CCWin.SkinControl.DrawStyle.Draw;
             this.tabShow.HeadBack = null;
             this.tabShow.ImgTxtOffset = new System.Drawing.Point(0, 0);
@@ -364,8 +367,6 @@ namespace Caijiqi
             // tool1
             // 
             this.tool1.AutoSize = false;
-            this.tool1.Checked = true;
-            this.tool1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.tool1.Image = global::Caijiqi.Properties.Resources.ToolShow_BackgroundImage_Home;
             this.tool1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tool1.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -447,11 +448,12 @@ namespace Caijiqi
             this.ToolShow.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tool1,
             this.tool2,
-            this.tool3});
+            this.tool3,
+            this.tool4});
             this.ToolShow.Location = new System.Drawing.Point(9, 30);
             this.ToolShow.Name = "ToolShow";
             this.ToolShow.RadiusStyle = CCWin.SkinClass.RoundStyle.None;
-            this.ToolShow.Size = new System.Drawing.Size(237, 55);
+            this.ToolShow.Size = new System.Drawing.Size(419, 55);
             this.ToolShow.SkinAllColor = true;
             this.ToolShow.TabIndex = 1;
             this.ToolShow.Text = "skinToolStrip1";
@@ -535,11 +537,33 @@ namespace Caijiqi
             // 
             // panel1
             // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(4, 28);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(4, 525);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1195, 682);
+            this.panel1.Size = new System.Drawing.Size(1195, 185);
             this.panel1.TabIndex = 3;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(0, 30);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1188, 578);
+            this.tabPage4.TabIndex = 6;
+            this.tabPage4.Tag = "FrmWebBaba";
+            this.tabPage4.Text = "阿里巴巴";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // tool4
+            // 
+            this.tool4.Image = global::Caijiqi.Properties.Resources.ToolShow_BackgroundImage_Caiji;
+            this.tool4.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tool4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tool4.Name = "tool4";
+            this.tool4.Size = new System.Drawing.Size(60, 52);
+            this.tool4.Tag = "3";
+            this.tool4.Text = "阿里巴巴";
+            this.tool4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // FrmMain
             // 
@@ -650,6 +674,8 @@ namespace Caijiqi
         private CCWin.SkinControl.ProgressIndicator loadding;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.ToolStripButton tool4;
     }
 }
 

@@ -15,7 +15,7 @@ namespace Caijiqi.Business
 
         public readonly static string CopyUrl = "http://121.199.182.59:30003/Copy/OneKey.aspx";
 
-        public static string Get(string url,string data=default(string))
+        public static string Get(string url, Encoding encoding,string referer,string data=default(string))
         {
             string result = string.Empty;
             HttpWebRequest request = null;
@@ -23,14 +23,14 @@ namespace Caijiqi.Business
             try
             {
                 request = (HttpWebRequest) WebRequest.Create(url);
-                request.Accept = "text/plain";
-                request.ContentType = "application/json;charset=UTF-8";
+                request.ContentType = "application/json;";
                 request.Method = "GET";
                 request.CookieContainer = GlobalCookie;
+                request.Referer = referer;
 
                 response = (HttpWebResponse) request.GetResponse();
                 response.Cookies = GlobalCookie.GetCookies(request.RequestUri);
-                var reader = new StreamReader(response.GetResponseStream());
+                var reader = new StreamReader(response.GetResponseStream(),encoding);
                 result = reader.ReadToEnd();
                 reader.Close();
             }
