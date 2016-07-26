@@ -66,36 +66,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Business\Login.cs" />
-    <Compile Include="FrmLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmLogin.Designer.cs">
-      <DependentUpon>FrmLogin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmTest.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmTest.Designer.cs">
-      <DependentUpon>FrmTest.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmBbx.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmBbx.Designer.cs">
       <DependentUpon>FrmBbx.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmExeManager.cs">
+    <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmExeManager.Designer.cs">
-      <DependentUpon>FrmExeManager.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmFileUp.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmFileUp.designer.cs">
-      <DependentUpon>FrmFileUp.cs</DependentUpon>
+    <Compile Include="FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
@@ -103,35 +84,11 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmPrcColor.cs">
+    <Compile Include="FrmUpdatePassword.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmPrcColor.Designer.cs">
-      <DependentUpon>FrmPrcColor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmPrcImg.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmPrcImg.Designer.cs">
-      <DependentUpon>FrmPrcImg.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmReg.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmReg.Designer.cs">
-      <DependentUpon>FrmReg.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmScSo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmScSo.Designer.cs">
-      <DependentUpon>FrmScSo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmSpy.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmSpy.Designer.cs">
-      <DependentUpon>FrmSpy.cs</DependentUpon>
+    <Compile Include="FrmUpdatePassword.Designer.cs">
+      <DependentUpon>FrmUpdatePassword.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmWebBaba.cs">
       <SubType>Form</SubType>
@@ -148,38 +105,17 @@
     <Compile Include="ImageObject.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmLogin.resx">
-      <DependentUpon>FrmLogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmTest.resx">
-      <DependentUpon>FrmTest.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmBbx.resx">
       <DependentUpon>FrmBbx.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmExeManager.resx">
-      <DependentUpon>FrmExeManager.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmFileUp.resx">
-      <DependentUpon>FrmFileUp.cs</DependentUpon>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmPrcColor.resx">
-      <DependentUpon>FrmPrcColor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmPrcImg.resx">
-      <DependentUpon>FrmPrcImg.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmReg.resx">
-      <DependentUpon>FrmReg.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmScSo.resx">
-      <DependentUpon>FrmScSo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmSpy.resx">
-      <DependentUpon>FrmSpy.cs</DependentUpon>
+    <EmbeddedResource Include="FrmUpdatePassword.resx">
+      <DependentUpon>FrmUpdatePassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmWebBaba.resx">
       <DependentUpon>FrmWebBaba.cs</DependentUpon>

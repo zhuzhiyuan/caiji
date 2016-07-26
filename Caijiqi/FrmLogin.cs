@@ -114,6 +114,7 @@ namespace Caijiqi
                     var status = (LoginStatus)int.Parse(result);
                     if (status == LoginStatus.Success)
                     {
+                        Business.Common.LoginAccount = account;
                         this.Parent.Hide();
                         var loginAccount = new LoginAccount();
                         loginAccount.Acount = account;

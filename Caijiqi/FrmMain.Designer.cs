@@ -83,6 +83,8 @@ namespace Caijiqi
             this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timColor = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tool5 = new System.Windows.Forms.ToolStripButton();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabShow.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SkinMenu.SuspendLayout();
@@ -119,6 +121,7 @@ namespace Caijiqi
             this.tabShow.Controls.Add(this.tabPage2);
             this.tabShow.Controls.Add(this.tabPage3);
             this.tabShow.Controls.Add(this.tabPage4);
+            this.tabShow.Controls.Add(this.tabPage5);
             this.tabShow.DrawType = CCWin.SkinControl.DrawStyle.Draw;
             this.tabShow.HeadBack = null;
             this.tabShow.ImgTxtOffset = new System.Drawing.Point(0, 0);
@@ -378,8 +381,6 @@ namespace Caijiqi
             // tool1
             // 
             this.tool1.AutoSize = false;
-            this.tool1.Checked = true;
-            this.tool1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.tool1.Image = global::Caijiqi.Properties.Resources.ToolShow_BackgroundImage_Home;
             this.tool1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tool1.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -462,7 +463,8 @@ namespace Caijiqi
             this.tool1,
             this.tool2,
             this.tool3,
-            this.tool4});
+            this.tool4,
+            this.tool5});
             this.ToolShow.Location = new System.Drawing.Point(9, 30);
             this.ToolShow.Name = "ToolShow";
             this.ToolShow.RadiusStyle = CCWin.SkinClass.RoundStyle.None;
@@ -566,6 +568,28 @@ namespace Caijiqi
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1195, 682);
             this.panel1.TabIndex = 3;
+            // 
+            // tool5
+            // 
+            this.tool5.Image = global::Caijiqi.Properties.Resources.imgXz;
+            this.tool5.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tool5.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tool5.Name = "tool5";
+            this.tool5.Size = new System.Drawing.Size(60, 52);
+            this.tool5.Tag = "4";
+            this.tool5.Text = "修改密码";
+            this.tool5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Location = new System.Drawing.Point(0, 30);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(1188, 578);
+            this.tabPage5.TabIndex = 7;
+            this.tabPage5.Tag = "FrmUpdatePassword";
+            this.tabPage5.Text = "修改密码";
+            this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // FrmMain
             // 
@@ -678,6 +702,8 @@ namespace Caijiqi
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.ToolStripButton tool4;
+        private System.Windows.Forms.ToolStripButton tool5;
+        private System.Windows.Forms.TabPage tabPage5;
     }
 }
 
