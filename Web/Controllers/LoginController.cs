@@ -29,6 +29,27 @@ namespace Web.Controllers
             return (int) LoginStatus.Filed;
         }
 
+        [HttpPost]
+        [Route("updatePassword")]
+        public int UpdatePassword([FromBody] Models.PasswordParam account)
+        {
+            var acc = DAL.Provider.AccountProvider.Instance.GetAccount(account.Account);
+            if (acc != null)
+            {
+                if (acc.Password == account.OldPassword)
+                {
+                    if (DAL.Provider.AccountProvider.Instance.UpdateUserPasswordByMobilePhone(account.Account,
+                        account.NewPassword))
+                    {
+                        return (int) LoginStatus.Success;
+                    }
+                    return (int) LoginStatus.Filed;
+                }
+                return (int) LoginStatus.PasswordError;
+            }
+            return (int) LoginStatus.Filed;
+        }
+
         // GET api/<controller>/5
         [HttpGet]
         [Route("getAccounts")]

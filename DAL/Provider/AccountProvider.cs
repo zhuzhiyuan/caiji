@@ -70,7 +70,6 @@ namespace DAL.Provider
             var status = this.UpdateNonDefaults(account, a => a.AutoId == account.AutoId);
             return status > 0;
         }
-
         /// <summary>
         /// 按照手机号码更新密码
         /// </summary>
