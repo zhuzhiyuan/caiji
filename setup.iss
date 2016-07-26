@@ -33,8 +33,8 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "D:\Solution\caiji\Caijiqi\bin\Debug\Caijiqi.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Solution\caiji\Caijiqi\bin\Debug\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\Solution\caiji\Caijiqi\bin\Release\Caijiqi.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\Solution\caiji\Caijiqi\bin\Release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
