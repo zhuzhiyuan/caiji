@@ -29,28 +29,80 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.skinComboBox1 = new CCWin.SkinControl.SkinComboBox();
+            this.chbLogin = new CCWin.SkinControl.SkinCheckBox();
+            this.chbPassword = new CCWin.SkinControl.SkinCheckBox();
             this.skinButton1 = new CCWin.SkinControl.SkinButton();
             this.skinLabel2 = new CCWin.SkinControl.SkinLabel();
             this.skinLabel1 = new CCWin.SkinControl.SkinLabel();
             this.txtPassword = new CCWin.SkinControl.SkinTextBox();
-            this.txtAccount = new CCWin.SkinControl.SkinTextBox();
             this.panel1.SuspendLayout();
             this.txtPassword.SuspendLayout();
-            this.txtAccount.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel1.Controls.Add(this.skinComboBox1);
+            this.panel1.Controls.Add(this.chbLogin);
+            this.panel1.Controls.Add(this.chbPassword);
             this.panel1.Controls.Add(this.skinButton1);
             this.panel1.Controls.Add(this.skinLabel2);
             this.panel1.Controls.Add(this.skinLabel1);
             this.panel1.Controls.Add(this.txtPassword);
-            this.panel1.Controls.Add(this.txtAccount);
             this.panel1.Location = new System.Drawing.Point(171, 154);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(263, 144);
+            this.panel1.Size = new System.Drawing.Size(262, 162);
             this.panel1.TabIndex = 0;
+            // 
+            // skinComboBox1
+            // 
+            this.skinComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.skinComboBox1.FormattingEnabled = true;
+            this.skinComboBox1.Location = new System.Drawing.Point(67, 17);
+            this.skinComboBox1.Name = "skinComboBox1";
+            this.skinComboBox1.Size = new System.Drawing.Size(185, 22);
+            this.skinComboBox1.TabIndex = 12;
+            this.skinComboBox1.WaterText = "";
+            this.skinComboBox1.SelectedValueChanged += new System.EventHandler(this.skinComboBox1_SelectedValueChanged);
+            // 
+            // chbLogin
+            // 
+            this.chbLogin.AutoSize = true;
+            this.chbLogin.BackColor = System.Drawing.Color.Transparent;
+            this.chbLogin.ControlState = CCWin.SkinClass.ControlState.Normal;
+            this.chbLogin.DownBack = null;
+            this.chbLogin.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.chbLogin.Location = new System.Drawing.Point(158, 90);
+            this.chbLogin.MouseBack = null;
+            this.chbLogin.Name = "chbLogin";
+            this.chbLogin.NormlBack = null;
+            this.chbLogin.SelectedDownBack = null;
+            this.chbLogin.SelectedMouseBack = null;
+            this.chbLogin.SelectedNormlBack = null;
+            this.chbLogin.Size = new System.Drawing.Size(75, 21);
+            this.chbLogin.TabIndex = 11;
+            this.chbLogin.Text = "自动登录";
+            this.chbLogin.UseVisualStyleBackColor = false;
+            // 
+            // chbPassword
+            // 
+            this.chbPassword.AutoSize = true;
+            this.chbPassword.BackColor = System.Drawing.Color.Transparent;
+            this.chbPassword.ControlState = CCWin.SkinClass.ControlState.Normal;
+            this.chbPassword.DownBack = null;
+            this.chbPassword.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.chbPassword.Location = new System.Drawing.Point(67, 91);
+            this.chbPassword.MouseBack = null;
+            this.chbPassword.Name = "chbPassword";
+            this.chbPassword.NormlBack = null;
+            this.chbPassword.SelectedDownBack = null;
+            this.chbPassword.SelectedMouseBack = null;
+            this.chbPassword.SelectedNormlBack = null;
+            this.chbPassword.Size = new System.Drawing.Size(75, 21);
+            this.chbPassword.TabIndex = 10;
+            this.chbPassword.Text = "记住密码";
+            this.chbPassword.UseVisualStyleBackColor = false;
             // 
             // skinButton1
             // 
@@ -58,11 +110,11 @@
             this.skinButton1.ControlState = CCWin.SkinClass.ControlState.Normal;
             this.skinButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.skinButton1.DownBack = null;
-            this.skinButton1.Location = new System.Drawing.Point(67, 108);
+            this.skinButton1.Location = new System.Drawing.Point(67, 118);
             this.skinButton1.MouseBack = null;
             this.skinButton1.Name = "skinButton1";
             this.skinButton1.NormlBack = null;
-            this.skinButton1.Size = new System.Drawing.Size(75, 23);
+            this.skinButton1.Size = new System.Drawing.Size(111, 23);
             this.skinButton1.TabIndex = 9;
             this.skinButton1.Text = "登录";
             this.skinButton1.UseVisualStyleBackColor = false;
@@ -124,36 +176,6 @@
             this.txtPassword.SkinTxt.WaterText = "";
             this.txtPassword.TabIndex = 6;
             // 
-            // txtAccount
-            // 
-            this.txtAccount.BackColor = System.Drawing.Color.Transparent;
-            this.txtAccount.DownBack = null;
-            this.txtAccount.Icon = null;
-            this.txtAccount.IconIsButton = false;
-            this.txtAccount.IconMouseState = CCWin.SkinClass.ControlState.Normal;
-            this.txtAccount.Location = new System.Drawing.Point(67, 11);
-            this.txtAccount.Margin = new System.Windows.Forms.Padding(0);
-            this.txtAccount.MinimumSize = new System.Drawing.Size(28, 28);
-            this.txtAccount.MouseBack = null;
-            this.txtAccount.MouseState = CCWin.SkinClass.ControlState.Normal;
-            this.txtAccount.Name = "txtAccount";
-            this.txtAccount.NormlBack = null;
-            this.txtAccount.Padding = new System.Windows.Forms.Padding(5);
-            this.txtAccount.Size = new System.Drawing.Size(185, 28);
-            // 
-            // txtAccount.BaseText
-            // 
-            this.txtAccount.SkinTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtAccount.SkinTxt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtAccount.SkinTxt.Font = new System.Drawing.Font("微软雅黑", 9.75F);
-            this.txtAccount.SkinTxt.Location = new System.Drawing.Point(5, 5);
-            this.txtAccount.SkinTxt.Name = "BaseText";
-            this.txtAccount.SkinTxt.Size = new System.Drawing.Size(175, 18);
-            this.txtAccount.SkinTxt.TabIndex = 0;
-            this.txtAccount.SkinTxt.WaterColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
-            this.txtAccount.SkinTxt.WaterText = "";
-            this.txtAccount.TabIndex = 5;
-            // 
             // FrmLogin
             // 
             this.AcceptButton = this.skinButton1;
@@ -164,12 +186,12 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmLogin";
             this.Text = "登录";
+            this.Load += new System.EventHandler(this.FrmLogin_Load);
+            this.Shown += new System.EventHandler(this.FrmLogin_Shown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.txtPassword.ResumeLayout(false);
             this.txtPassword.PerformLayout();
-            this.txtAccount.ResumeLayout(false);
-            this.txtAccount.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -181,6 +203,8 @@
         private CCWin.SkinControl.SkinLabel skinLabel2;
         private CCWin.SkinControl.SkinLabel skinLabel1;
         private CCWin.SkinControl.SkinTextBox txtPassword;
-        private CCWin.SkinControl.SkinTextBox txtAccount;
+        private CCWin.SkinControl.SkinCheckBox chbPassword;
+        private CCWin.SkinControl.SkinCheckBox chbLogin;
+        private CCWin.SkinControl.SkinComboBox skinComboBox1;
     }
 }

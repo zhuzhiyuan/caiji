@@ -35,6 +35,8 @@ namespace Caijiqi
     delegate void AddDataGridRowInvoke(DataGridView gridView,Label txtTotal, object[] row);
     public partial class FrmWebSpy : Form
     {
+        private static List<string> filterKeys = new List<string>();
+
         public FrmWebSpy() {
             InitializeComponent();
             SetStyles();
@@ -67,6 +69,11 @@ namespace Caijiqi
 
         private void btnCaiji_Click(object sender, EventArgs e)
         {
+            if (filterKeys.Count == 0&&chbFilter.Checked)
+            {
+                string keys = Business.Common.Get(Business.Common.AuthUrl + "key/getKeys", Encoding.UTF8, "");
+                filterKeys.AddRange(JsonConvert.DeserializeObject<IEnumerable<string>>(keys));
+            }
             string key = skinTextBox1.SkinTxt.Text;
            
             List<string> param = new List<string>()
@@ -127,7 +134,19 @@ namespace Caijiqi
                             string title = item["title"].ToString();
                             string strText = System.Text.RegularExpressions.Regex.Replace(title, "<[^>]+>", "");
                             strText = System.Text.RegularExpressions.Regex.Replace(strText, "&[^;]+;", "");
-
+                            if (chbFilter.Checked)
+                            {
+                                var next = true;
+                                foreach (var filterKey in filterKeys)
+                                {
+                                    if (strText.Contains(filterKey))
+                                    {
+                                        next = false;
+                                        break;
+                                    }
+                                }
+                                if (!next) continue;
+                            }
                             AddDataGridRow(skinDataGridView4, txtTotal, new object[]
                             {
                                 strText,

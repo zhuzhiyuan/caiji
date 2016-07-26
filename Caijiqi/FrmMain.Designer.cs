@@ -55,6 +55,7 @@ namespace Caijiqi
             this.loadding = new CCWin.SkinControl.ProgressIndicator();
             this.tabPage2 = new CCWin.SkinControl.SkinTabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.lblTs = new CCWin.SkinControl.SkinLabel();
             this.miniToolStrip = new CCWin.SkinControl.SkinToolStrip();
             this.SkinMenu = new CCWin.SkinControl.SkinContextMenuStrip();
@@ -71,6 +72,7 @@ namespace Caijiqi
             this.tool2 = new System.Windows.Forms.ToolStripButton();
             this.tool3 = new System.Windows.Forms.ToolStripButton();
             this.ToolShow = new CCWin.SkinControl.SkinToolStrip();
+            this.tool4 = new System.Windows.Forms.ToolStripButton();
             this.SkinToolMenu = new CCWin.SkinControl.SkinContextMenuStrip();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
@@ -81,8 +83,6 @@ namespace Caijiqi
             this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timColor = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tool4 = new System.Windows.Forms.ToolStripButton();
             this.tabShow.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SkinMenu.SuspendLayout();
@@ -184,6 +184,17 @@ namespace Caijiqi
             this.tabPage3.Tag = "FrmBbx";
             this.tabPage3.Text = "超级复制";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(0, 30);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1188, 578);
+            this.tabPage4.TabIndex = 6;
+            this.tabPage4.Tag = "FrmWebBaba";
+            this.tabPage4.Text = "阿里巴巴";
+            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // lblTs
             // 
@@ -367,6 +378,8 @@ namespace Caijiqi
             // tool1
             // 
             this.tool1.AutoSize = false;
+            this.tool1.Checked = true;
+            this.tool1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.tool1.Image = global::Caijiqi.Properties.Resources.ToolShow_BackgroundImage_Home;
             this.tool1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tool1.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -462,6 +475,17 @@ namespace Caijiqi
             this.ToolShow.TitleRadius = 4;
             this.ToolShow.TitleRadiusStyle = CCWin.SkinClass.RoundStyle.None;
             // 
+            // tool4
+            // 
+            this.tool4.Image = global::Caijiqi.Properties.Resources.ToolShow_BackgroundImage_Caiji;
+            this.tool4.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tool4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tool4.Name = "tool4";
+            this.tool4.Size = new System.Drawing.Size(60, 52);
+            this.tool4.Tag = "3";
+            this.tool4.Text = "阿里巴巴";
+            this.tool4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
             // SkinToolMenu
             // 
             this.SkinToolMenu.Arrow = System.Drawing.Color.Black;
@@ -537,33 +561,11 @@ namespace Caijiqi
             // 
             // panel1
             // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(4, 525);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(4, 28);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1195, 185);
+            this.panel1.Size = new System.Drawing.Size(1195, 682);
             this.panel1.TabIndex = 3;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Location = new System.Drawing.Point(0, 30);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1188, 578);
-            this.tabPage4.TabIndex = 6;
-            this.tabPage4.Tag = "FrmWebBaba";
-            this.tabPage4.Text = "阿里巴巴";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // tool4
-            // 
-            this.tool4.Image = global::Caijiqi.Properties.Resources.ToolShow_BackgroundImage_Caiji;
-            this.tool4.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tool4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tool4.Name = "tool4";
-            this.tool4.Size = new System.Drawing.Size(60, 52);
-            this.tool4.Tag = "3";
-            this.tool4.Text = "阿里巴巴";
-            this.tool4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // FrmMain
             // 

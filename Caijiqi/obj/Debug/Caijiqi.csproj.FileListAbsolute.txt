@@ -45,3 +45,4 @@ D:\Solution\caiji\Caijiqi\obj\Debug\Caijiqi.pdb
 D:\Solution\caiji\Caijiqi\obj\Debug\Caijiqi.csprojResolveAssemblyReference.cache
 E:\Sulotion\caiji\Caijiqi\obj\Debug\Caijiqi.csprojResolveAssemblyReference.cache
 E:\Sulotion\caiji\Caijiqi\obj\Debug\Caijiqi.FrmWebBaba.resources
+D:\Solution\caiji\Caijiqi\obj\Debug\Caijiqi.FrmWebBaba.resources

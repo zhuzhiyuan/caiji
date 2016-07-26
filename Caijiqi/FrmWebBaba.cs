@@ -8,11 +8,13 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 
 namespace Caijiqi
 {
     public partial class FrmWebBaba : Form
     {
+        private static List<string> filterKeys = new List<string>();
         public FrmWebBaba()
         {
             InitializeComponent();
@@ -20,11 +22,12 @@ namespace Caijiqi
         string[] price = { "","0-5.44","5.44-13.4","13.4-21.48","21.48-57.52","52.72-"};
         private void btnCaiji_Click(object sender, EventArgs e)
         {
-            //string url = "https://daixiao.1688.com/daixiao/rpc_async_render.jsonp?" +
-            //    "rpcflag=new&_serviceId_=daixiaoOfferResultViewService&startIndex=0" +
-            //    "&_template_=controls%2Fnew_template%2Fproducts%2Fmarketoffersearch%2Fofferresult%2Fpkg-d%2Fviews%2Fofferresult.vm&" +
-            //    "keywords=" + System.Web.HttpUtility.UrlEncode(skinTextBox1.SkinTxt.Text) + "&enableAsync=true&sug=2_0&asyncCount=20&n=y&async=true&uniqfield=pic_tag_id&token=2336970057&beginPage=" +
-            //    3 + "&_=&_=1469196518914";
+            if (filterKeys.Count == 0 && chbFilter.Checked)
+            {
+                string keys = Business.Common.Get(Business.Common.AuthUrl + "key/getKeys", Encoding.UTF8, "");
+                filterKeys.AddRange(JsonConvert.DeserializeObject<IEnumerable<string>>(keys));
+            }
+
             string url = "https://daixiao.1688.com/daixiao/rpc_async_render.jsonp?rpcflag=new&_serviceId_=daixiaoOfferResultViewService&_template_=controls%2Fnew_template%2Fproducts%2Fmarketoffersearch%2Fofferresult%2Fpkg-d%2Fviews%2Fofferresult.vm&keywords="
             + System.Web.HttpUtility.UrlEncode(skinTextBox1.SkinTxt.Text,Encoding.Default) + "&enableAsync=true&sug=2_0&asyncCount=20&n=y&async=true&uniqfield=pic_tag_id&token=2336970057";
             
@@ -94,11 +97,26 @@ namespace Caijiqi
                                 strText = System.Text.RegularExpressions.Regex.Replace(strText, "&[^;]+;", "");
                                 strText = strText.Replace("\\n", "");
                                 if (!string.IsNullOrEmpty(strText.Trim()))
-                                    AddDataGridRow(skinDataGridView4,txtTotal, new object[]
+                                {
+                                    if (chbFilter.Checked)
+                                    {
+                                        var next = true;
+                                        foreach (var filterKey in filterKeys)
+                                        {
+                                            if (strText.Contains(filterKey))
+                                            {
+                                                next = false;
+                                                break;
+                                            }
+                                        }
+                                        if (!next) continue;
+                                    }
+                                    AddDataGridRow(skinDataGridView4, txtTotal, new object[]
                                     {
                                         strText,
                                         href
                                     });
+                                }
                             }
                         }
                         Thread.Sleep(1000);

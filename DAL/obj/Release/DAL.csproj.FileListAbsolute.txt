@@ -11,3 +11,16 @@ E:\Sulotion\caiji\DAL\bin\Release\ServiceStack.Text.xml
 E:\Sulotion\caiji\DAL\obj\Release\DAL.dll
 E:\Sulotion\caiji\DAL\obj\Release\DAL.pdb
 E:\Sulotion\caiji\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+D:\Solution\caiji\DAL\bin\Release\DAL.dll
+D:\Solution\caiji\DAL\bin\Release\DAL.pdb
+D:\Solution\caiji\DAL\bin\Release\ServiceStack.Common.dll
+D:\Solution\caiji\DAL\bin\Release\ServiceStack.Interfaces.dll
+D:\Solution\caiji\DAL\bin\Release\ServiceStack.OrmLite.dll
+D:\Solution\caiji\DAL\bin\Release\ServiceStack.OrmLite.SqlServer.dll
+D:\Solution\caiji\DAL\bin\Release\ServiceStack.Text.dll
+D:\Solution\caiji\DAL\bin\Release\ServiceStack.Common.xml
+D:\Solution\caiji\DAL\bin\Release\ServiceStack.OrmLite.xml
+D:\Solution\caiji\DAL\bin\Release\ServiceStack.Text.xml
+D:\Solution\caiji\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+D:\Solution\caiji\DAL\obj\Release\DAL.dll
+D:\Solution\caiji\DAL\obj\Release\DAL.pdb
