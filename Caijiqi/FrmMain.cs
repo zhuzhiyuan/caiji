@@ -88,7 +88,7 @@ namespace Caijiqi
                     browser.Dock = DockStyle.Fill;
                     browser.ScriptErrorsSuppressed = true;
                     page.Controls.Add(browser);
-                    browser.Navigate("http://www.alimama.com/");
+                    browser.Navigate("http://www.alimama.com/member/login.htm");
 
                     browser.DocumentCompleted += Browser_DocumentCompleted;
 
@@ -99,16 +99,7 @@ namespace Caijiqi
 
         private void Browser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
-            string cookies = (sender as WebBrowser).Document.Cookie;
-            if (!string.IsNullOrEmpty(cookies))
-            {
-                foreach (var cookie in cookies.Split(';'))
-                {
-                    var cookieArry = cookie.Split('=');
-                    Business.LianMengLogin.LianMengCookie.Add(new Cookie(cookieArry[0], cookieArry[1], "/",
-                        ".alimama.com"));
-                }
-            }
+            Business.LianMengLogin.CookieStr = (sender as WebBrowser).Document.Cookie;
         }
 
         #endregion

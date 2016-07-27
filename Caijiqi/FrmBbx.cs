@@ -62,14 +62,7 @@ namespace Caijiqi
 
         private void Browser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
-            var cookie = (sender as WebBrowser).Document.Cookie;
-            //            MessageBox.Show(cookie);
-            Business.Common.GlobalCookie.SetCookies(e.Url, cookie);
-            if (!e.Url.ToString().Contains("login"))
-            {
-                browser.DocumentCompleted -= Browser_DocumentCompleted;
-                browser.Navigate(Business.Common.CopyUrl);
-            }
+            
         }
     }
 }

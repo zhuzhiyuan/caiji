@@ -9,7 +9,7 @@ namespace Caijiqi.Business
 {
     public static class Common
     {
-        public static CookieContainer GlobalCookie = new CookieContainer();
+        public static string CookieStr = string.Empty;
 
         public readonly static string AuthUrl = "http://caijiqi.jywebs.com/api/";
 
@@ -24,17 +24,23 @@ namespace Caijiqi.Business
             HttpWebResponse response = null;
             try
             {
-                request = (HttpWebRequest) WebRequest.Create(url);
-                request.ContentType = "application/json;";
+                CookieStr = LianMengLogin.GetCookies(url);
+                request = (HttpWebRequest)WebRequest.Create(url);
+                request.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8";
+                request.ContentType = "application/json;chatset=UTF-8";
                 request.Method = "GET";
-                request.CookieContainer = GlobalCookie;
+                request.Headers.Add("Cookie", CookieStr);
                 request.Referer = referer;
+                request.UserAgent = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36";
 
                 response = (HttpWebResponse) request.GetResponse();
-                response.Cookies = GlobalCookie.GetCookies(request.RequestUri);
-                var reader = new StreamReader(response.GetResponseStream(),encoding);
+                var reader = new StreamReader(response.GetResponseStream(), encoding);
                 result = reader.ReadToEnd();
                 reader.Close();
+            }
+            catch (Exception ex)
+            {
+
             }
             finally
             {
@@ -60,13 +66,15 @@ namespace Caijiqi.Business
             HttpWebResponse response = null;
             try
             {
-                request = (HttpWebRequest) WebRequest.Create(new Uri(url));
-                request.Accept = "text/plain";
-                request.ContentType = "application/json;charset=UTF-8";
+                CookieStr = LianMengLogin.GetCookies(url);
+                request = (HttpWebRequest)WebRequest.Create(url);
+                request.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8";
+                request.ContentType = "application/json;chatset=UTF-8";
                 request.Method = "POST";
+                request.Headers.Add("Cookie", CookieStr);
+                request.Referer = url;
+                request.UserAgent = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36";
                 request.ContentLength = json.Length;
-
-                request.CookieContainer = GlobalCookie;
 
                 var myStreamWriter = new StreamWriter(request.GetRequestStream());
                 myStreamWriter.Write(json);
@@ -75,6 +83,10 @@ namespace Caijiqi.Business
                 var reader = new StreamReader(response.GetResponseStream());
                 result = reader.ReadToEnd();
                 reader.Close();
+
+            }
+            catch (Exception ex)
+            {
 
             }
             finally
@@ -91,6 +103,23 @@ namespace Caijiqi.Business
                 }
             }
             return result;
+        }
+
+        public static string GetIP()
+        {
+            string strUrl = "http://city.ip138.com/ip2city.asp"; //获得IP的网址了
+
+            string all = Get(strUrl, Encoding.UTF8, strUrl);
+            if (!string.IsNullOrEmpty(all))
+            {
+                int start = all.IndexOf("[") + 1;
+                int end = all.IndexOf("]", start);
+                return all.Substring(start, end - start);
+            }
+            else
+            {
+                return "127.0.0.1";
+            }
         }
     }
 }
