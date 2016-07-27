@@ -95,6 +95,8 @@ namespace Caijiqi
 
         void Login()
         {
+            skinButton1.Text = "登录中...";
+            skinButton1.Enabled = false;
             string account = skinComboBox1.Text;
             string password = txtPassword.SkinTxt.Text;
             if (string.IsNullOrEmpty(account))
@@ -146,8 +148,9 @@ namespace Caijiqi
                         MessageBox.Show("登陆失败");
                     }
                 }
-
             }
+            skinButton1.Enabled = true;
+            skinButton1.Text = "登录";
         }
 
         private void skinComboBox1_SelectedValueChanged(object sender, EventArgs e)
