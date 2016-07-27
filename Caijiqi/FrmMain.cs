@@ -99,8 +99,18 @@ namespace Caijiqi
 
         private void Browser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
-            
+            string cookies = (sender as WebBrowser).Document.Cookie;
+            if (!string.IsNullOrEmpty(cookies))
+            {
+                foreach (var cookie in cookies.Split(';'))
+                {
+                    var cookieArry = cookie.Split('=');
+                    Business.LianMengLogin.LianMengCookie.Add(new Cookie(cookieArry[0], cookieArry[1], "/",
+                        ".alimama.com"));
+                }
+            }
         }
+
         #endregion
 
         #region 画窗体边框

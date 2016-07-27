@@ -66,11 +66,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business\LianMengLogin.cs" />
     <Compile Include="FrmBbx.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmBbx.Designer.cs">
       <DependentUpon>FrmBbx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLinkConvert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLinkConvert.Designer.cs">
+      <DependentUpon>FrmLinkConvert.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
@@ -107,6 +114,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmBbx.resx">
       <DependentUpon>FrmBbx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLinkConvert.resx">
+      <DependentUpon>FrmLinkConvert.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>

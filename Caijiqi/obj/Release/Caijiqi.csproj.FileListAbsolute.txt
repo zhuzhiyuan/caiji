@@ -14,3 +14,5 @@ D:\Solution\caiji\Caijiqi\obj\Release\Caijiqi.csproj.GenerateResource.Cache
 D:\Solution\caiji\Caijiqi\obj\Release\Caijiqi.exe
 D:\Solution\caiji\Caijiqi\obj\Release\Caijiqi.pdb
 D:\Solution\caiji\Caijiqi\obj\Release\Caijiqi.FrmUpdatePassword.resources
+D:\Solution\caiji\Caijiqi\obj\Release\Caijiqi.csprojResolveAssemblyReference.cache
+D:\Solution\caiji\Caijiqi\obj\Release\Caijiqi.FrmLinkConvert.resources
