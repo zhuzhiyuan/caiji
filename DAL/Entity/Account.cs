@@ -14,7 +14,8 @@ namespace DAL.Entity
         public int AutoId { get; set; }
         public string MobilePhone { get; set; }
         public string Password { get; set; }
-
+        public string CPUID { get; set; }
+        public string HDID { get; set; }
         public int? Status { get; set; }
 
         private DateTime? updateTime;

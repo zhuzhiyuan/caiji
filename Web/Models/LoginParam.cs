@@ -9,5 +9,7 @@ namespace Web.Models
     {
         public string Account;
         public string Password;
+        public string CPUID;
+        public string HDID;
     }
 }

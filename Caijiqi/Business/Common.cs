@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
+using System.Management;
 using System.Text;
 using System.Net;
 
@@ -83,6 +84,40 @@ namespace Caijiqi.Business
             myStreamWriter.Write(json);
             myStreamWriter.Close();
             return Request(request, url,Encoding.Default, json);
+        }
+
+
+        /**/
+        ///  <summary>   
+        /// 获取cpu序列号     
+        ///  </summary>   
+        ///  <returns>string </returns>   
+        public static string GetCpuInfo()
+        {
+            string cpuInfo = "";
+            ManagementClass cimobject = new ManagementClass("Win32_Processor");
+            ManagementObjectCollection moc = cimobject.GetInstances();
+            foreach (ManagementObject mo in moc)
+            {
+                cpuInfo = mo.Properties["ProcessorId"].Value.ToString();
+            }
+            return cpuInfo;
+        }
+
+        /**////  <summary>   
+            /// 获取硬盘ID     
+            ///  </summary>   
+            ///  <returns>string </returns>   
+        public static string GetHDid()
+        {
+            string HDid = "";
+            ManagementClass cimobject1 = new ManagementClass("Win32_DiskDrive");
+            ManagementObjectCollection moc1 = cimobject1.GetInstances();
+            foreach (ManagementObject mo in moc1)
+            {
+                HDid = (string)mo.Properties["Model"].Value;
+            }
+            return HDid;
         }
     }
 }

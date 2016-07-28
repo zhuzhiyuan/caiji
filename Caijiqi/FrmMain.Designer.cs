@@ -57,6 +57,7 @@ namespace Caijiqi
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
             this.lblTs = new CCWin.SkinControl.SkinLabel();
             this.miniToolStrip = new CCWin.SkinControl.SkinToolStrip();
             this.SkinMenu = new CCWin.SkinControl.SkinContextMenuStrip();
@@ -75,6 +76,7 @@ namespace Caijiqi
             this.ToolShow = new CCWin.SkinControl.SkinToolStrip();
             this.tool4 = new System.Windows.Forms.ToolStripButton();
             this.tool5 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.SkinToolMenu = new CCWin.SkinControl.SkinContextMenuStrip();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
@@ -85,8 +87,6 @@ namespace Caijiqi
             this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timColor = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.tabShow.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SkinMenu.SuspendLayout();
@@ -143,7 +143,7 @@ namespace Caijiqi
             this.tabShow.PageNorml = null;
             this.tabShow.SelectedIndex = 0;
             this.tabShow.ShowToolTips = true;
-            this.tabShow.Size = new System.Drawing.Size(1188, 608);
+            this.tabShow.Size = new System.Drawing.Size(885, 494);
             this.tabShow.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabShow.TabIndex = 2;
             this.tabShow.SelectedIndexChanged += new System.EventHandler(this.tabShow_SelectedIndexChanged);
@@ -155,7 +155,7 @@ namespace Caijiqi
             this.tabPage1.Location = new System.Drawing.Point(0, 30);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(1188, 578);
+            this.tabPage1.Size = new System.Drawing.Size(885, 464);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "主页";
             // 
@@ -213,6 +213,17 @@ namespace Caijiqi
             this.tabPage5.Text = "修改密码";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // tabPage6
+            // 
+            this.tabPage6.Location = new System.Drawing.Point(0, 30);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(1188, 578);
+            this.tabPage6.TabIndex = 8;
+            this.tabPage6.Tag = "FrmLinkConvert";
+            this.tabPage6.Text = "生成短链";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
             // lblTs
             // 
             this.lblTs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -221,7 +232,7 @@ namespace Caijiqi
             this.lblTs.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblTs.Font = new System.Drawing.Font("微软雅黑", 10F);
             this.lblTs.ForeColor = System.Drawing.Color.White;
-            this.lblTs.Location = new System.Drawing.Point(5, 693);
+            this.lblTs.Location = new System.Drawing.Point(5, 579);
             this.lblTs.Name = "lblTs";
             this.lblTs.Size = new System.Drawing.Size(107, 20);
             this.lblTs.TabIndex = 2;
@@ -395,6 +406,8 @@ namespace Caijiqi
             // tool1
             // 
             this.tool1.AutoSize = false;
+            this.tool1.Checked = true;
+            this.tool1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.tool1.Image = global::Caijiqi.Properties.Resources.ToolShow_BackgroundImage_Home;
             this.tool1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tool1.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -514,6 +527,17 @@ namespace Caijiqi
             this.tool5.Text = "修改密码";
             this.tool5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.Image = global::Caijiqi.Properties.Resources.ImgPer;
+            this.toolStripButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(60, 52);
+            this.toolStripButton1.Tag = "5";
+            this.toolStripButton1.Text = "生成短链";
+            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
             // SkinToolMenu
             // 
             this.SkinToolMenu.Arrow = System.Drawing.Color.Black;
@@ -589,33 +613,11 @@ namespace Caijiqi
             // 
             // panel1
             // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(4, 563);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(4, 28);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1195, 147);
+            this.panel1.Size = new System.Drawing.Size(892, 568);
             this.panel1.TabIndex = 3;
-            // 
-            // tabPage6
-            // 
-            this.tabPage6.Location = new System.Drawing.Point(0, 30);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(1188, 578);
-            this.tabPage6.TabIndex = 8;
-            this.tabPage6.Tag = "FrmLinkConvert";
-            this.tabPage6.Text = "生成短链";
-            this.tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.Image = global::Caijiqi.Properties.Resources.ImgPer;
-            this.toolStripButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(60, 52);
-            this.toolStripButton1.Tag = "5";
-            this.toolStripButton1.Text = "生成短链";
-            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // FrmMain
             // 
@@ -626,7 +628,7 @@ namespace Caijiqi
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BorderPalace = ((System.Drawing.Image)(resources.GetObject("$this.BorderPalace")));
             this.CaptionFont = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ClientSize = new System.Drawing.Size(1203, 714);
+            this.ClientSize = new System.Drawing.Size(900, 600);
             this.CloseBoxSize = new System.Drawing.Size(39, 20);
             this.CloseDownBack = ((System.Drawing.Image)(resources.GetObject("$this.CloseDownBack")));
             this.CloseMouseBack = ((System.Drawing.Image)(resources.GetObject("$this.CloseMouseBack")));
@@ -656,18 +658,18 @@ namespace Caijiqi
             this.ShadowPalace = ((System.Drawing.Image)(resources.GetObject("$this.ShadowPalace")));
             this.ShowSystemMenu = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            cmSysButton1.Bounds = new System.Drawing.Rectangle(1080, -1, 28, 20);
+            cmSysButton1.Bounds = new System.Drawing.Rectangle(777, -1, 28, 20);
             cmSysButton1.BoxState = CCWin.ControlBoxState.Normal;
-            cmSysButton1.Location = new System.Drawing.Point(1080, -1);
+            cmSysButton1.Location = new System.Drawing.Point(777, -1);
             cmSysButton1.Name = "ToolSet";
             cmSysButton1.OwnerForm = this;
             cmSysButton1.SysButtonDown = ((System.Drawing.Image)(resources.GetObject("cmSysButton1.SysButtonDown")));
             cmSysButton1.SysButtonMouse = ((System.Drawing.Image)(resources.GetObject("cmSysButton1.SysButtonMouse")));
             cmSysButton1.SysButtonNorml = ((System.Drawing.Image)(resources.GetObject("cmSysButton1.SysButtonNorml")));
             cmSysButton1.ToolTip = "设置";
-            cmSysButton2.Bounds = new System.Drawing.Rectangle(1052, -1, 28, 20);
+            cmSysButton2.Bounds = new System.Drawing.Rectangle(749, -1, 28, 20);
             cmSysButton2.BoxState = CCWin.ControlBoxState.Normal;
-            cmSysButton2.Location = new System.Drawing.Point(1052, -1);
+            cmSysButton2.Location = new System.Drawing.Point(749, -1);
             cmSysButton2.Name = "ToolSkin";
             cmSysButton2.OwnerForm = this;
             cmSysButton2.SysButtonDown = ((System.Drawing.Image)(resources.GetObject("cmSysButton2.SysButtonDown")));

@@ -21,6 +21,5 @@ D:\Solution\caiji\DAL\bin\Release\ServiceStack.Text.dll
 D:\Solution\caiji\DAL\bin\Release\ServiceStack.Common.xml
 D:\Solution\caiji\DAL\bin\Release\ServiceStack.OrmLite.xml
 D:\Solution\caiji\DAL\bin\Release\ServiceStack.Text.xml
-D:\Solution\caiji\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
 D:\Solution\caiji\DAL\obj\Release\DAL.dll
 D:\Solution\caiji\DAL\obj\Release\DAL.pdb

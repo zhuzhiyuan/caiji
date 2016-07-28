@@ -25,19 +25,25 @@ namespace Caijiqi
         }
 
         private void btnPaste_Click(object sender, EventArgs e)
-        { 
-
+        {
+            IDataObject iData = Clipboard.GetDataObject();
+            if (iData.GetDataPresent(DataFormats.Text))
+            {
+                rTxtBefore.Text = (String)iData.GetData(DataFormats.Text);
+            }
         }
 
         private void btnConvert_Click(object sender, EventArgs e)
         {
-            JObject item = Convert(rTxtBefore.Text);
-            if (item == null)
+            try
             {
-                MessageBox.Show("没有找到商品");
-            }
-            skinDataGridView4.Rows.Add(new object[]
-            {
+                JObject item = Convert(rTxtBefore.Text);
+                if (item == null)
+                {
+                    MessageBox.Show("没有找到商品");
+                }
+                skinDataGridView4.Rows.Add(new object[]
+                {
                 item["title"].ToString()+"【"+item["nick"]+"】",
                 item["zkRate"].ToString(),
                 item["zkPrice"].ToString(),
@@ -47,9 +53,17 @@ namespace Caijiqi
                 item["totalFee"].ToString(),
                 item["auctionUrl"].ToString(),
                 item["shortLinkUrl"].ToString()
-            });
+                });
+            }
+            catch (Newtonsoft.Json.JsonReaderException ex)
+            {
+                MessageBox.Show("连接转换服务，需要先到首页登录阿里妈妈");
+            }
+            
+           
         }
 
+        #region Convert
 
         private JObject Convert(string fromUrl)
         {
@@ -169,6 +183,8 @@ namespace Caijiqi
             return null;
         }
 
+        #endregion
+
         private void skinDataGridView4_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             var cell = (sender as DataGridView).Rows[e.RowIndex].Cells[e.ColumnIndex];
@@ -176,6 +192,16 @@ namespace Caijiqi
             {
                 System.Diagnostics.Process.Start(cell.Value.ToString());
             }
+        }
+
+        private void btnCopy_Click(object sender, EventArgs e)
+        {
+            if (skinDataGridView4.Rows.Count > 0)
+            {
+                Clipboard.SetDataObject(skinDataGridView4.Rows[0].Cells["Url"].Value);
+                MessageBox.Show("复制成功");
+            }
+
         }
     }
 }

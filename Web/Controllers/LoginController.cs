@@ -22,7 +22,19 @@ namespace Web.Controllers
             {
                 if (acc.Password == account.Password)
                 {
-                    return (int) LoginStatus.Success;
+                    if (string.IsNullOrEmpty(acc.CPUID) || string.IsNullOrEmpty(acc.HDID))
+                    {
+                        DAL.Provider.AccountProvider.Instance.UpdateUserCPUIDAndHDID(account.Account, account.CPUID,
+                            account.HDID);
+                        return (int)LoginStatus.Success;
+                    }
+
+                    if (string.Equals(acc.CPUID, account.CPUID) || string.Equals(acc.HDID, account.HDID))
+                    {
+                        return (int) LoginStatus.Success;
+                    }
+
+                    return (int) LoginStatus.IDError;
                 }
                 return (int) LoginStatus.PasswordError;
             }
@@ -78,7 +90,8 @@ namespace Web.Controllers
     {
         Filed = 10000,
         Success =10001,
-        PasswordError=10002
+        PasswordError=10002,
+        IDError=10003
     }
    
 }

@@ -109,7 +109,15 @@ namespace Caijiqi
             }
             else
             {
-                var obj = JsonConvert.SerializeObject(new { Account = account, Password = password });
+                var obj =
+                    JsonConvert.SerializeObject(
+                        new
+                        {
+                            Account = account,
+                            Password = password,
+                            CPUID = Business.Common.GetCpuInfo(),
+                            HDID = Business.Common.GetHDid()
+                        });
                 string result = Business.Common.PostJson(Business.Common.AuthUrl + "login/login", obj);
                 if (!string.IsNullOrEmpty(result))
                 {
@@ -118,6 +126,8 @@ namespace Caijiqi
                     {
                         Business.Common.LoginAccount = account;
                         this.Parent.Hide();
+                        this.Width = 1100;
+                        this.Height = 700;
                         var loginAccount = new LoginAccount();
                         loginAccount.Acount = account;
 
@@ -145,6 +155,9 @@ namespace Caijiqi
 
                         string ip = Business.Common.GetText(Business.Common.AuthUrl + "login/getIp", Encoding.UTF8);
                         Business.Common.IP = ip.Replace("\"", "");
+                    }else if (status == LoginStatus.IDError)
+                    {
+                        MessageBox.Show("本软件只能在同一台电脑上登录");
                     }
                     else
                     {
@@ -172,8 +185,6 @@ namespace Caijiqi
             {
                 if (accounts[accounts.Count - 1].AutoLogin)
                 {
-                    skinButton1.Text = "自动登录中...";
-                    skinButton1.Enabled = false;
                     Login();
                 }
             }
@@ -217,6 +228,7 @@ namespace Caijiqi
     {
         Filed = 10000,
         Success = 10001,
-        PasswordError = 10002
+        PasswordError = 10002,
+        IDError=10003
     }
 }

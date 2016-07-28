@@ -71,6 +71,20 @@ namespace DAL.Provider
             return status > 0;
         }
         /// <summary>
+        /// 修改绑定的硬盘ID
+        /// </summary>
+        /// <param name="mobilePhone"></param>
+        /// <param name="cPUID"></param>
+        /// <param name="hDID"></param>
+        /// <returns></returns>
+        public bool UpdateUserCPUIDAndHDID(string mobilePhone, string cPUID, string hDID)
+        {
+            var status = this.Update(new {CPUID = cPUID, HDID = hDID, UpdateTime = DateTime.Now},
+                m => m.MobilePhone == mobilePhone);
+            return status > 0;
+        }
+
+        /// <summary>
         /// 按照手机号码更新密码
         /// </summary>
         /// <param name="mobilePhone"></param>
