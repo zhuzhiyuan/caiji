@@ -605,8 +605,8 @@ namespace Caijiqi
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Back = ((System.Drawing.Image)(resources.GetObject("$this.Back")));
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(32)))), ((int)(((byte)(77)))));
+            this.Back = global::Caijiqi.Properties.Resources.main_10;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(133)))), ((int)(((byte)(108)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BorderPalace = ((System.Drawing.Image)(resources.GetObject("$this.BorderPalace")));
             this.CaptionFont = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));

@@ -59,12 +59,12 @@
             // 
             // skinComboBox1
             // 
-            this.skinComboBox1.ArrowColor = System.Drawing.Color.White;
+            this.skinComboBox1.ArrowColor = System.Drawing.Color.Gray;
             this.skinComboBox1.BaseColor = System.Drawing.Color.Transparent;
             this.skinComboBox1.BorderColor = System.Drawing.Color.Transparent;
             this.skinComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.skinComboBox1.FormattingEnabled = true;
-            this.skinComboBox1.ItemBorderColor = System.Drawing.Color.Transparent;
+            this.skinComboBox1.ItemBorderColor = System.Drawing.Color.DarkGray;
             this.skinComboBox1.ItemHoverForeColor = System.Drawing.Color.Transparent;
             this.skinComboBox1.Location = new System.Drawing.Point(67, 17);
             this.skinComboBox1.MouseColor = System.Drawing.Color.Transparent;
@@ -218,6 +218,7 @@
             this.Name = "FrmLogin";
             this.ShowDrawIcon = false;
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "";
             this.Load += new System.EventHandler(this.FrmLogin_Load);

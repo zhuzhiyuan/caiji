@@ -115,12 +115,10 @@ namespace Caijiqi
             SelectItem = item;
             //如果是0，则是默认皮肤
             if (item.Tag.ToString().Equals("0")) {
-                this.Back = null;
-                this.BackColor = Color.FromArgb(63, 176, 215);
-                this.Opacity = this.SkinOpacity = 1;
+                this.Back = global::Caijiqi.Properties.Resources.main_10;
+                
             } else {
                 //其他皮肤，从程序集资源中提取，并且设置透明度为不透明
-                this.Opacity = this.SkinOpacity = 1;
                 this.Back = ImageObject.GetResBitmap(string.Format("Caijiqi.Skin.{0}.jpg", item.Tag));
             }
         }

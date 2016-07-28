@@ -221,6 +221,7 @@
     <None Include="Resources\btn_close_down.png" />
     <None Include="Resources\btn_close_down1.png" />
     <None Include="Resources\button_login_normal.png" />
+    <None Include="Resources\main_10.jpg" />
     <Content Include="Skin\CSkin.dll" />
     <None Include="Resources\ToolShow.BackgroundImage.Home.png" />
     <None Include="Resources\ToolShow.BackgroundImage.Caiji.png" />
