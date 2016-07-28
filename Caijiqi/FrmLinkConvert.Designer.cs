@@ -38,6 +38,13 @@
             this.btnClear = new CCWin.SkinControl.SkinButton();
             this.btnPaste = new CCWin.SkinControl.SkinButton();
             this.skinDataGridView4 = new CCWin.SkinControl.SkinDataGridView();
+            this.lName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zkRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zkPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.commissionRatePercent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.calCommission = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Link = new System.Windows.Forms.DataGridViewLinkColumn();
             this.Url = new System.Windows.Forms.DataGridViewLinkColumn();
             this.scbTuiGuang = new CCWin.SkinControl.SkinComboBox();
@@ -127,6 +134,13 @@
             this.skinDataGridView4.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.skinDataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.skinDataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.lName,
+            this.zkRate,
+            this.zkPrice,
+            this.commissionRatePercent,
+            this.calCommission,
+            this.totalNum,
+            this.totalFee,
             this.Link,
             this.Url});
             this.skinDataGridView4.ColumnSelectForeColor = System.Drawing.SystemColors.HighlightText;
@@ -172,6 +186,49 @@
             this.skinDataGridView4.TitleBack = null;
             this.skinDataGridView4.TitleBackColorBegin = System.Drawing.Color.White;
             this.skinDataGridView4.TitleBackColorEnd = System.Drawing.SystemColors.Control;
+            this.skinDataGridView4.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.skinDataGridView4_CellClick);
+            // 
+            // lName
+            // 
+            this.lName.HeaderText = "商品名称";
+            this.lName.Name = "lName";
+            this.lName.ReadOnly = true;
+            // 
+            // zkRate
+            // 
+            this.zkRate.HeaderText = "折扣";
+            this.zkRate.Name = "zkRate";
+            this.zkRate.ReadOnly = true;
+            // 
+            // zkPrice
+            // 
+            this.zkPrice.HeaderText = "单价";
+            this.zkPrice.Name = "zkPrice";
+            this.zkPrice.ReadOnly = true;
+            // 
+            // commissionRatePercent
+            // 
+            this.commissionRatePercent.HeaderText = "收入比率";
+            this.commissionRatePercent.Name = "commissionRatePercent";
+            this.commissionRatePercent.ReadOnly = true;
+            // 
+            // calCommission
+            // 
+            this.calCommission.HeaderText = "佣金";
+            this.calCommission.Name = "calCommission";
+            this.calCommission.ReadOnly = true;
+            // 
+            // totalNum
+            // 
+            this.totalNum.HeaderText = "30天推广量";
+            this.totalNum.Name = "totalNum";
+            this.totalNum.ReadOnly = true;
+            // 
+            // totalFee
+            // 
+            this.totalFee.HeaderText = "30天支出佣金";
+            this.totalFee.Name = "totalFee";
+            this.totalFee.ReadOnly = true;
             // 
             // Link
             // 
@@ -225,8 +282,15 @@
         private CCWin.SkinControl.SkinButton btnClear;
         private CCWin.SkinControl.SkinButton btnPaste;
         private CCWin.SkinControl.SkinDataGridView skinDataGridView4;
+        private CCWin.SkinControl.SkinComboBox scbTuiGuang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn zkRate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn zkPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn commissionRatePercent;
+        private System.Windows.Forms.DataGridViewTextBoxColumn calCommission;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalNum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalFee;
         private System.Windows.Forms.DataGridViewLinkColumn Link;
         private System.Windows.Forms.DataGridViewLinkColumn Url;
-        private CCWin.SkinControl.SkinComboBox scbTuiGuang;
     }
 }

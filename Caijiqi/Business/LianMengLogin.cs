@@ -9,7 +9,7 @@ namespace Caijiqi.Business
 {
     public class LianMengLogin
     {
-        public static CookieContainer LianMengCookie = new CookieContainer();
+        public static Dictionary<string, string> Cookies = new Dictionary<string, string>();
         public static string CookieStr = string.Empty;
 
         [DllImport("wininet.dll", CharSet = CharSet.Auto, SetLastError = true)]
@@ -54,6 +54,13 @@ namespace Caijiqi.Business
             try
             {
                 CookieStr = GetCookies("http://www.alimama.com");
+                FillCookies();
+                if (Cookies.ContainsKey("_tb_token_"))
+                {
+                    url += url.Contains("?") ? "&" : "?";
+                    url += "_tb_token_=" + Cookies["_tb_token_"];
+                }
+
                 request = (HttpWebRequest)WebRequest.Create(url);
                 request.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8";
                 request.ContentType = "application/json;chatset=UTF-8";
@@ -94,6 +101,12 @@ namespace Caijiqi.Business
             try
             {
                 CookieStr = GetCookies("http://www.alimama.com");
+                FillCookies();
+                if (Cookies.ContainsKey("_tb_token_"))
+                {
+                    url += url.Contains("?") ? "&" : "?";
+                    url += "_tb_token_=" + Cookies["_tb_token_"];
+                }
                 request = (HttpWebRequest)WebRequest.Create(new Uri(url));
                 request.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8";
                 request.ContentType = "application/json;chatset=UTF-8";
@@ -129,6 +142,28 @@ namespace Caijiqi.Business
                 }
             }
             return result;
+        }
+
+        public static void FillCookies()
+        {
+            if (!string.IsNullOrEmpty(CookieStr))
+            {
+                foreach (var cookieStr in CookieStr.Split(';'))
+                {
+                    var cookieArr = cookieStr.Split('=');
+                    if (cookieArr.Length == 2)
+                    {
+                        if (!Cookies.ContainsKey(cookieArr[0].Trim()))
+                        {
+                            Cookies.Add(cookieArr[0].Trim(), cookieArr[1]);
+                        }
+                        else
+                        {
+                            Cookies[cookieArr[0].Trim()] = cookieArr[1];
+                        }
+                    }
+                }
+            }
         }
     }
 }

@@ -23,14 +23,14 @@ namespace Caijiqi
             if (!string.IsNullOrEmpty(txtOldPassword.SkinTxt.Text) && !string.IsNullOrEmpty(txtNewPassword.SkinTxt.Text)&&!string.IsNullOrEmpty(Business.Common.LoginAccount))
             {
                 var obj = JsonConvert.SerializeObject(new { Account = Business.Common.LoginAccount, Password = txtOldPassword.SkinTxt.Text });
-                string result = Business.Common.Post(Business.Common.AuthUrl + "login/login", obj);
+                string result = Business.Common.PostJson(Business.Common.AuthUrl + "login/login", obj);
                 if (!string.IsNullOrEmpty(result))
                 {
                     var status = (LoginStatus)int.Parse(result);
                     if (status == LoginStatus.Success)
                     {
                         obj = JsonConvert.SerializeObject(new { Account = Business.Common.LoginAccount, OldPassword= txtOldPassword.SkinTxt.Text, NewPassword = txtNewPassword.SkinTxt.Text });
-                        result = Business.Common.Post(Business.Common.AuthUrl + "login/updatePassword", obj);
+                        result = Business.Common.PostJson(Business.Common.AuthUrl + "login/updatePassword", obj);
                         if (!string.IsNullOrEmpty(result))
                         {
                             status = (LoginStatus)int.Parse(result);

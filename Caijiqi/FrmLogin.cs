@@ -110,7 +110,7 @@ namespace Caijiqi
             else
             {
                 var obj = JsonConvert.SerializeObject(new { Account = account, Password = password });
-                string result = Business.Common.Post(Business.Common.AuthUrl + "login/login", obj);
+                string result = Business.Common.PostJson(Business.Common.AuthUrl + "login/login", obj);
                 if (!string.IsNullOrEmpty(result))
                 {
                     var status = (LoginStatus)int.Parse(result);
@@ -142,6 +142,9 @@ namespace Caijiqi
                             bf.Serialize(fs, accounts);
                             fs.Close();
                         }
+
+                        string ip = Business.Common.GetText(Business.Common.AuthUrl + "login/getIp", Encoding.UTF8);
+                        Business.Common.IP = ip.Replace("\"", "");
                     }
                     else
                     {

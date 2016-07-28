@@ -58,6 +58,14 @@ namespace Web.Controllers
             return DAL.Provider.AccountProvider.Instance.GetAccounts();
         }
         [HttpGet]
+        [Route("getIp")]
+        public string GetIP()
+        {
+            return Request.GetClientIpAddress();
+        }
+
+
+        [HttpGet]
         [Route("test")]
         public string Test()
         {
@@ -71,5 +79,35 @@ namespace Web.Controllers
         Filed = 10000,
         Success =10001,
         PasswordError=10002
+    }
+   
+}
+public static class HttpRequestMessageExtensions
+{
+    private const string HttpContext = "MS_HttpContext";
+
+    public static string GetClientIpAddress(this HttpRequestMessage request)
+    {
+        // Web-hosting. Needs reference to System.Web.dll
+        if (request.Properties.ContainsKey(HttpContext))
+        {
+            dynamic ctx = request.Properties[HttpContext];
+            if (ctx != null)
+            {
+                var clientIP = ctx.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+                ;
+                if (string.IsNullOrEmpty(clientIP))
+                {
+                    clientIP = ctx.Request.ServerVariables["REMOTE_ADDR"];
+                }
+                if (string.IsNullOrEmpty(clientIP))
+                {
+                    clientIP = ctx.Request.UserHostAddress;
+                }
+                return clientIP;
+            }
+        }
+
+        return null;
     }
 }

@@ -71,7 +71,7 @@ namespace Caijiqi
         {
             if (filterKeys.Count == 0&&chbFilter.Checked)
             {
-                string keys = Business.Common.Get(Business.Common.AuthUrl + "key/getKeys", Encoding.UTF8, "");
+                string keys = Business.Common.GetJson(Business.Common.AuthUrl + "key/getKeys", Encoding.UTF8);
                 filterKeys.AddRange(JsonConvert.DeserializeObject<IEnumerable<string>>(keys));
             }
             string key = skinTextBox1.SkinTxt.Text;
@@ -117,10 +117,10 @@ namespace Caijiqi
                 for (int i = 0; i < page; i++)
                 {
                     string time = (DateTime.Now.Ticks/1000).ToString();
-                    getUrl = url + string.Join("&", param.ToArray()) + "&toPage=" + (i + 1) + "&_t=1469242599261" +
+                    getUrl = url + string.Join("&", param.ToArray()) + "&toPage=" + (i + 1) + "&_t=" +DateTime.Now.Ticks/1000+
                              "&t=" + time +
-                             "&pvid=10_101.44.248.122_403_1469242621622";
-                    string response = Business.Common.Get(getUrl, Encoding.UTF8, string.Empty);
+                             "&pvid=10_" + Business.Common.IP + "_403_"+ DateTime.Now.Ticks / 1000;
+                    string response = Business.Common.GetJson(getUrl, Encoding.UTF8);
                     JObject json = JsonConvert.DeserializeObject<JObject>(response);
 
                     JArray pageList = (json["data"] as JObject)["pageList"] as JArray;
@@ -165,6 +165,7 @@ namespace Caijiqi
                     }
                     Thread.Sleep(1000);
                 }
+                AddDataGridRow(skinDataGridView4, txtTotal, null);
                 MessageBox.Show("采集完成");
             });
         }
@@ -178,8 +179,16 @@ namespace Caijiqi
             }
             else
             {
-                gridView.Rows.Add(row);
-                txtTotal.Text = "共采集到" + gridView.Rows.Count + "条结果";
+                if (row == null)
+                {
+                    txtTotal.Text = "采集完成 ， 采集到" + gridView.Rows.Count + "条结果";
+                }
+                else
+                {
+                    gridView.Rows.Add(row);
+                    txtTotal.Text = "正在采集 ， 已经采集到" + gridView.Rows.Count + "条结果";
+                }
+                
             }
         }
 

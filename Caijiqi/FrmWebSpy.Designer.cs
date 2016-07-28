@@ -153,7 +153,7 @@ namespace Caijiqi
             this.skinDataGridView4.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.skinDataGridView4.RowTemplate.Height = 23;
             this.skinDataGridView4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.skinDataGridView4.Size = new System.Drawing.Size(566, 409);
+            this.skinDataGridView4.Size = new System.Drawing.Size(861, 488);
             this.skinDataGridView4.SkinGridColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.skinDataGridView4.TabIndex = 153;
             this.skinDataGridView4.TitleBack = null;
@@ -236,17 +236,16 @@ namespace Caijiqi
             this.skinPanel6.MouseBack = null;
             this.skinPanel6.Name = "skinPanel6";
             this.skinPanel6.NormlBack = null;
-            this.skinPanel6.Size = new System.Drawing.Size(780, 31);
+            this.skinPanel6.Size = new System.Drawing.Size(1075, 31);
             this.skinPanel6.TabIndex = 152;
             // 
             // txtTotal
             // 
-            this.txtTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTotal.AutoSize = true;
             this.txtTotal.BackColor = System.Drawing.Color.Transparent;
             this.txtTotal.BorderColor = System.Drawing.Color.White;
             this.txtTotal.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtTotal.Location = new System.Drawing.Point(410, 6);
+            this.txtTotal.Location = new System.Drawing.Point(379, 9);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(99, 17);
             this.txtTotal.TabIndex = 8;
@@ -259,7 +258,7 @@ namespace Caijiqi
             this.skinLabel12.BackColor = System.Drawing.Color.Transparent;
             this.skinLabel12.BorderColor = System.Drawing.Color.White;
             this.skinLabel12.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.skinLabel12.Location = new System.Drawing.Point(649, 5);
+            this.skinLabel12.Location = new System.Drawing.Point(944, 5);
             this.skinLabel12.Name = "skinLabel12";
             this.skinLabel12.Size = new System.Drawing.Size(20, 17);
             this.skinLabel12.TabIndex = 7;
@@ -273,7 +272,7 @@ namespace Caijiqi
             this.txtOutPutSize.Icon = null;
             this.txtOutPutSize.IconIsButton = false;
             this.txtOutPutSize.IconMouseState = CCWin.SkinClass.ControlState.Normal;
-            this.txtOutPutSize.Location = new System.Drawing.Point(610, 0);
+            this.txtOutPutSize.Location = new System.Drawing.Point(905, 0);
             this.txtOutPutSize.Margin = new System.Windows.Forms.Padding(0);
             this.txtOutPutSize.MinimumSize = new System.Drawing.Size(28, 28);
             this.txtOutPutSize.MouseBack = null;
@@ -304,7 +303,7 @@ namespace Caijiqi
             this.skinLabel7.BackColor = System.Drawing.Color.Transparent;
             this.skinLabel7.BorderColor = System.Drawing.Color.White;
             this.skinLabel7.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.skinLabel7.Location = new System.Drawing.Point(527, 7);
+            this.skinLabel7.Location = new System.Drawing.Point(822, 7);
             this.skinLabel7.Name = "skinLabel7";
             this.skinLabel7.Size = new System.Drawing.Size(80, 17);
             this.skinLabel7.TabIndex = 5;
@@ -316,7 +315,7 @@ namespace Caijiqi
             this.skinButton1.BackColor = System.Drawing.Color.Transparent;
             this.skinButton1.ControlState = CCWin.SkinClass.ControlState.Normal;
             this.skinButton1.DownBack = null;
-            this.skinButton1.Location = new System.Drawing.Point(682, 5);
+            this.skinButton1.Location = new System.Drawing.Point(977, 5);
             this.skinButton1.MouseBack = null;
             this.skinButton1.Name = "skinButton1";
             this.skinButton1.NormlBack = null;
@@ -770,7 +769,7 @@ namespace Caijiqi
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(780, 471);
+            this.ClientSize = new System.Drawing.Size(1075, 550);
             this.Controls.Add(this.chbFilter);
             this.Controls.Add(this.pageSize);
             this.Controls.Add(this.skinLabel14);

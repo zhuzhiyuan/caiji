@@ -24,7 +24,7 @@ namespace Caijiqi
         {
             if (filterKeys.Count == 0 && chbFilter.Checked)
             {
-                string keys = Business.Common.Get(Business.Common.AuthUrl + "key/getKeys", Encoding.UTF8, "");
+                string keys = Business.Common.GetJson(Business.Common.AuthUrl + "key/getKeys", Encoding.UTF8);
                 filterKeys.AddRange(JsonConvert.DeserializeObject<IEnumerable<string>>(keys));
             }
 
@@ -38,7 +38,7 @@ namespace Caijiqi
             }
             if (chxPinZhi.Checked)
             {
-                tagId.Add("10010552");
+                tagId.Add("10006483");
             }
             if (tagId.Count > 0)
             {
@@ -81,7 +81,7 @@ namespace Caijiqi
                         {
                             getUrl += "&pageSource=page&maxPage=100&pageOffset=0";
                         }
-                        string html = Business.Common.Get(getUrl, Encoding.Default, getUrl);
+                        string html = Business.Common.GetJson(getUrl, Encoding.Default);
                         html = html.Replace("\\/", "/").Replace("\\\"", "\"");
                         Regex reg =
                             new Regex(

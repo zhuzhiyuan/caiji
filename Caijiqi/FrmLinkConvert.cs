@@ -25,96 +25,157 @@ namespace Caijiqi
         }
 
         private void btnPaste_Click(object sender, EventArgs e)
-        {
+        { 
 
         }
 
         private void btnConvert_Click(object sender, EventArgs e)
         {
-            string ip = string.Empty;
-            foreach (NetworkInterface netif in NetworkInterface.GetAllNetworkInterfaces())
+            JObject item = Convert(rTxtBefore.Text);
+            if (item == null)
             {
-                //Console.WriteLine("Network Interface: {0}", netif.Name);
-                ip += string.Format("Network Interface: {0}\n", netif.Name);
-                IPInterfaceProperties properties = netif.GetIPProperties();
-                foreach (IPAddress dns in properties.DnsAddresses)
-                    ip += string.Format("\tDNS: {0}\n", dns);
-                foreach (IPAddressInformation anycast in properties.AnycastAddresses)
-                    ip += string.Format("\tAnyCast: {0}\n", anycast.Address);
-                foreach (IPAddressInformation multicast in properties.MulticastAddresses)
-                    ip += string.Format("\tMultiCast: {0}\n", multicast.Address);
-                foreach (IPAddressInformation unicast in properties.UnicastAddresses)
-                    ip += string.Format("\tUniCast: {0}", unicast.Address);
+                MessageBox.Show("没有找到商品");
             }
-            MessageBox.Show(ip);
-            //string ip = Business.Common.GetIP();
-            //string shortUrl = Convert("https://detail.tmall.com/item.htm?id=533919683427");
-            //MessageBox.Show(shortUrl);
+            skinDataGridView4.Rows.Add(new object[]
+            {
+                item["title"].ToString()+"【"+item["nick"]+"】",
+                item["zkRate"].ToString(),
+                item["zkPrice"].ToString(),
+                item["commissionRatePercent"].ToString()+"%",
+                item["calCommission"].ToString(),
+                item["totalNum"].ToString(),
+                item["totalFee"].ToString(),
+                item["auctionUrl"].ToString(),
+                item["shortLinkUrl"].ToString()
+            });
         }
 
 
-        private string Convert(string fromUrl)
+        private JObject Convert(string fromUrl)
         {
+            string auctionid;
+            var page = GetPageList(fromUrl);
+            if (page == null)
+                return null;
 
-            Paste(fromUrl);
-            return GetShort(58974076, 15318418);
-//            var obj = GetautId();
-//            if (obj != null)
-//            {
-//                return GetShort(58974076, 15318418);
-//            }
-//            return null;
-        }
+            var pageList = (page["data"] as JObject)["pagelist"] as JArray;
 
-        private string Paste(string url)
-        {
-            string str = Business.LianMengLogin.Get(
-                "http://suggest.taobao.com/sug?code=utf-8&q=" + System.Web.HttpUtility.UrlEncode(url) +
-                "&_ksTS=1469600002317_9029&callback=jsonp9030&isg=Atvb3JsECPqI9nSYQczJFdVMaj91cvXy2yRrSM0A21rIrM2ON4JJAmpqNLvY&isg2=AoKCUlO%2Fa9qH7hhhJCUJfYGNUpL8P4ZU&isg=AklJl72iemBGOAYCp-pbf-tyWHWTVNMtlWq5cuumqTBWMl9EUeR7mKQkBiF-",
-                Encoding.UTF8, "http://pub.alimama.com/");
-            return string.Empty;
+            if (pageList == null)
+                return null;
+
+            if (pageList.Count == 0)
+                return null;
+            var item = pageList[0] as JObject;
+
+            auctionid = item["auctionId"].ToString();
+
+            var obj = GetTuiGuangList();
+            if (obj == null)
+                return null;
+            var otherAdzones = (obj["data"] as JObject)["otherAdzones"] as JArray;
+
+            if (otherAdzones == null)
+                return null;
+
+            string siteId;
+            string adzoneId ;
+            if (otherAdzones.Count == 0)
+            {
+                MessageBox.Show("请先到网站上添加你的导购推广");
+                return null;
+            }
+            else
+            {
+                var site = (otherAdzones[0] as JObject);
+                siteId = site["id"].ToString();
+                var sub = (site["sub"] as JArray)[0] as JObject;
+                adzoneId = sub["id"].ToString();
+            }
+
+            var shortObj = GetShort(auctionid, adzoneId, siteId);
+            if (shortObj == null)
+            {
+                return null;
+            }
+            string shortLinkUrl = (shortObj["data"] as JObject)["shortLinkUrl"].ToString();
+            item.Add("shortLinkUrl", shortLinkUrl);
+            return item;
         }
 
         private JObject GetPageList(string url)
         {
-            string jsonStr = JsonConvert.SerializeObject(new JObject()
+            var jsonStr = new List<string>()
             {
-                {"q", "url"},
-                {"toPage", 1},
-                {"perPagesize", 40},
-                {"t", DateTime.Now.Ticks/1000},
-                {"pvid", "50_203.156.203.9_1301_1469612842225"}
-            });
-            string response = Business.LianMengLogin.Get("http://pub.alimama.com/pubauc/searchAuctionList.json", Encoding.UTF8,jsonStr);
+                "q=" + System.Web.HttpUtility.UrlEncode(url),
+                "t=" + DateTime.Now.Ticks/1000,
+                "pvid=" + "50_" + Business.Common.IP + "_1301_" + DateTime.Now.Ticks/1000
+            };
+
+            string response =
+                Business.LianMengLogin.Get(
+                    "http://pub.alimama.com/pubauc/searchAuctionList.json?" + string.Join("&", jsonStr.ToArray()),
+                    Encoding.UTF8);
+
+            jsonStr = new List<string>()
+            {
+                "q=" + System.Web.HttpUtility.UrlEncode(url),
+                "toPage=" + 1,
+                "perPagesize=" + 40,
+                "t=" + DateTime.Now.Ticks/1000,
+                "pvid=" + "50_" + Business.Common.IP + "_1301_" + DateTime.Now.Ticks/1000
+            };
+
+            response =
+                Business.LianMengLogin.Get(
+                    "http://pub.alimama.com/pubauc/searchAuctionList.json?" + string.Join("&", jsonStr.ToArray()),
+                    Encoding.UTF8);
             if (!string.IsNullOrEmpty(response))
             {
                 JObject obj = JsonConvert.DeserializeObject<JObject>(response);
                 return obj;
             }
-            return new JObject();
+            return null;
         }
 
 
-        private JArray GetTuiGuangList()
+        private JObject GetTuiGuangList()
         {
-            string response = Business.LianMengLogin.Get("http://pub.alimama.com/common/adzone/newSelfAdzone2.json?tag=29&t=1469611435816&pvid=50_203.156.203.9_368_1469610759773&_tb_token_=AZ4KMTxPGkp&_input_charset=utf-8",Encoding.UTF8);
+            string response =
+                Business.LianMengLogin.Get("http://pub.alimama.com/common/adzone/newSelfAdzone2.json?tag=29&t="
+                                           + DateTime.Now.Ticks/1000 + "&pvid=50_" + Business.Common.IP +
+                                           "_368_" + DateTime.Now.Ticks/1000 + "&_input_charset=utf-8", Encoding.UTF8);
             if (!string.IsNullOrEmpty(response))
             {
                 JObject obj = JsonConvert.DeserializeObject<JObject>(response);
-                return obj["otherAdzones"] as JArray;
+                return obj;
             }
-            return new JArray();
+            return null;
         }
 
-        private string GetShort(int adzoneId, int siteId)
+        private JObject GetShort(string auctionid, string adzoneId, string siteId)
         {
-            string res =
+            string response =
                 Business.LianMengLogin.Get(
-                    "http://pub.alimama.com/common/code/getAuctionCode.json?auctionid=534408918864&adzoneid=" + adzoneId +
+                    "http://pub.alimama.com/common/code/getAuctionCode.json?auctionid=" + auctionid + "&adzoneid=" +
+                    adzoneId +
                     "&siteid=" + siteId + "&t=" + DateTime.Now.Ticks/1000
-                    + "&pvid=50_203.156.203.9_393_1469598718486&_input_charset=utf-8",
+                    + "&pvid=50_" + Business.Common.IP + "_393_" + DateTime.Now.Ticks/1000 + "&_input_charset=utf-8",
                     Encoding.UTF8, "http://pub.alimama.com/");
-            return string.Empty;
+            if (!string.IsNullOrEmpty(response))
+            {
+                JObject obj = JsonConvert.DeserializeObject<JObject>(response);
+                return obj;
+            }
+            return null;
+        }
+
+        private void skinDataGridView4_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var cell = (sender as DataGridView).Rows[e.RowIndex].Cells[e.ColumnIndex];
+            if (cell is DataGridViewLinkCell)
+            {
+                System.Diagnostics.Process.Start(cell.Value.ToString());
+            }
         }
     }
 }
