@@ -46,13 +46,12 @@ namespace Caijiqi
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
-            CCWin.SkinControl.Animation animation1 = new CCWin.SkinControl.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             CCWin.CmSysButton cmSysButton1 = new CCWin.CmSysButton();
             CCWin.CmSysButton cmSysButton2 = new CCWin.CmSysButton();
             this.tabShow = new CCWin.SkinControl.SkinTabControl();
             this.tabPage1 = new CCWin.SkinControl.SkinTabPage();
-            this.loadding = new CCWin.SkinControl.ProgressIndicator();
+            this.loadding = new CCWin.SkinControl.SkinProgressIndicator();
             this.tabPage2 = new CCWin.SkinControl.SkinTabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -86,7 +85,6 @@ namespace Caijiqi
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
             this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timColor = new System.Windows.Forms.Timer(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
             this.tabShow.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SkinMenu.SuspendLayout();
@@ -99,23 +97,6 @@ namespace Caijiqi
             this.tabShow.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            animation1.AnimateOnlyDifferences = true;
-            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
-            animation1.LeafCoeff = 0F;
-            animation1.MaxTime = 1F;
-            animation1.MinTime = 0F;
-            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
-            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
-            animation1.MosaicSize = 0;
-            animation1.Padding = new System.Windows.Forms.Padding(0);
-            animation1.RotateCoeff = 0F;
-            animation1.RotateLimit = 0F;
-            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
-            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
-            animation1.TimeCoeff = 0F;
-            animation1.TransparencyCoeff = 0F;
-            this.tabShow.Animation = animation1;
-            this.tabShow.AnimationStart = false;
             this.tabShow.AnimatorType = CCWin.SkinControl.AnimationType.HorizSlide;
             this.tabShow.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tabShow.CloseRect = new System.Drawing.Rectangle(2, 2, 12, 12);
@@ -152,18 +133,23 @@ namespace Caijiqi
             // 
             this.tabPage1.BackColor = System.Drawing.Color.White;
             this.tabPage1.Controls.Add(this.loadding);
+            this.tabPage1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabPage1.Location = new System.Drawing.Point(0, 30);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Size = new System.Drawing.Size(885, 464);
             this.tabPage1.TabIndex = 0;
+            this.tabPage1.TabItemImage = null;
             this.tabPage1.Text = "主页";
             // 
             // loadding
             // 
+            this.loadding.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.loadding.AutoStart = true;
             this.loadding.BackColor = System.Drawing.Color.Transparent;
-            this.loadding.Location = new System.Drawing.Point(538, 201);
+            this.loadding.Location = new System.Drawing.Point(371, 167);
             this.loadding.Name = "loadding";
             this.loadding.Percentage = 0F;
             this.loadding.Size = new System.Drawing.Size(90, 90);
@@ -172,11 +158,13 @@ namespace Caijiqi
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.White;
+            this.tabPage2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabPage2.Location = new System.Drawing.Point(0, 30);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(1188, 578);
+            this.tabPage2.Size = new System.Drawing.Size(885, 464);
             this.tabPage2.TabIndex = 4;
+            this.tabPage2.TabItemImage = null;
             this.tabPage2.Tag = "FrmWebSpy";
             this.tabPage2.Text = "采集器";
             // 
@@ -185,7 +173,7 @@ namespace Caijiqi
             this.tabPage3.Location = new System.Drawing.Point(0, 30);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1188, 578);
+            this.tabPage3.Size = new System.Drawing.Size(885, 464);
             this.tabPage3.TabIndex = 5;
             this.tabPage3.Tag = "FrmBbx";
             this.tabPage3.Text = "超级复制";
@@ -196,7 +184,7 @@ namespace Caijiqi
             this.tabPage4.Location = new System.Drawing.Point(0, 30);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1188, 578);
+            this.tabPage4.Size = new System.Drawing.Size(885, 464);
             this.tabPage4.TabIndex = 6;
             this.tabPage4.Tag = "FrmWebBaba";
             this.tabPage4.Text = "阿里巴巴";
@@ -207,7 +195,7 @@ namespace Caijiqi
             this.tabPage5.Location = new System.Drawing.Point(0, 30);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1188, 578);
+            this.tabPage5.Size = new System.Drawing.Size(885, 464);
             this.tabPage5.TabIndex = 7;
             this.tabPage5.Tag = "FrmUpdatePassword";
             this.tabPage5.Text = "修改密码";
@@ -218,7 +206,7 @@ namespace Caijiqi
             this.tabPage6.Location = new System.Drawing.Point(0, 30);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(1188, 578);
+            this.tabPage6.Size = new System.Drawing.Size(885, 464);
             this.tabPage6.TabIndex = 8;
             this.tabPage6.Tag = "FrmLinkConvert";
             this.tabPage6.Text = "生成短链";
@@ -408,6 +396,7 @@ namespace Caijiqi
             this.tool1.AutoSize = false;
             this.tool1.Checked = true;
             this.tool1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tool1.ForeColor = System.Drawing.Color.White;
             this.tool1.Image = global::Caijiqi.Properties.Resources.ToolShow_BackgroundImage_Home;
             this.tool1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tool1.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -455,7 +444,7 @@ namespace Caijiqi
             this.ToolShow.BackRadius = 4;
             this.ToolShow.BackRectangle = new System.Drawing.Rectangle(10, 10, 10, 10);
             this.ToolShow.Base = System.Drawing.Color.Transparent;
-            this.ToolShow.BaseFore = System.Drawing.Color.Black;
+            this.ToolShow.BaseFore = System.Drawing.Color.White;
             this.ToolShow.BaseForeAnamorphosis = false;
             this.ToolShow.BaseForeAnamorphosisBorder = 4;
             this.ToolShow.BaseForeAnamorphosisColor = System.Drawing.Color.White;
@@ -475,7 +464,7 @@ namespace Caijiqi
             this.ToolShow.BindTabControl = this.tabShow;
             this.ToolShow.Dock = System.Windows.Forms.DockStyle.None;
             this.ToolShow.DropDownImageSeparator = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-            this.ToolShow.Fore = System.Drawing.Color.Black;
+            this.ToolShow.Fore = System.Drawing.Color.White;
             this.ToolShow.GripMargin = new System.Windows.Forms.Padding(0);
             this.ToolShow.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.ToolShow.HoverFore = System.Drawing.Color.White;
@@ -611,20 +600,13 @@ namespace Caijiqi
             this.退出ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.退出ToolStripMenuItem.Text = "退出";
             // 
-            // panel1
-            // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(4, 28);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(892, 568);
-            this.panel1.TabIndex = 3;
-            // 
             // FrmMain
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(176)))), ((int)(((byte)(215)))));
+            this.Back = ((System.Drawing.Image)(resources.GetObject("$this.Back")));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(32)))), ((int)(((byte)(77)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BorderPalace = ((System.Drawing.Image)(resources.GetObject("$this.BorderPalace")));
             this.CaptionFont = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -634,7 +616,6 @@ namespace Caijiqi
             this.CloseMouseBack = ((System.Drawing.Image)(resources.GetObject("$this.CloseMouseBack")));
             this.CloseNormlBack = ((System.Drawing.Image)(resources.GetObject("$this.CloseNormlBack")));
             this.ControlBoxOffset = new System.Drawing.Point(0, -1);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.tabShow);
             this.Controls.Add(this.lblTs);
             this.Controls.Add(this.ToolShow);
@@ -682,6 +663,7 @@ namespace Caijiqi
             this.Text = "维达科技 采集器";
             this.TitleColor = System.Drawing.Color.White;
             this.SysBottomClick += new CCWin.CCSkinMain.SysBottomEventHandler(this.FrmMain_SysBottomClick);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMain_FormClosed);
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FrmMain_Paint);
             this.tabShow.ResumeLayout(false);
@@ -725,9 +707,8 @@ namespace Caijiqi
         private System.Windows.Forms.Timer timColor;
         public CCWin.SkinControl.SkinLabel lblTs;
         private CCWin.SkinControl.SkinTabPage tabPage1;
-        private CCWin.SkinControl.ProgressIndicator loadding;
+        private CCWin.SkinControl.SkinProgressIndicator loadding;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.ToolStripButton tool4;
         private System.Windows.Forms.ToolStripButton tool5;

@@ -121,6 +121,66 @@ namespace Caijiqi.Properties {
         }
         
         /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_close_down {
+            get {
+                object obj = ResourceManager.GetObject("btn_close_down", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_close_down1 {
+            get {
+                object obj = ResourceManager.GetObject("btn_close_down1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_close_highlight {
+            get {
+                object obj = ResourceManager.GetObject("btn_close_highlight", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_mini_down {
+            get {
+                object obj = ResourceManager.GetObject("btn_mini_down", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_mini_highlight {
+            get {
+                object obj = ResourceManager.GetObject("btn_mini_highlight", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap button_login_normal {
+            get {
+                object obj = ResourceManager.GetObject("button_login_normal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   查找类似于 (Icon) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
         internal static System.Drawing.Icon film {
@@ -176,6 +236,16 @@ namespace Caijiqi.Properties {
         internal static System.Drawing.Bitmap imgXz {
             get {
                 object obj = ResourceManager.GetObject("imgXz", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap main_7 {
+            get {
+                object obj = ResourceManager.GetObject("main_7", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

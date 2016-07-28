@@ -13,7 +13,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Caijiqi
 {
-    public partial class FrmLogin : Form
+    public partial class FrmLogin : CCSkinMain
     {
         public FrmLogin()
         {
@@ -125,9 +125,8 @@ namespace Caijiqi
                     if (status == LoginStatus.Success)
                     {
                         Business.Common.LoginAccount = account;
-                        this.Parent.Hide();
-                        this.Width = 1100;
-                        this.Height = 700;
+                        this.Hide();
+                        new FrmMain().Show();
                         var loginAccount = new LoginAccount();
                         loginAccount.Acount = account;
 

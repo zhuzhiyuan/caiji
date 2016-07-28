@@ -37,13 +37,6 @@ namespace Caijiqi
         private WebBrowser browser;
         public FrmMain() {
             InitializeComponent();
-            //Gecko.Xpcom.Initialize(xulrunnerPath);
-            //启动测试案例1
-            //FrmFileUp frm = new FrmFileUp();
-            //frm.Show();
-            ////启动测试案例2
-            //FrmTest test = new FrmTest();
-            //test.Show();
         }
 
         #region 窗口加载时
@@ -53,18 +46,8 @@ namespace Caijiqi
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void FrmMain_Load(object sender, EventArgs e) {
-            loadding.Hide();
+            
             Assembly asb = Assembly.GetExecutingAssembly();//得到当前的程序集
-            object login = asb.CreateInstance("Caijiqi.FrmLogin", true);
-            if (login != null)
-            {
-                Form loginFrm = (Form)login;
-                loginFrm.Dock = DockStyle.Fill;
-                loginFrm.TopLevel = false;
-                loginFrm.FormBorderStyle = FormBorderStyle.None;
-                loginFrm.Show();
-                panel1.Controls.Add(loginFrm);
-            }
             //存储选中MenuItem
             SelectItem = SkinTool1;
             #region 初始化TabPage内容
@@ -100,6 +83,7 @@ namespace Caijiqi
         private void Browser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
             Business.LianMengLogin.CookieStr = (sender as WebBrowser).Document.Cookie;
+            loadding.Hide();
         }
 
         #endregion
@@ -133,7 +117,7 @@ namespace Caijiqi
             if (item.Tag.ToString().Equals("0")) {
                 this.Back = null;
                 this.BackColor = Color.FromArgb(63, 176, 215);
-                this.Opacity = this.SkinOpacity = 0.9;
+                this.Opacity = this.SkinOpacity = 1;
             } else {
                 //其他皮肤，从程序集资源中提取，并且设置透明度为不透明
                 this.Opacity = this.SkinOpacity = 1;
@@ -163,5 +147,10 @@ namespace Caijiqi
             lblTs.Text = lblTs.Tag.ToString();
         }
         #endregion
+
+        private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
