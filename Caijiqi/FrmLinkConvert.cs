@@ -198,7 +198,11 @@ namespace Caijiqi
         {
             if (skinDataGridView4.Rows.Count > 0)
             {
-                Clipboard.SetDataObject(skinDataGridView4.Rows[0].Cells["Url"].Value);
+                string str = skinDataGridView4.Rows[0].Cells["Url"].Value.ToString();
+                if (!string.IsNullOrEmpty(str))
+                {
+                    Clipboard.SetDataObject(str);
+                }
                 MessageBox.Show("复制成功");
             }
 

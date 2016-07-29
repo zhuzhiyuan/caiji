@@ -29,7 +29,7 @@ namespace Caijiqi
             }
 
             string url = "https://daixiao.1688.com/daixiao/rpc_async_render.jsonp?rpcflag=new&_serviceId_=daixiaoOfferResultViewService&_template_=controls%2Fnew_template%2Fproducts%2Fmarketoffersearch%2Fofferresult%2Fpkg-d%2Fviews%2Fofferresult.vm&keywords="
-            + System.Web.HttpUtility.UrlEncode(skinTextBox1.SkinTxt.Text,Encoding.Default) + "&enableAsync=true&sug=2_0&asyncCount=20&n=y&async=true&uniqfield=pic_tag_id&token=2336970057";
+            + System.Web.HttpUtility.UrlEncode(skinTextBox1.Text,Encoding.Default) + "&enableAsync=true&sug=2_0&asyncCount=20&n=y&async=true&uniqfield=pic_tag_id&token=2336970057";
             
             List<string> tagId=new List<string>();
             if (chxNew.Checked)
@@ -71,7 +71,7 @@ namespace Caijiqi
             ThreadPool.QueueUserWorkItem(delegate(object state)
             {
                 string getUrl;
-                for (int i = 0; i < int.Parse(pageSize.SkinTxt.Text); i++)
+                for (int i = 0; i < int.Parse(pageSize.Text); i++)
                 {
                     for (int j = 0; j < 3; j++)
                     {
@@ -167,7 +167,7 @@ namespace Caijiqi
                         System.IO.StreamWriter sw = new System.IO.StreamWriter(outputFileName, true,
                             System.Text.Encoding.GetEncoding("utf-8")))
                     {
-                        int outputSize = int.Parse(txtOutPutSize.SkinTxt.Text);
+                        int outputSize = int.Parse(txtOutPutSize.Text);
                         for (var i = 0; rowIndex < rows && i < outputSize; rowIndex++, i++)
                         {
                             sw.WriteLine(skinDataGridView4.Rows[rowIndex].Cells["Url"].Value);

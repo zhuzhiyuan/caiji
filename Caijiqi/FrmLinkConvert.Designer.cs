@@ -33,11 +33,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.rTxtBefore = new CCWin.SkinControl.RtfRichTextBox();
-            this.btnConvert = new CCWin.SkinControl.SkinButton();
-            this.btnClear = new CCWin.SkinControl.SkinButton();
-            this.btnPaste = new CCWin.SkinControl.SkinButton();
-            this.skinDataGridView4 = new CCWin.SkinControl.SkinDataGridView();
+            this.rTxtBefore = new System.Windows.Forms.RichTextBox();
+            this.btnConvert = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnPaste = new System.Windows.Forms.Button();
+            this.skinDataGridView4 = new System.Windows.Forms.DataGridView();
             this.lName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.zkRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.zkPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,8 +47,8 @@
             this.totalFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Link = new System.Windows.Forms.DataGridViewLinkColumn();
             this.Url = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.scbTuiGuang = new CCWin.SkinControl.SkinComboBox();
-            this.btnCopy = new CCWin.SkinControl.SkinButton();
+            this.scbTuiGuang = new System.Windows.Forms.ComboBox();
+            this.btnCopy = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.skinDataGridView4)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,23 +56,17 @@
             // 
             this.rTxtBefore.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.rTxtBefore.HiglightColor = CCWin.SkinControl.RtfRichTextBox.RtfColor.White;
             this.rTxtBefore.Location = new System.Drawing.Point(21, 26);
             this.rTxtBefore.Name = "rTxtBefore";
             this.rTxtBefore.Size = new System.Drawing.Size(607, 179);
             this.rTxtBefore.TabIndex = 0;
             this.rTxtBefore.Text = "";
-            this.rTxtBefore.TextColor = CCWin.SkinControl.RtfRichTextBox.RtfColor.Black;
             // 
             // btnConvert
             // 
             this.btnConvert.BackColor = System.Drawing.Color.Transparent;
-            this.btnConvert.ControlState = CCWin.SkinClass.ControlState.Normal;
-            this.btnConvert.DownBack = null;
             this.btnConvert.Location = new System.Drawing.Point(356, 222);
-            this.btnConvert.MouseBack = null;
             this.btnConvert.Name = "btnConvert";
-            this.btnConvert.NormlBack = null;
             this.btnConvert.Size = new System.Drawing.Size(75, 23);
             this.btnConvert.TabIndex = 2;
             this.btnConvert.Text = "转换";
@@ -82,12 +76,8 @@
             // btnClear
             // 
             this.btnClear.BackColor = System.Drawing.Color.Transparent;
-            this.btnClear.ControlState = CCWin.SkinClass.ControlState.Normal;
-            this.btnClear.DownBack = null;
             this.btnClear.Location = new System.Drawing.Point(154, 222);
-            this.btnClear.MouseBack = null;
             this.btnClear.Name = "btnClear";
-            this.btnClear.NormlBack = null;
             this.btnClear.Size = new System.Drawing.Size(75, 23);
             this.btnClear.TabIndex = 3;
             this.btnClear.Text = "清空";
@@ -97,12 +87,8 @@
             // btnPaste
             // 
             this.btnPaste.BackColor = System.Drawing.Color.Transparent;
-            this.btnPaste.ControlState = CCWin.SkinClass.ControlState.Normal;
-            this.btnPaste.DownBack = null;
             this.btnPaste.Location = new System.Drawing.Point(251, 222);
-            this.btnPaste.MouseBack = null;
             this.btnPaste.Name = "btnPaste";
-            this.btnPaste.NormlBack = null;
             this.btnPaste.Size = new System.Drawing.Size(75, 23);
             this.btnPaste.TabIndex = 4;
             this.btnPaste.Text = "粘贴";
@@ -113,7 +99,6 @@
             // 
             this.skinDataGridView4.AllowUserToDeleteRows = false;
             this.skinDataGridView4.AllowUserToOrderColumns = true;
-            this.skinDataGridView4.AlternatingCellBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle21.BackColor = System.Drawing.Color.White;
             this.skinDataGridView4.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
             this.skinDataGridView4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -123,7 +108,6 @@
             this.skinDataGridView4.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.skinDataGridView4.BackgroundColor = System.Drawing.SystemColors.Window;
             this.skinDataGridView4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.skinDataGridView4.ColumnFont = null;
             this.skinDataGridView4.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(246)))), ((int)(((byte)(239)))));
@@ -144,7 +128,6 @@
             this.totalFee,
             this.Link,
             this.Url});
-            this.skinDataGridView4.ColumnSelectForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle23.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle23.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -156,11 +139,10 @@
             this.skinDataGridView4.EnableHeadersVisualStyles = false;
             this.skinDataGridView4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.skinDataGridView4.GridColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.skinDataGridView4.HeadFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.skinDataGridView4.HeadSelectForeColor = System.Drawing.SystemColors.HighlightText;
+           
             this.skinDataGridView4.Location = new System.Drawing.Point(21, 282);
             this.skinDataGridView4.Margin = new System.Windows.Forms.Padding(10);
-            this.skinDataGridView4.MouseCellBackColor = System.Drawing.Color.White;
+            
             this.skinDataGridView4.MultiSelect = false;
             this.skinDataGridView4.Name = "skinDataGridView4";
             this.skinDataGridView4.ReadOnly = true;
@@ -182,11 +164,7 @@
             this.skinDataGridView4.RowTemplate.Height = 23;
             this.skinDataGridView4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.skinDataGridView4.Size = new System.Drawing.Size(607, 227);
-            this.skinDataGridView4.SkinGridColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.skinDataGridView4.TabIndex = 181;
-            this.skinDataGridView4.TitleBack = null;
-            this.skinDataGridView4.TitleBackColorBegin = System.Drawing.Color.White;
-            this.skinDataGridView4.TitleBackColorEnd = System.Drawing.SystemColors.Control;
             this.skinDataGridView4.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.skinDataGridView4_CellClick);
             // 
             // lName
@@ -255,17 +233,12 @@
             this.scbTuiGuang.Name = "scbTuiGuang";
             this.scbTuiGuang.Size = new System.Drawing.Size(121, 22);
             this.scbTuiGuang.TabIndex = 182;
-            this.scbTuiGuang.WaterText = "";
             // 
             // btnCopy
             // 
             this.btnCopy.BackColor = System.Drawing.Color.Transparent;
-            this.btnCopy.ControlState = CCWin.SkinClass.ControlState.Normal;
-            this.btnCopy.DownBack = null;
             this.btnCopy.Location = new System.Drawing.Point(470, 222);
-            this.btnCopy.MouseBack = null;
             this.btnCopy.Name = "btnCopy";
-            this.btnCopy.NormlBack = null;
             this.btnCopy.Size = new System.Drawing.Size(75, 23);
             this.btnCopy.TabIndex = 183;
             this.btnCopy.Text = "复制短链接";
@@ -294,12 +267,12 @@
 
         #endregion
 
-        private CCWin.SkinControl.RtfRichTextBox rTxtBefore;
-        private CCWin.SkinControl.SkinButton btnConvert;
-        private CCWin.SkinControl.SkinButton btnClear;
-        private CCWin.SkinControl.SkinButton btnPaste;
-        private CCWin.SkinControl.SkinDataGridView skinDataGridView4;
-        private CCWin.SkinControl.SkinComboBox scbTuiGuang;
+        private System.Windows.Forms.RichTextBox rTxtBefore;
+        private System.Windows.Forms.Button btnConvert;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnPaste;
+        private System.Windows.Forms.DataGridView skinDataGridView4;
+        private System.Windows.Forms.ComboBox scbTuiGuang;
         private System.Windows.Forms.DataGridViewTextBoxColumn lName;
         private System.Windows.Forms.DataGridViewTextBoxColumn zkRate;
         private System.Windows.Forms.DataGridViewTextBoxColumn zkPrice;
@@ -309,6 +282,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn totalFee;
         private System.Windows.Forms.DataGridViewLinkColumn Link;
         private System.Windows.Forms.DataGridViewLinkColumn Url;
-        private CCWin.SkinControl.SkinButton btnCopy;
+        private System.Windows.Forms.Button btnCopy;
     }
 }

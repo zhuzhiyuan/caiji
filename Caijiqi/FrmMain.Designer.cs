@@ -47,19 +47,9 @@ namespace Caijiqi
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
-            CCWin.CmSysButton cmSysButton1 = new CCWin.CmSysButton();
-            CCWin.CmSysButton cmSysButton2 = new CCWin.CmSysButton();
-            this.tabShow = new CCWin.SkinControl.SkinTabControl();
-            this.tabPage1 = new CCWin.SkinControl.SkinTabPage();
-            this.loadding = new CCWin.SkinControl.SkinProgressIndicator();
-            this.tabPage2 = new CCWin.SkinControl.SkinTabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.lblTs = new CCWin.SkinControl.SkinLabel();
-            this.miniToolStrip = new CCWin.SkinControl.SkinToolStrip();
-            this.SkinMenu = new CCWin.SkinControl.SkinContextMenuStrip();
+            this.lblTs = new System.Windows.Forms.Label();
+            this.miniToolStrip = new System.Windows.Forms.ToolStrip();
+            this.SkinMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.SkinTool1 = new System.Windows.Forms.ToolStripMenuItem();
             this.SkinTool2 = new System.Windows.Forms.ToolStripMenuItem();
             this.SkinTool3 = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,11 +62,11 @@ namespace Caijiqi
             this.tool1 = new System.Windows.Forms.ToolStripButton();
             this.tool2 = new System.Windows.Forms.ToolStripButton();
             this.tool3 = new System.Windows.Forms.ToolStripButton();
-            this.ToolShow = new CCWin.SkinControl.SkinToolStrip();
+            this.ToolShow = new System.Windows.Forms.ToolStrip();
             this.tool4 = new System.Windows.Forms.ToolStripButton();
             this.tool5 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.SkinToolMenu = new CCWin.SkinControl.SkinContextMenuStrip();
+            this.tool6 = new System.Windows.Forms.ToolStripButton();
+            this.SkinToolMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.窗口置顶ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -85,139 +75,17 @@ namespace Caijiqi
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
             this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timColor = new System.Windows.Forms.Timer(this.components);
-            this.tabShow.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tabShow = new Caijiqi.Controls.MultiPagePanel();
             this.SkinMenu.SuspendLayout();
             this.ToolShow.SuspendLayout();
             this.SkinToolMenu.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // tabShow
-            // 
-            this.tabShow.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabShow.AnimatorType = CCWin.SkinControl.AnimationType.HorizSlide;
-            this.tabShow.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tabShow.CloseRect = new System.Drawing.Rectangle(2, 2, 12, 12);
-            this.tabShow.Controls.Add(this.tabPage1);
-            this.tabShow.Controls.Add(this.tabPage2);
-            this.tabShow.Controls.Add(this.tabPage3);
-            this.tabShow.Controls.Add(this.tabPage4);
-            this.tabShow.Controls.Add(this.tabPage5);
-            this.tabShow.Controls.Add(this.tabPage6);
-            this.tabShow.DrawType = CCWin.SkinControl.DrawStyle.Draw;
-            this.tabShow.HeadBack = null;
-            this.tabShow.ImgTxtOffset = new System.Drawing.Point(0, 0);
-            this.tabShow.Interval = 5;
-            this.tabShow.ItemSize = new System.Drawing.Size(68, 30);
-            this.tabShow.Location = new System.Drawing.Point(9, 85);
-            this.tabShow.Margin = new System.Windows.Forms.Padding(0);
-            this.tabShow.Name = "tabShow";
-            this.tabShow.PageArrowDown = ((System.Drawing.Image)(resources.GetObject("tabShow.PageArrowDown")));
-            this.tabShow.PageArrowHover = ((System.Drawing.Image)(resources.GetObject("tabShow.PageArrowHover")));
-            this.tabShow.PageCloseHover = ((System.Drawing.Image)(resources.GetObject("tabShow.PageCloseHover")));
-            this.tabShow.PageCloseNormal = ((System.Drawing.Image)(resources.GetObject("tabShow.PageCloseNormal")));
-            this.tabShow.PageDown = ((System.Drawing.Image)(resources.GetObject("tabShow.PageDown")));
-            this.tabShow.PageHover = ((System.Drawing.Image)(resources.GetObject("tabShow.PageHover")));
-            this.tabShow.PageImagePosition = CCWin.SkinControl.SkinTabControl.ePageImagePosition.Left;
-            this.tabShow.PageNorml = null;
-            this.tabShow.SelectedIndex = 0;
-            this.tabShow.ShowToolTips = true;
-            this.tabShow.Size = new System.Drawing.Size(885, 494);
-            this.tabShow.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.tabShow.TabIndex = 2;
-            this.tabShow.SelectedIndexChanged += new System.EventHandler(this.tabShow_SelectedIndexChanged);
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.BackColor = System.Drawing.Color.White;
-            this.tabPage1.Controls.Add(this.loadding);
-            this.tabPage1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabPage1.Location = new System.Drawing.Point(0, 30);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(0);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(885, 464);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.TabItemImage = null;
-            this.tabPage1.Text = "主页";
-            // 
-            // loadding
-            // 
-            this.loadding.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.loadding.AutoStart = true;
-            this.loadding.BackColor = System.Drawing.Color.Transparent;
-            this.loadding.Location = new System.Drawing.Point(371, 167);
-            this.loadding.Name = "loadding";
-            this.loadding.Percentage = 0F;
-            this.loadding.Size = new System.Drawing.Size(90, 90);
-            this.loadding.TabIndex = 0;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.BackColor = System.Drawing.Color.White;
-            this.tabPage2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabPage2.Location = new System.Drawing.Point(0, 30);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(0);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(885, 464);
-            this.tabPage2.TabIndex = 4;
-            this.tabPage2.TabItemImage = null;
-            this.tabPage2.Tag = "FrmWebSpy";
-            this.tabPage2.Text = "采集器";
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(0, 30);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(885, 464);
-            this.tabPage3.TabIndex = 5;
-            this.tabPage3.Tag = "FrmBbx";
-            this.tabPage3.Text = "超级复制";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Location = new System.Drawing.Point(0, 30);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(885, 464);
-            this.tabPage4.TabIndex = 6;
-            this.tabPage4.Tag = "FrmWebBaba";
-            this.tabPage4.Text = "阿里巴巴";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.Location = new System.Drawing.Point(0, 30);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(885, 464);
-            this.tabPage5.TabIndex = 7;
-            this.tabPage5.Tag = "FrmUpdatePassword";
-            this.tabPage5.Text = "修改密码";
-            this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // tabPage6
-            // 
-            this.tabPage6.Location = new System.Drawing.Point(0, 30);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(885, 464);
-            this.tabPage6.TabIndex = 8;
-            this.tabPage6.Tag = "FrmLinkConvert";
-            this.tabPage6.Text = "生成短链";
-            this.tabPage6.UseVisualStyleBackColor = true;
             // 
             // lblTs
             // 
             this.lblTs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblTs.AutoSize = true;
             this.lblTs.BackColor = System.Drawing.Color.Transparent;
-            this.lblTs.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblTs.Font = new System.Drawing.Font("微软雅黑", 10F);
             this.lblTs.ForeColor = System.Drawing.Color.White;
             this.lblTs.Location = new System.Drawing.Point(5, 579);
@@ -229,74 +97,21 @@ namespace Caijiqi
             // 
             // miniToolStrip
             // 
-            this.miniToolStrip.Arrow = System.Drawing.Color.Black;
             this.miniToolStrip.AutoSize = false;
-            this.miniToolStrip.Back = System.Drawing.Color.White;
             this.miniToolStrip.BackColor = System.Drawing.Color.Transparent;
-            this.miniToolStrip.BackRadius = 4;
-            this.miniToolStrip.BackRectangle = new System.Drawing.Rectangle(10, 10, 10, 10);
-            this.miniToolStrip.Base = System.Drawing.Color.Transparent;
-            this.miniToolStrip.BaseFore = System.Drawing.Color.Black;
-            this.miniToolStrip.BaseForeAnamorphosis = false;
-            this.miniToolStrip.BaseForeAnamorphosisBorder = 4;
-            this.miniToolStrip.BaseForeAnamorphosisColor = System.Drawing.Color.White;
-            this.miniToolStrip.BaseForeOffset = new System.Drawing.Point(0, 0);
-            this.miniToolStrip.BaseHoverFore = System.Drawing.Color.Black;
-            this.miniToolStrip.BaseItemAnamorphosis = true;
-            this.miniToolStrip.BaseItemBorder = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(93)))), ((int)(((byte)(93)))));
-            this.miniToolStrip.BaseItemBorderShow = true;
-            this.miniToolStrip.BaseItemDown = ((System.Drawing.Image)(resources.GetObject("miniToolStrip.BaseItemDown")));
-            this.miniToolStrip.BaseItemHover = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.miniToolStrip.BaseItemMouse = ((System.Drawing.Image)(resources.GetObject("miniToolStrip.BaseItemMouse")));
-            this.miniToolStrip.BaseItemNorml = ((System.Drawing.Image)(resources.GetObject("miniToolStrip.BaseItemNorml")));
-            this.miniToolStrip.BaseItemPressed = System.Drawing.Color.Transparent;
-            this.miniToolStrip.BaseItemRadius = 2;
-            this.miniToolStrip.BaseItemRadiusStyle = CCWin.SkinClass.RoundStyle.All;
-            this.miniToolStrip.BaseItemSplitter = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(128)))), ((int)(((byte)(134)))));
-            this.miniToolStrip.BindTabControl = null;
             this.miniToolStrip.CanOverflow = false;
             this.miniToolStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.miniToolStrip.DropDownImageSeparator = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
             this.miniToolStrip.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.miniToolStrip.Fore = System.Drawing.Color.Black;
             this.miniToolStrip.GripMargin = new System.Windows.Forms.Padding(0);
             this.miniToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.miniToolStrip.HoverFore = System.Drawing.Color.White;
-            this.miniToolStrip.ItemAnamorphosis = false;
-            this.miniToolStrip.ItemBorder = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
-            this.miniToolStrip.ItemBorderShow = false;
-            this.miniToolStrip.ItemHover = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
-            this.miniToolStrip.ItemPressed = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
-            this.miniToolStrip.ItemRadius = 1;
-            this.miniToolStrip.ItemRadiusStyle = CCWin.SkinClass.RoundStyle.None;
-            this.miniToolStrip.Location = new System.Drawing.Point(595, 3);
+            this.miniToolStrip.Location = new System.Drawing.Point(0, 0);
             this.miniToolStrip.Name = "miniToolStrip";
             this.miniToolStrip.Padding = new System.Windows.Forms.Padding(0);
-            this.miniToolStrip.RadiusStyle = CCWin.SkinClass.RoundStyle.All;
             this.miniToolStrip.Size = new System.Drawing.Size(597, 25);
-            this.miniToolStrip.SkinAllColor = true;
             this.miniToolStrip.TabIndex = 125;
-            this.miniToolStrip.TitleAnamorphosis = false;
-            this.miniToolStrip.TitleColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(228)))), ((int)(((byte)(236)))));
-            this.miniToolStrip.TitleRadius = 4;
-            this.miniToolStrip.TitleRadiusStyle = CCWin.SkinClass.RoundStyle.All;
             // 
             // SkinMenu
             // 
-            this.SkinMenu.Arrow = System.Drawing.Color.Black;
-            this.SkinMenu.Back = System.Drawing.Color.White;
-            this.SkinMenu.BackRadius = 4;
-            this.SkinMenu.Base = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(200)))), ((int)(((byte)(254)))));
-            this.SkinMenu.DropDownImageSeparator = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-            this.SkinMenu.Fore = System.Drawing.Color.Black;
-            this.SkinMenu.HoverFore = System.Drawing.Color.White;
-            this.SkinMenu.ItemAnamorphosis = false;
-            this.SkinMenu.ItemBorder = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
-            this.SkinMenu.ItemBorderShow = false;
-            this.SkinMenu.ItemHover = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
-            this.SkinMenu.ItemPressed = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
-            this.SkinMenu.ItemRadius = 4;
-            this.SkinMenu.ItemRadiusStyle = CCWin.SkinClass.RoundStyle.None;
             this.SkinMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SkinTool1,
             this.SkinTool2,
@@ -307,15 +122,8 @@ namespace Caijiqi
             this.SkinTool7,
             this.SkinTool8,
             this.SkinTool9});
-            this.SkinMenu.ItemSplitter = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
             this.SkinMenu.Name = "skinContextMenuStrip1";
-            this.SkinMenu.RadiusStyle = CCWin.SkinClass.RoundStyle.All;
             this.SkinMenu.Size = new System.Drawing.Size(125, 202);
-            this.SkinMenu.SkinAllColor = true;
-            this.SkinMenu.TitleAnamorphosis = false;
-            this.SkinMenu.TitleColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(228)))), ((int)(((byte)(236)))));
-            this.SkinMenu.TitleRadius = 4;
-            this.SkinMenu.TitleRadiusStyle = CCWin.SkinClass.RoundStyle.All;
             // 
             // SkinTool1
             // 
@@ -396,14 +204,15 @@ namespace Caijiqi
             this.tool1.AutoSize = false;
             this.tool1.Checked = true;
             this.tool1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.tool1.ForeColor = System.Drawing.Color.White;
+            this.tool1.ForeColor = System.Drawing.Color.Black;
             this.tool1.Image = global::Caijiqi.Properties.Resources.ToolShow_BackgroundImage_Home;
             this.tool1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tool1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tool1.Margin = new System.Windows.Forms.Padding(0);
+            this.tool1.MergeIndex = 0;
             this.tool1.Name = "tool1";
             this.tool1.Size = new System.Drawing.Size(60, 50);
-            this.tool1.Tag = "0";
+            this.tool1.Tag = "";
             this.tool1.Text = "主页";
             this.tool1.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.tool1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -415,9 +224,10 @@ namespace Caijiqi
             this.tool2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tool2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tool2.Margin = new System.Windows.Forms.Padding(0);
+            this.tool2.MergeIndex = 1;
             this.tool2.Name = "tool2";
             this.tool2.Size = new System.Drawing.Size(60, 50);
-            this.tool2.Tag = "1";
+            this.tool2.Tag = "FrmWebSpy";
             this.tool2.Text = "采集器";
             this.tool2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -428,121 +238,80 @@ namespace Caijiqi
             this.tool3.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tool3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tool3.Margin = new System.Windows.Forms.Padding(0);
+            this.tool3.MergeIndex = 2;
             this.tool3.Name = "tool3";
             this.tool3.Size = new System.Drawing.Size(60, 50);
-            this.tool3.Tag = "2";
+            this.tool3.Tag = "FrmBbx";
             this.tool3.Text = "超级复制";
             this.tool3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // ToolShow
             // 
-            this.ToolShow.Arrow = System.Drawing.Color.Black;
             this.ToolShow.AutoSize = false;
-            this.ToolShow.Back = System.Drawing.Color.White;
             this.ToolShow.BackColor = System.Drawing.Color.Transparent;
-            this.ToolShow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ToolShow.BackRadius = 4;
-            this.ToolShow.BackRectangle = new System.Drawing.Rectangle(10, 10, 10, 10);
-            this.ToolShow.Base = System.Drawing.Color.Transparent;
-            this.ToolShow.BaseFore = System.Drawing.Color.White;
-            this.ToolShow.BaseForeAnamorphosis = false;
-            this.ToolShow.BaseForeAnamorphosisBorder = 4;
-            this.ToolShow.BaseForeAnamorphosisColor = System.Drawing.Color.White;
-            this.ToolShow.BaseForeOffset = new System.Drawing.Point(0, 0);
-            this.ToolShow.BaseHoverFore = System.Drawing.Color.White;
-            this.ToolShow.BaseItemAnamorphosis = true;
-            this.ToolShow.BaseItemBorder = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
-            this.ToolShow.BaseItemBorderShow = true;
-            this.ToolShow.BaseItemDown = ((System.Drawing.Image)(resources.GetObject("ToolShow.BaseItemDown")));
-            this.ToolShow.BaseItemHover = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
-            this.ToolShow.BaseItemMouse = ((System.Drawing.Image)(resources.GetObject("ToolShow.BaseItemMouse")));
-            this.ToolShow.BaseItemNorml = null;
-            this.ToolShow.BaseItemPressed = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
-            this.ToolShow.BaseItemRadius = 4;
-            this.ToolShow.BaseItemRadiusStyle = CCWin.SkinClass.RoundStyle.None;
-            this.ToolShow.BaseItemSplitter = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
-            this.ToolShow.BindTabControl = this.tabShow;
+            this.ToolShow.CanOverflow = false;
             this.ToolShow.Dock = System.Windows.Forms.DockStyle.None;
-            this.ToolShow.DropDownImageSeparator = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-            this.ToolShow.Fore = System.Drawing.Color.White;
             this.ToolShow.GripMargin = new System.Windows.Forms.Padding(0);
             this.ToolShow.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.ToolShow.HoverFore = System.Drawing.Color.White;
-            this.ToolShow.ItemAnamorphosis = true;
-            this.ToolShow.ItemBorder = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
-            this.ToolShow.ItemBorderShow = true;
-            this.ToolShow.ItemHover = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
-            this.ToolShow.ItemPressed = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
-            this.ToolShow.ItemRadius = 4;
-            this.ToolShow.ItemRadiusStyle = CCWin.SkinClass.RoundStyle.None;
             this.ToolShow.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tool1,
             this.tool2,
             this.tool3,
             this.tool4,
             this.tool5,
-            this.toolStripButton1});
-            this.ToolShow.Location = new System.Drawing.Point(9, 30);
+            this.tool6});
+            this.ToolShow.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
+            this.ToolShow.Location = new System.Drawing.Point(-2, -2);
             this.ToolShow.Name = "ToolShow";
-            this.ToolShow.RadiusStyle = CCWin.SkinClass.RoundStyle.None;
-            this.ToolShow.Size = new System.Drawing.Size(499, 55);
-            this.ToolShow.SkinAllColor = true;
+            this.ToolShow.Padding = new System.Windows.Forms.Padding(0);
+            this.ToolShow.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.ToolShow.Size = new System.Drawing.Size(905, 87);
+            this.ToolShow.Stretch = true;
             this.ToolShow.TabIndex = 1;
             this.ToolShow.Text = "skinToolStrip1";
-            this.ToolShow.TitleAnamorphosis = true;
-            this.ToolShow.TitleColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(228)))), ((int)(((byte)(236)))));
-            this.ToolShow.TitleRadius = 4;
-            this.ToolShow.TitleRadiusStyle = CCWin.SkinClass.RoundStyle.None;
+            this.ToolShow.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.ToolShow_ItemClicked);
             // 
             // tool4
             // 
+            this.tool4.AutoSize = false;
             this.tool4.Image = global::Caijiqi.Properties.Resources.ToolShow_BackgroundImage_Caiji;
             this.tool4.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tool4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tool4.MergeIndex = 3;
             this.tool4.Name = "tool4";
-            this.tool4.Size = new System.Drawing.Size(60, 52);
-            this.tool4.Tag = "3";
+            this.tool4.Size = new System.Drawing.Size(60, 50);
+            this.tool4.Tag = "FrmWebBaba";
             this.tool4.Text = "阿里巴巴";
             this.tool4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // tool5
             // 
+            this.tool5.AutoSize = false;
             this.tool5.Image = global::Caijiqi.Properties.Resources.imgXz;
             this.tool5.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tool5.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tool5.MergeIndex = 4;
             this.tool5.Name = "tool5";
-            this.tool5.Size = new System.Drawing.Size(60, 52);
-            this.tool5.Tag = "4";
+            this.tool5.Size = new System.Drawing.Size(60, 50);
+            this.tool5.Tag = "FrmUpdatePassword";
             this.tool5.Text = "修改密码";
             this.tool5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // toolStripButton1
+            // tool6
             // 
-            this.toolStripButton1.Image = global::Caijiqi.Properties.Resources.ImgPer;
-            this.toolStripButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(60, 52);
-            this.toolStripButton1.Tag = "5";
-            this.toolStripButton1.Text = "生成短链";
-            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tool6.AutoSize = false;
+            this.tool6.Image = global::Caijiqi.Properties.Resources.ImgPer;
+            this.tool6.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tool6.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tool6.MergeIndex = 5;
+            this.tool6.Name = "tool6";
+            this.tool6.Size = new System.Drawing.Size(60, 50);
+            this.tool6.Tag = "FrmLinkConvert";
+            this.tool6.Text = "生成短链";
+            this.tool6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // SkinToolMenu
             // 
-            this.SkinToolMenu.Arrow = System.Drawing.Color.Black;
-            this.SkinToolMenu.Back = System.Drawing.Color.White;
-            this.SkinToolMenu.BackRadius = 4;
-            this.SkinToolMenu.Base = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(200)))), ((int)(((byte)(254)))));
-            this.SkinToolMenu.DropDownImageSeparator = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-            this.SkinToolMenu.Fore = System.Drawing.Color.Black;
-            this.SkinToolMenu.HoverFore = System.Drawing.Color.White;
-            this.SkinToolMenu.ItemAnamorphosis = false;
-            this.SkinToolMenu.ItemBorder = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
-            this.SkinToolMenu.ItemBorderShow = false;
-            this.SkinToolMenu.ItemHover = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
-            this.SkinToolMenu.ItemPressed = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
-            this.SkinToolMenu.ItemRadius = 4;
-            this.SkinToolMenu.ItemRadiusStyle = CCWin.SkinClass.RoundStyle.None;
             this.SkinToolMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem5,
             this.toolStripMenuItem4,
@@ -551,15 +320,8 @@ namespace Caijiqi
             this.toolStripMenuItem6,
             this.toolStripMenuItem7,
             this.退出ToolStripMenuItem});
-            this.SkinToolMenu.ItemSplitter = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
             this.SkinToolMenu.Name = "SkinToolMenu";
-            this.SkinToolMenu.RadiusStyle = CCWin.SkinClass.RoundStyle.All;
             this.SkinToolMenu.Size = new System.Drawing.Size(137, 110);
-            this.SkinToolMenu.SkinAllColor = true;
-            this.SkinToolMenu.TitleAnamorphosis = false;
-            this.SkinToolMenu.TitleColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(228)))), ((int)(((byte)(236)))));
-            this.SkinToolMenu.TitleRadius = 4;
-            this.SkinToolMenu.TitleRadiusStyle = CCWin.SkinClass.RoundStyle.All;
             // 
             // toolStripMenuItem5
             // 
@@ -600,74 +362,37 @@ namespace Caijiqi
             this.退出ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.退出ToolStripMenuItem.Text = "退出";
             // 
+            // tabShow
+            // 
+            this.tabShow.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabShow.CurrentPageIndex = 0;
+            this.tabShow.Location = new System.Drawing.Point(-2, 85);
+            this.tabShow.Margin = new System.Windows.Forms.Padding(0);
+            this.tabShow.Name = "tabShow";
+            this.tabShow.Size = new System.Drawing.Size(905, 494);
+            this.tabShow.TabIndex = 2;
+            // 
             // FrmMain
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Back = global::Caijiqi.Properties.Resources.main_10;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(133)))), ((int)(((byte)(108)))));
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BorderPalace = ((System.Drawing.Image)(resources.GetObject("$this.BorderPalace")));
-            this.CaptionFont = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ClientSize = new System.Drawing.Size(900, 600);
-            this.CloseBoxSize = new System.Drawing.Size(39, 20);
-            this.CloseDownBack = ((System.Drawing.Image)(resources.GetObject("$this.CloseDownBack")));
-            this.CloseMouseBack = ((System.Drawing.Image)(resources.GetObject("$this.CloseMouseBack")));
-            this.CloseNormlBack = ((System.Drawing.Image)(resources.GetObject("$this.CloseNormlBack")));
-            this.ControlBoxOffset = new System.Drawing.Point(0, -1);
             this.Controls.Add(this.tabShow);
             this.Controls.Add(this.lblTs);
             this.Controls.Add(this.ToolShow);
-            this.EffectBack = System.Drawing.Color.Black;
-            this.EffectWidth = 5;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.ICoOffset = new System.Drawing.Point(5, 0);
-            this.MaxDownBack = ((System.Drawing.Image)(resources.GetObject("$this.MaxDownBack")));
-            this.MaxMouseBack = ((System.Drawing.Image)(resources.GetObject("$this.MaxMouseBack")));
-            this.MaxNormlBack = ((System.Drawing.Image)(resources.GetObject("$this.MaxNormlBack")));
-            this.MaxSize = new System.Drawing.Size(28, 20);
-            this.MiniDownBack = ((System.Drawing.Image)(resources.GetObject("$this.MiniDownBack")));
-            this.MiniMouseBack = ((System.Drawing.Image)(resources.GetObject("$this.MiniMouseBack")));
             this.MinimumSize = new System.Drawing.Size(635, 485);
-            this.MiniNormlBack = ((System.Drawing.Image)(resources.GetObject("$this.MiniNormlBack")));
-            this.MiniSize = new System.Drawing.Size(28, 20);
             this.Name = "FrmMain";
-            this.RestoreDownBack = ((System.Drawing.Image)(resources.GetObject("$this.RestoreDownBack")));
-            this.RestoreMouseBack = ((System.Drawing.Image)(resources.GetObject("$this.RestoreMouseBack")));
-            this.RestoreNormlBack = ((System.Drawing.Image)(resources.GetObject("$this.RestoreNormlBack")));
-            this.ShadowPalace = ((System.Drawing.Image)(resources.GetObject("$this.ShadowPalace")));
-            this.ShowSystemMenu = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            cmSysButton1.Bounds = new System.Drawing.Rectangle(777, -1, 28, 20);
-            cmSysButton1.BoxState = CCWin.ControlBoxState.Normal;
-            cmSysButton1.Location = new System.Drawing.Point(777, -1);
-            cmSysButton1.Name = "ToolSet";
-            cmSysButton1.OwnerForm = this;
-            cmSysButton1.SysButtonDown = ((System.Drawing.Image)(resources.GetObject("cmSysButton1.SysButtonDown")));
-            cmSysButton1.SysButtonMouse = ((System.Drawing.Image)(resources.GetObject("cmSysButton1.SysButtonMouse")));
-            cmSysButton1.SysButtonNorml = ((System.Drawing.Image)(resources.GetObject("cmSysButton1.SysButtonNorml")));
-            cmSysButton1.ToolTip = "设置";
-            cmSysButton2.Bounds = new System.Drawing.Rectangle(749, -1, 28, 20);
-            cmSysButton2.BoxState = CCWin.ControlBoxState.Normal;
-            cmSysButton2.Location = new System.Drawing.Point(749, -1);
-            cmSysButton2.Name = "ToolSkin";
-            cmSysButton2.OwnerForm = this;
-            cmSysButton2.SysButtonDown = ((System.Drawing.Image)(resources.GetObject("cmSysButton2.SysButtonDown")));
-            cmSysButton2.SysButtonMouse = ((System.Drawing.Image)(resources.GetObject("cmSysButton2.SysButtonMouse")));
-            cmSysButton2.SysButtonNorml = ((System.Drawing.Image)(resources.GetObject("cmSysButton2.SysButtonNorml")));
-            cmSysButton2.ToolTip = "皮肤";
-            this.SysButtonItems.AddRange(new CCWin.CmSysButton[] {
-            cmSysButton1,
-            cmSysButton2});
             this.Text = "维达科技 采集器";
-            this.TitleColor = System.Drawing.Color.White;
-            this.SysBottomClick += new CCWin.CCSkinMain.SysBottomEventHandler(this.FrmMain_SysBottomClick);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMain_FormClosed);
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FrmMain_Paint);
-            this.tabShow.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
             this.SkinMenu.ResumeLayout(false);
             this.ToolShow.ResumeLayout(false);
             this.ToolShow.PerformLayout();
@@ -679,8 +404,8 @@ namespace Caijiqi
 
         #endregion
 
-        private CCWin.SkinControl.SkinToolStrip miniToolStrip;
-        private CCWin.SkinControl.SkinContextMenuStrip SkinMenu;
+        private System.Windows.Forms.ToolStrip miniToolStrip;
+        private System.Windows.Forms.ContextMenuStrip SkinMenu;
         private System.Windows.Forms.ToolStripMenuItem SkinTool1;
         private System.Windows.Forms.ToolStripMenuItem SkinTool2;
         private System.Windows.Forms.ToolStripMenuItem SkinTool3;
@@ -690,13 +415,15 @@ namespace Caijiqi
         private System.Windows.Forms.ToolStripMenuItem SkinTool7;
         private System.Windows.Forms.ToolStripMenuItem SkinTool8;
         private System.Windows.Forms.ToolStripMenuItem SkinTool9;
-        private CCWin.SkinControl.SkinTabControl tabShow;
-        private CCWin.SkinControl.SkinTabPage tabPage2;
+        private Controls.MultiPagePanel tabShow;
         private System.Windows.Forms.ToolStripButton tool1;
         private System.Windows.Forms.ToolStripButton tool2;
         private System.Windows.Forms.ToolStripButton tool3;
-        private CCWin.SkinControl.SkinToolStrip ToolShow;
-        private CCWin.SkinControl.SkinContextMenuStrip SkinToolMenu;
+        private System.Windows.Forms.ToolStripButton tool4;
+        private System.Windows.Forms.ToolStripButton tool5;
+        private System.Windows.Forms.ToolStripButton tool6;
+        private System.Windows.Forms.ToolStrip ToolShow;
+        private System.Windows.Forms.ContextMenuStrip SkinToolMenu;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
         private System.Windows.Forms.ToolStripMenuItem 窗口置顶ToolStripMenuItem;
@@ -705,16 +432,7 @@ namespace Caijiqi
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem7;
         private System.Windows.Forms.ToolStripMenuItem 退出ToolStripMenuItem;
         private System.Windows.Forms.Timer timColor;
-        public CCWin.SkinControl.SkinLabel lblTs;
-        private CCWin.SkinControl.SkinTabPage tabPage1;
-        private CCWin.SkinControl.SkinProgressIndicator loadding;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.ToolStripButton tool4;
-        private System.Windows.Forms.ToolStripButton tool5;
-        private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.TabPage tabPage6;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        public System.Windows.Forms.Label lblTs;
     }
 }
 

@@ -53,6 +53,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Skin\CSkin.dll</HintPath>
     </Reference>
+    <Reference Include="IrisSkin2, Version=2006.3.22.45, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Skin\IrisSkin2.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net20\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -68,6 +72,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\LianMengLogin.cs" />
+    <Compile Include="Controls\MultiPagePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="FrmBbx.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -214,6 +221,7 @@
     <None Include="Resources\15.ico" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Skin\IrisSkin2.dll" />
     <None Include="Resources\main_7.jpg" />
     <None Include="Resources\btn_mini_down.png" />
     <None Include="Resources\btn_mini_highlight.png" />
@@ -222,6 +230,7 @@
     <None Include="Resources\btn_close_down1.png" />
     <None Include="Resources\button_login_normal.png" />
     <None Include="Resources\main_10.jpg" />
+    <None Include="Resources\main_9.jpg" />
     <Content Include="Skin\CSkin.dll" />
     <None Include="Resources\ToolShow.BackgroundImage.Home.png" />
     <None Include="Resources\ToolShow.BackgroundImage.Caiji.png" />

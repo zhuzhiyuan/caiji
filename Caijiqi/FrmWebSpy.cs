@@ -74,7 +74,7 @@ namespace Caijiqi
                 string keys = Business.Common.GetJson(Business.Common.AuthUrl + "key/getKeys", Encoding.UTF8);
                 filterKeys.AddRange(JsonConvert.DeserializeObject<IEnumerable<string>>(keys));
             }
-            string key = skinTextBox1.SkinTxt.Text;
+            string key = skinTextBox1.Text;
            
             List<string> param = new List<string>()
             {
@@ -90,26 +90,26 @@ namespace Caijiqi
             {
                 param.Add("b2c=1");
             }
-            if (!string.IsNullOrEmpty(startBiz30day.SkinTxt.Text))
+            if (!string.IsNullOrEmpty(startBiz30day.Text))
             {
-                param.Add("startBiz30day=" + startBiz30day.SkinTxt.Text);
+                param.Add("startBiz30day=" + startBiz30day.Text);
             }
-            if (!string.IsNullOrEmpty(startTkRate.SkinTxt.Text))
+            if (!string.IsNullOrEmpty(startTkRate.Text))
             {
-                param.Add("startTkRate=" + startTkRate.SkinTxt.Text);
+                param.Add("startTkRate=" + startTkRate.Text);
             }
 
-            if (!string.IsNullOrEmpty(startPrice.SkinTxt.Text))
+            if (!string.IsNullOrEmpty(startPrice.Text))
             {
-                param.Add("startPrice=" + startPrice.SkinTxt.Text);
+                param.Add("startPrice=" + startPrice.Text);
             }
-            if (!string.IsNullOrEmpty(endPrice.SkinTxt.Text))
+            if (!string.IsNullOrEmpty(endPrice.Text))
             {
-                param.Add("endPrice=" + endPrice.SkinTxt.Text);
+                param.Add("endPrice=" + endPrice.Text);
             }
-            int page = !string.IsNullOrEmpty(pageSize.SkinTxt.Text) ? int.Parse(pageSize.SkinTxt.Text) : 1;
+            int page = !string.IsNullOrEmpty(pageSize.Text) ? int.Parse(pageSize.Text) : 1;
             string url = "http://pub.alimama.com/items/search.json?queryType=0&auctionTag=&shopTag=&_tb_token_=test&";
-            int m = !string.IsNullOrEmpty(month.SkinTxt.Text) ? int.Parse(month.SkinTxt.Text) : 0;
+            int m = !string.IsNullOrEmpty(month.Text) ? int.Parse(month.Text) : 0;
             skinDataGridView4.Rows.Clear();
             ThreadPool.QueueUserWorkItem(delegate(object state)
             {
@@ -236,7 +236,7 @@ namespace Caijiqi
                        System.IO.StreamWriter sw = new System.IO.StreamWriter(outputFileName, true,
                            System.Text.Encoding.GetEncoding("utf-8")))
                         {
-                            int outputSize = int.Parse(txtOutPutSize.SkinTxt.Text);
+                            int outputSize = int.Parse(txtOutPutSize.Text);
                             for (var i = 0; rowIndex < rows && i < outputSize; rowIndex++,i++)
                             {
                                 sw.WriteLine(skinDataGridView4.Rows[rowIndex].Cells["Url"].Value);

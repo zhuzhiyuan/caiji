@@ -126,7 +126,8 @@ namespace Caijiqi
                     {
                         Business.Common.LoginAccount = account;
                         this.Hide();
-                        new FrmMain().Show();
+                        var f = new FrmMain();
+                        f.Show();
                         var loginAccount = new LoginAccount();
                         loginAccount.Acount = account;
 

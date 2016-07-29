@@ -32,11 +32,15 @@ using System.Net;
 
 namespace Caijiqi
 {
-    public partial class FrmMain : CCSkinMain
+    public partial class FrmMain : Form
     {
         private WebBrowser browser;
+        Sunisoft.IrisSkin.SkinEngine se = null;
         public FrmMain() {
             InitializeComponent();
+            se = new Sunisoft.IrisSkin.SkinEngine();
+            se.SkinAllForm = true;//所有窗体均应用此皮肤
+            se.SkinFile = "Wave.ssk";
         }
 
         #region 窗口加载时
@@ -46,13 +50,12 @@ namespace Caijiqi
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void FrmMain_Load(object sender, EventArgs e) {
-            
             Assembly asb = Assembly.GetExecutingAssembly();//得到当前的程序集
             //存储选中MenuItem
             SelectItem = SkinTool1;
             #region 初始化TabPage内容
-            foreach (TabPage page in tabShow.TabPages) {
-                if (page.Tag != null) {
+            foreach (ToolStripItem page in ToolShow.Items) {
+                if (!string.IsNullOrEmpty(page.Tag.ToString())) {
                     object c = asb.CreateInstance("Caijiqi." + page.Tag.ToString(), true);
                     if (c != null)
                     {
@@ -61,29 +64,28 @@ namespace Caijiqi
                         f.TopLevel = false;
                         f.FormBorderStyle = FormBorderStyle.None;
                         f.Show();
-                        page.Controls.Add(f);
+                        tabShow.AddPage(f);
                     }
-                    
                 }
                 else
                 {
                     browser = new WebBrowser();
                     browser.Dock = DockStyle.Fill;
                     browser.ScriptErrorsSuppressed = true;
-                    page.Controls.Add(browser);
+                    tabShow.AddPage(browser);
                     browser.Navigate("http://www.alimama.com/member/login.htm");
-
                     browser.DocumentCompleted += Browser_DocumentCompleted;
-
                 }
             }
+            tabShow.CurrentPageIndex = 0;
+
             #endregion
         }
 
         private void Browser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
             Business.LianMengLogin.CookieStr = (sender as WebBrowser).Document.Cookie;
-            loadding.Hide();
+            //loadding.Hide();
         }
 
         #endregion
@@ -95,9 +97,9 @@ namespace Caijiqi
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void FrmMain_Paint(object sender, PaintEventArgs e) {
-            Graphics g = e.Graphics;
-            Pen p = new Pen(Color.FromArgb(33, 40, 46), 2);
-            g.DrawRectangle(p, tabShow.Left, tabShow.Top, tabShow.Width, tabShow.Height);
+            //Graphics g = e.Graphics;
+            //Pen p = new Pen(Color.FromArgb(33, 40, 46), 2);
+            //g.DrawRectangle(p, tabShow.Left, tabShow.Top, tabShow.Width, tabShow.Height);
         }
         #endregion
 
@@ -115,11 +117,11 @@ namespace Caijiqi
             SelectItem = item;
             //如果是0，则是默认皮肤
             if (item.Tag.ToString().Equals("0")) {
-                this.Back = global::Caijiqi.Properties.Resources.main_10;
+                //this.Back = global::Caijiqi.Properties.Resources.main_10;
                 
             } else {
                 //其他皮肤，从程序集资源中提取，并且设置透明度为不透明
-                this.Back = ImageObject.GetResBitmap(string.Format("Caijiqi.Skin.{0}.jpg", item.Tag));
+                //this.Back = ImageObject.GetResBitmap(string.Format("Caijiqi.Skin.{0}.jpg", item.Tag));
             }
         }
         #endregion
@@ -143,12 +145,18 @@ namespace Caijiqi
         #region Tab切换时事件，用于子窗体更改了提示Lbl后的还原
         private void tabShow_SelectedIndexChanged(object sender, EventArgs e) {
             lblTs.Text = lblTs.Tag.ToString();
+            
         }
         #endregion
 
         private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void ToolShow_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            tabShow.CurrentPageIndex = e.ClickedItem.MergeIndex;
         }
     }
 }

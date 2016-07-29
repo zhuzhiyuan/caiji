@@ -204,6 +204,7 @@
             this.AcceptButton = this.skinButton1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = global::Caijiqi.Properties.Resources.main_7;
             this.ClientSize = new System.Drawing.Size(330, 255);
             this.CloseDownBack = global::Caijiqi.Properties.Resources.btn_close_down1;
