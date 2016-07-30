@@ -111,20 +111,22 @@ namespace Caijiqi
             string url = "http://pub.alimama.com/items/search.json?queryType=0&auctionTag=&shopTag=&_tb_token_=test&";
             int m = !string.IsNullOrEmpty(month.Text) ? int.Parse(month.Text) : 0;
             skinDataGridView4.Rows.Clear();
-            ThreadPool.QueueUserWorkItem(delegate(object state)
+            var process = new Controls.Process(this.Parent.FindForm(),page,"正在采集中...");
+            ThreadPool.QueueUserWorkItem(delegate (object state)
             {
                 string getUrl;
+                process.SetProcess(0);
                 for (int i = 0; i < page; i++)
                 {
-                    string time = (DateTime.Now.Ticks/1000).ToString();
-                    getUrl = url + string.Join("&", param.ToArray()) + "&toPage=" + (i + 1) + "&_t=" +DateTime.Now.Ticks/1000+
+                    string time = (DateTime.Now.Ticks / 1000).ToString();
+                    getUrl = url + string.Join("&", param.ToArray()) + "&toPage=" + (i + 1) + "&_t=" + DateTime.Now.Ticks / 1000 +
                              "&t=" + time +
-                             "&pvid=10_" + Business.Common.IP + "_403_"+ DateTime.Now.Ticks / 1000;
+                             "&pvid=10_" + Business.Common.IP + "_403_" + DateTime.Now.Ticks / 1000;
                     string response = Business.Common.GetJson(getUrl, Encoding.UTF8);
                     JObject json = JsonConvert.DeserializeObject<JObject>(response);
 
                     JArray pageList = (json["data"] as JObject)["pageList"] as JArray;
-
+                    if (pageList == null) continue;
                     foreach (JObject item in pageList)
                     {
                         int totalNum = 0;
@@ -161,12 +163,13 @@ namespace Caijiqi
                                 item["nick"].ToString()
                             });
                         }
-                        
+
                     }
+                    process.SetProcess(i + 1);
                     Thread.Sleep(1000);
                 }
                 AddDataGridRow(skinDataGridView4, txtTotal, null);
-                MessageBox.Show("采集完成");
+                process.Remove();
             });
         }
 

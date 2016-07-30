@@ -75,6 +75,7 @@
     <Compile Include="Controls\MultiPagePanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\Process.cs" />
     <Compile Include="FrmBbx.cs">
       <SubType>Form</SubType>
     </Compile>
