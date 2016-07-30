@@ -18,18 +18,18 @@ namespace Caijiqi
 
         private void skinButton1_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtOldPassword.SkinTxt.Text)) MessageBox.Show("请输入原密码");
-            if (txtNewPassword.SkinTxt.Text != txtNewAlignPassword.SkinTxt.Text) MessageBox.Show("两次新密码输入不一致");
-            if (!string.IsNullOrEmpty(txtOldPassword.SkinTxt.Text) && !string.IsNullOrEmpty(txtNewPassword.SkinTxt.Text)&&!string.IsNullOrEmpty(Business.Common.LoginAccount))
+            if (string.IsNullOrEmpty(txtOldPassword.Text)) MessageBox.Show("请输入原密码");
+            if (txtNewPassword.Text != txtNewAlignPassword.Text) MessageBox.Show("两次新密码输入不一致");
+            if (!string.IsNullOrEmpty(txtOldPassword.Text) && !string.IsNullOrEmpty(txtNewPassword.Text)&&!string.IsNullOrEmpty(Business.Common.LoginAccount))
             {
-                var obj = JsonConvert.SerializeObject(new { Account = Business.Common.LoginAccount, Password = txtOldPassword.SkinTxt.Text });
+                var obj = JsonConvert.SerializeObject(new { Account = Business.Common.LoginAccount, Password = txtOldPassword.Text });
                 string result = Business.Common.PostJson(Business.Common.AuthUrl + "login/login", obj);
                 if (!string.IsNullOrEmpty(result))
                 {
                     var status = (LoginStatus)int.Parse(result);
                     if (status == LoginStatus.Success)
                     {
-                        obj = JsonConvert.SerializeObject(new { Account = Business.Common.LoginAccount, OldPassword= txtOldPassword.SkinTxt.Text, NewPassword = txtNewPassword.SkinTxt.Text });
+                        obj = JsonConvert.SerializeObject(new { Account = Business.Common.LoginAccount, OldPassword= txtOldPassword.Text, NewPassword = txtNewPassword.Text });
                         result = Business.Common.PostJson(Business.Common.AuthUrl + "login/updatePassword", obj);
                         if (!string.IsNullOrEmpty(result))
                         {

@@ -157,6 +157,16 @@ namespace Caijiqi
         private void ToolShow_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             tabShow.CurrentPageIndex = e.ClickedItem.MergeIndex;
+
+            if (e.ClickedItem is ToolStripButton)
+            {
+                foreach (var item in (sender as ToolStrip).Items)
+                {
+                    (item as ToolStripButton).Checked = false;
+                }
+                
+                (e.ClickedItem as ToolStripButton).Checked = true;
+            }
         }
     }
 }

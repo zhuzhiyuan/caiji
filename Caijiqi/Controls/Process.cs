@@ -68,11 +68,10 @@ namespace Caijiqi.Controls
 
 
             panel.Dock = DockStyle.Fill;
-            panel.BackColor = Color.Transparent;
             panel.Paint += Panel_Paint;
             form.Controls.Add(panel);
             panel.BringToFront();
-
+            
 
             processBar.Location = new Point(100, form.Height/2 - processBar.Height);
             processBar.Width = form.Width - 200;
@@ -88,7 +87,7 @@ namespace Caijiqi.Controls
 
         private void Panel_Paint(object sender, PaintEventArgs e)
         {
-            var p = sender as Panel;
+            panel.BackgroundImage = global::Caijiqi.Properties.Resources.Transparent;
         }
 
         private Panel panel;

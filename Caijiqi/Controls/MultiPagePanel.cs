@@ -18,7 +18,6 @@ namespace Caijiqi.Controls
                 {
                     foreach (Control page in Controls)
                     {
-
                         page.Hide();
                     }
                     Controls[value].Show();
