@@ -16,7 +16,6 @@ D:\Solution\caiji\Caijiqi\obj\Release\Caijiqi.Properties.Resources.resources
 D:\Solution\caiji\Caijiqi\obj\Release\Caijiqi.csproj.GenerateResource.Cache
 D:\Solution\caiji\Caijiqi\obj\Release\Caijiqi.exe
 D:\Solution\caiji\Caijiqi\obj\Release\Caijiqi.pdb
-D:\Solution\caiji\Caijiqi\obj\Release\Caijiqi.csprojResolveAssemblyReference.cache
 E:\Sulotion\caiji\Caijiqi\bin\Release\Caijiqi.exe.config
 E:\Sulotion\caiji\Caijiqi\bin\Release\Caijiqi.exe
 E:\Sulotion\caiji\Caijiqi\bin\Release\Caijiqi.pdb

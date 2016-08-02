@@ -68,7 +68,6 @@ namespace Caijiqi.Controls
 
 
             panel.Dock = DockStyle.Fill;
-            panel.Paint += Panel_Paint;
             form.Controls.Add(panel);
             panel.BringToFront();
             
@@ -83,11 +82,6 @@ namespace Caijiqi.Controls
             label.Text = text;
             panel.Controls.Add(label);
 
-        }
-
-        private void Panel_Paint(object sender, PaintEventArgs e)
-        {
-            panel.BackgroundImage = global::Caijiqi.Properties.Resources.Transparent;
         }
 
         private Panel panel;
