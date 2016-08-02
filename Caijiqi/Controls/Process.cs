@@ -27,7 +27,7 @@ namespace Caijiqi.Controls
             SetProcessValue(value);
         }
 
-        public void SetProcessValue(int current)
+        private void SetProcessValue(int current)
         {
             if (processBar.InvokeRequired)
             {

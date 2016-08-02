@@ -68,15 +68,18 @@ namespace Caijiqi
                     }
                 }
             }
+            var process = new Controls.Process(this.Parent.FindForm(), int.Parse(pageSize.Text)*3, "正在采集中...");
             ThreadPool.QueueUserWorkItem(delegate(object state)
             {
                 string getUrl;
+                process.SetProcess(0);
+                int pro = 0;
                 for (int i = 0; i < int.Parse(pageSize.Text); i++)
                 {
                     for (int j = 0; j < 3; j++)
                     {
-                        getUrl = url + "&startIndex=" + (j*20) + "&beginPage=" + (i + 1) + "&_=" +
-                                 DateTime.Now.Ticks/1000;
+                        getUrl = url + "&startIndex=" + (j * 20) + "&beginPage=" + (i + 1) + "&_=" +
+                                 DateTime.Now.Ticks / 1000;
                         if (j > 0)
                         {
                             getUrl += "&pageSource=page&maxPage=100&pageOffset=0";
@@ -119,10 +122,11 @@ namespace Caijiqi
                                 }
                             }
                         }
+                        process.SetProcess(pro++);
                         Thread.Sleep(1000);
                     }
                 }
-                MessageBox.Show("采集完成");
+                process.Remove();
             });
         }
 
@@ -166,6 +170,9 @@ namespace Caijiqi
 
                     MessageBox.Show("第" + (fileIndex + 1) + "个文件导出完成");
                     fileIndex++;
+                }
+                else {
+                    break;
                 }
             }
         }
