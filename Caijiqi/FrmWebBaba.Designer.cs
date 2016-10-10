@@ -177,7 +177,7 @@
             this.txtOutPutSize.Margin = new System.Windows.Forms.Padding(0);
             this.txtOutPutSize.MinimumSize = new System.Drawing.Size(22, 22);
             this.txtOutPutSize.Name = "txtOutPutSize";
-            this.txtOutPutSize.Size = new System.Drawing.Size(36, 22);
+            this.txtOutPutSize.Size = new System.Drawing.Size(36, 21);
             this.txtOutPutSize.TabIndex = 10;
             this.txtOutPutSize.Text = "1";
             // 
@@ -240,7 +240,7 @@
             this.skinDataGridView4.EnableHeadersVisualStyles = false;
             this.skinDataGridView4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.skinDataGridView4.GridColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.skinDataGridView4.Location = new System.Drawing.Point(265, 48);
+            this.skinDataGridView4.Location = new System.Drawing.Point(265, 89);
             this.skinDataGridView4.Margin = new System.Windows.Forms.Padding(10);
             this.skinDataGridView4.MultiSelect = false;
             this.skinDataGridView4.Name = "skinDataGridView4";
