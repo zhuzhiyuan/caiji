@@ -389,7 +389,7 @@ namespace Caijiqi
             this.MinimumSize = new System.Drawing.Size(635, 485);
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "维达科技 采集器";
+            this.Text = "米奥科技";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMain_FormClosed);
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FrmMain_Paint);

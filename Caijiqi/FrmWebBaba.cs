@@ -142,41 +142,36 @@ namespace Caijiqi
 
         private void skinButton1_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog folderDialog = new FolderBrowserDialog();
-            folderDialog.Description = "请选择要导出到的文件夹";
-            if (folderDialog.ShowDialog() == DialogResult.OK)
+            int rows = skinDataGridView4.Rows.Count;
+            int rowIndex = 0;
+            int fileIndex = 1;
+            while (rowIndex < rows)
             {
-                int rows = skinDataGridView4.Rows.Count;
-                int rowIndex = 0;
-                while (rowIndex < rows)
+                FileDialog fileDialog = new SaveFileDialog();
+                fileDialog.Filter = "文档(*.txt)|*txt"; //设置对话框保存的文件类型 
+                fileDialog.RestoreDirectory = true; //设置保存对话框是否记忆上次打开的目录
+                if (fileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    string folderPath = folderDialog.SelectedPath;
-                    string fileName = @"\维达科技-阿里巴巴采集结果";
-                    int index = 0;
-                    string outputFileName = folderPath + fileName + ".txt";
-                    while (File.Exists(outputFileName))
-                    {
-                        index++;
-                        outputFileName = folderPath + fileName + "(" + index + ").txt";
-                    }
-                    FileStream fs = File.Create(fileName);
-                    fs.Close();
-                    fs.Dispose();
-
+                    string outputFileName = fileDialog.FileName;
                     using (
                         System.IO.StreamWriter sw = new System.IO.StreamWriter(outputFileName, true,
                             System.Text.Encoding.GetEncoding("utf-8")))
                     {
-                        int outputSize = int.Parse(txtOutPutSize.Text);
+                        int outputSize = (rows+1)/int.Parse(txtOutPutSize.Text);
                         for (var i = 0; rowIndex < rows && i < outputSize; rowIndex++, i++)
                         {
                             sw.WriteLine(skinDataGridView4.Rows[rowIndex].Cells["Url"].Value);
                         }
                     }
 
-                    MessageBox.Show("导出完毕");
-                    System.Diagnostics.Process.Start(outputFileName);
+                    MessageBox.Show("第" + (fileIndex) + "个文件导出完成");
+                    fileIndex++;
                 }
+                else
+                {
+                    break;
+                }
+
             }
         }
     }

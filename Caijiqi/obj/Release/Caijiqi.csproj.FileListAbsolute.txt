@@ -35,3 +35,4 @@ E:\Sulotion\caiji\Caijiqi\obj\Release\Caijiqi.Properties.Resources.resources
 E:\Sulotion\caiji\Caijiqi\obj\Release\Caijiqi.csproj.GenerateResource.Cache
 E:\Sulotion\caiji\Caijiqi\obj\Release\Caijiqi.exe
 E:\Sulotion\caiji\Caijiqi\obj\Release\Caijiqi.pdb
+E:\Sulotion\caiji\Caijiqi\obj\Release\Caijiqi.csprojResolveAssemblyReference.cache
